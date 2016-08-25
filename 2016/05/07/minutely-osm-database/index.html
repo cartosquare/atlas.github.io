@@ -102,16 +102,16 @@
 
 
 
-<meta name="description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称OSM）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，地球上的每个人都可以免费得到这份全球的数据。由于众包的性质，OSM的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的OSM数据源使我们的地图能够有更好的时效性。">
+<meta name="description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实时更新OSM数据库">
 <meta property="og:url" content="http://cartosquare.github.io/2016/05/07/minutely-osm-database/index.html">
 <meta property="og:site_name" content="徐翔的博客">
-<meta property="og:description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称OSM）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，地球上的每个人都可以免费得到这份全球的数据。由于众包的性质，OSM的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的OSM数据源使我们的地图能够有更好的时效性。">
-<meta property="og:updated_time" content="2016-08-25T14:30:59.000Z">
+<meta property="og:description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。">
+<meta property="og:updated_time" content="2016-08-25T17:03:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实时更新OSM数据库">
-<meta name="twitter:description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称OSM）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，地球上的每个人都可以免费得到这份全球的数据。由于众包的性质，OSM的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的OSM数据源使我们的地图能够有更好的时效性。">
+<meta name="twitter:description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。">
 
 
 
@@ -302,6 +302,25 @@
           </span>
 
           
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/学习/" itemprop="url" rel="index">
+                    <span itemprop="name">学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
 
           
             
@@ -331,50 +350,34 @@
       
 
       
-        <p>巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。<a href="http://www.openstreetmap.org/" target="_blank" rel="external">OpenStreetMap</a>（简称OSM）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，地球上的每个人都可以免费得到这份全球的数据。由于众包的性质，OSM的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的OSM数据源使我们的地图能够有更好的时效性。</p>
+        <p>巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。<a href="http://www.openstreetmap.org/" target="_blank" rel="external">OpenStreetMap</a>（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。</p>
 <a id="more"></a>
 <h2 id="依赖的工具"><a href="#依赖的工具" class="headerlink" title="依赖的工具"></a>依赖的工具</h2><ul>
-<li><a href="https://github.com/openstreetmap/osm2pgsql" target="_blank" rel="external">osm2pgsql</a></li>
-</ul>
-<p>osm2pgsql 可以将OSM的数据导入PostgreSQL中，转化成易于渲染的结构，并且支持增量更新。</p>
-<ul>
-<li><a href="https://github.com/openstreetmap/osmosis" target="_blank" rel="external">osmosis</a></li>
-</ul>
-<p>osmosis 是一个java的命令行工具，主要用来进行OSM数据的各种格式之间的转换，这里用来从OSM远程服务器中获取更改集，从而osm2pgsql可以将此更改集增量应用到数据库中。</p>
-<ul>
-<li>PostgreSQL, 带postgis拓展</li>
-</ul>
-<p>在进行下面的操作之前，请先安装好这三个软件。</p>
-<h2 id="一、-初始化数据库"><a href="#一、-初始化数据库" class="headerlink" title="一、 初始化数据库"></a>一、 初始化数据库</h2><ol>
-<li><p>下载<a href="http://planet.openstreetmap.org/" target="_blank" rel="external">全球</a>或者<a href="http://download.geofabrik.de/index.html" target="_blank" rel="external">某个区域</a>的osm数据，最好选择pbf格式，相比于xml格式，pbf格式会小很多。下载的时候记下数据的生产时间，下面选择同步起始时间的时候会用到，这个时间在下载的页面里会有说明。</p>
+<li><p><a href="https://github.com/openstreetmap/osm2pgsql" target="_blank" rel="external">osm2pgsql</a> osm2pgsql  可以将 OSM 的数据导入 PostgreSQL 中，转化成易于渲染的结构，并且支持增量更新。</p>
 </li>
-<li><p>使用下述sql创建一个数据库，并且建立拓展。</p>
+<li><p><a href="https://github.com/openstreetmap/osmosis" target="_blank" rel="external">osmosis</a> osmosis 是一个 java 的命令行工具，主要用来进行 OSM 数据的各种格式之间的转换，这里用来从 OSM 远程服务器中获取更改集，从而 osm2pgsql 可以将此更改集增量应用到数据库中。</p>
 </li>
-</ol>
+<li><p>PostgreSQL, 带 postgis 拓展</p>
+</li>
+</ul>
+<h2 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h2><p>下载<a href="http://planet.openstreetmap.org/" target="_blank" rel="external">全球</a>或者<a href="http://download.geofabrik.de/index.html" target="_blank" rel="external">某个区域</a>的 osm 数据，最好选择 pbf 格式，相比于 xml 格式，pbf 格式会小很多。下载的时候记下数据的生产时间，下面选择同步起始时间的时候会用到，这个时间在下载的页面里会有说明。</p>
+<p>使用下述 sql 创建一个数据库，并且建立拓展。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">createdb osm</div><div class="line">psql -d osm -c &apos;CREATE EXTENSION postgis; CREATE EXTENSION hstore;&apos;</div></pre></td></tr></table></figure>
-<p>这里osm是我的数据库名，如果不习惯用命令行，可以用pgAdmin来进行上述操作。总之，现在我们有了一个全新的带有空间拓展的数据库了。</p>
-<ol>
-<li>使用下面的命令导入之前下载好的数据</li>
-</ol>
+<p>这里 osm 是我的数据库名，如果不习惯用命令行，可以用 pgAdmin 来进行上述操作。总之，现在我们有了一个全新的带有空间拓展的数据库了。</p>
+<p>使用下面的命令导入之前下载好的数据</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osm2pgsql -c -d osm --slim -C &lt;75% Mem&gt; --flat-nodes &lt;flat nodes&gt; -U gis -W -H localhost -P 5432 you.osm.pbf</div></pre></td></tr></table></figure>
-<p>这里有几个地方要注意，一个是-C选项最好指定你电脑的内存的75%，单位为Mb，并且最大只能为30000，–flat-nodes 用来指定一个文件路径，存放这个文件的位置至少要有20G的空闲空间（如果导入全球数据的话）。<br>执行这个命令可能会耗费一段时间，特别是导入全球数据，可能需要几天，如果导入全国的数据，我用8G内存的Macbook Pro只需要不到一个小时。注意虽然我们下载的数据量可能不是很大，但是导入到数据库后会占据很可观的数据磁盘空间，我的笔记本里全国的数据占据了接近10G的空间，因此导入比较大的范围的数据需要保证有足够的磁盘空间可用。</p>
-<h2 id="二、初始化更新频率"><a href="#二、初始化更新频率" class="headerlink" title="二、初始化更新频率"></a>二、初始化更新频率</h2><ol>
-<li>首先指定更新的工作目录。下面的这行可以放到主目录下的 .bash_profile里，如果是windows用户可以新建一个系统的环境变量。</li>
-</ol>
+<p>这里有几个地方要注意，一个是<em>-C</em>选项最好指定你电脑的内存的75%，单位为 Mb，并且最大只能为30000，<em>–flat-nodes</em> 用来指定一个文件路径，存放这个文件的位置至少要有20G的空闲空间（如果导入全球数据的话）。<br>执行这个命令可能会耗费一段时间，特别是导入全球数据，可能需要几天，如果导入全国的数据，我用8G内存的 Macbook Pro 只需要不到一个小时。注意虽然我们下载的数据量可能不是很大，但是导入到数据库后会占据很可观的数据磁盘空间，我的笔记本里全国的数据占据了接近10G的空间，因此导入比较大的范围的数据需要保证有足够的磁盘空间可用。</p>
+<h2 id="设定更新频率"><a href="#设定更新频率" class="headerlink" title="设定更新频率"></a>设定更新频率</h2><p>首先指定更新的工作目录。下面的这行可以放到主目录下的 .bash_profile 里，如果是 windows 用户可以新建一个系统的环境变量。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export WORKDIR_OSM=$HOME/.osmosis</div></pre></td></tr></table></figure>
-<ol>
-<li>初始化工作目录</li>
-</ol>
+<p>初始化工作目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir $WORKDIR_OSM</div><div class="line">osmosis --read-replication-interval-init workingDirectory=$WORKDIR_OSM</div></pre></td></tr></table></figure>
-<p>上面的命令告诉osmosis从哪个目录寻找更新的信息，以及下载数据到哪里。osmosis会在这个目录里创建configuration.txt和download.lock这两个文件。download.lock文件用来确保同一时刻只会进行一个更新任务。configuration.txt文件则用来指定更新的频率。默认情况下，osmosis会提取每分钟的更改集，如果想改为提取每小时或者是天的，可以把configuration.txt里的baseurl中的replication/minute/部分改为replication/hour/或者replication/day/。默认情况下每次执行更新任务最多只会提取1分钟的更改集，可以把maxInterval=3600设为0，这样子就可以一次提取所有的更改集。</p>
-<p>为了让osmosis知道从哪个时刻开始进行更新，我们还要告诉它我们刚刚导入的数据的时间，访问<a href="https://osm.mazdermind.de/replicate-sequences/" target="_blank" rel="external">Peter Körner’s website tool</a>，输入我们的数据的时间，可以得到一个UTC格式的时间文件，把它保存到工作目录中，并命名为state.txt。</p>
-<ol>
-<li>执行更新任务</li>
-</ol>
+<p>上面的命令告诉 <em>osmosis</em> 从哪个目录寻找更新的信息，以及下载数据到哪里。<em>osmosis</em> 会在这个目录里创建 <em>configuration.txt</em> 和 <em>download.lock</em> 这两个文件。<em>download.lock</em> 文件用来确保同一时刻只会进行一个更新任务。<em>configuration.txt</em> 文件则用来指定更新的频率。默认情况下，<em>osmosis</em> 会提取每分钟的更改集，如果想改为提取每小时或者是天的，可以把 <em>configuration.txt</em> 里的 <em>baseurl</em> 中的 <em>replication/minute/</em> 部分改为 <em>replication/hour/</em> 或者 <em>replication/day/</em>。默认情况下每次执行更新任务最多只会提取1分钟的更改集，可以把 <em>maxInterval=3600</em> 设为0，这样子就可以一次提取所有的更改集。</p>
+<p>为了让<em>osmosis</em>知道从哪个时刻开始进行更新，我们还要告诉它我们刚刚导入的数据的时间，访问<a href="https://osm.mazdermind.de/replicate-sequences/" target="_blank" rel="external">Peter Körner’s website tool</a>，输入我们的数据的时间，可以得到一个UTC格式的时间文件，把它保存到工作目录中，并命名为 <em>state.txt</em>。</p>
+<p>执行更新任务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osmosis -q --rri --bc --simc --bc --write-xml-change &quot;-&quot; | osm2pgsql -s -a -b &quot;73,3,136,54&quot; -U gis -d osm -P 5432 -H localhost -e 15 -o expire.list -</div></pre></td></tr></table></figure>
-<p>上述的命令中，如果导入的是全球的数据就不需要有-b参数。expire.list中包含的是底第15级的dirty tile（即数据有更新的瓦片），这些瓦片需要重新生成。</p>
-<p>linux上可以使用crontab命令定期执行上述命令，这样就可以得到一个以分钟级的频率与OSM数据保持同步的本地数据库了。</p>
-<p>如果使用-b选项指定了更新的范围，可能会使数据库变大，此时可以使用下面的sql删除掉无关的way和relation。</p>
+<p>上述的命令中，如果导入的是全球的数据就不需要有 <em>-b</em> 参数。<em>expire.list</em> 中包含的是第15级的 dirty tile（即数据有更新的瓦片），这些瓦片需要重新生成。</p>
+<p>linux 上可以使用 crontab 命令定期执行上述命令，这样就可以得到一个以分钟级的频率与 OSM 数据保持同步的本地数据库了。</p>
+<p>如果使用 <em>-b</em> 选项指定了更新的范围，可能会使数据库变大，此时可以使用下面的 sql 删除掉无关的 way 和 relation。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">DELETE FROM planet_osm_ways AS w WHERE 0 = (SELECT count(1) FROM planet_osm_nodes AS n WHERE n.id = ANY(w.nodes));</div><div class="line"></div><div class="line">DELETE FROM planet_osm_rels AS r WHERE</div><div class="line">  0=(SELECT count(1) FROM planet_osm_nodes AS n WHERE n.id = ANY(r.parts))</div><div class="line">AND</div><div class="line">  0=(SELECT count(1) FROM planet_osm_ways AS w WHERE w.id = ANY(r.parts));</div><div class="line">REINDEX TABLE planet_osm_ways;</div><div class="line">REINDEX TABLE planet_osm_rels;</div><div class="line">VACUUM FULL;</div></pre></td></tr></table></figure>
 
       
@@ -428,13 +431,17 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/22/sorting-algorithms/" rel="next" title="排序算法">
-                <i class="fa fa-chevron-left"></i> 排序算法
+              <a href="/2016/04/22/sorting-algorithms/" rel="next" title="常用的排序算法">
+                <i class="fa fa-chevron-left"></i> 常用的排序算法
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/25/hexo-for-blogs/" rel="prev" title="使用 hexo 搭建个人博客">
+                使用 hexo 搭建个人博客 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -506,17 +513,24 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">3</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -583,7 +597,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖的工具"><span class="nav-number">1.</span> <span class="nav-text">依赖的工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、-初始化数据库"><span class="nav-number">2.</span> <span class="nav-text">一、 初始化数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、初始化更新频率"><span class="nav-number">3.</span> <span class="nav-text">二、初始化更新频率</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖的工具"><span class="nav-number">1.</span> <span class="nav-text">依赖的工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化数据库"><span class="nav-number">2.</span> <span class="nav-text">初始化数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设定更新频率"><span class="nav-number">3.</span> <span class="nav-text">设定更新频率</span></a></li></ol></div>
             
           </div>
         </section>
