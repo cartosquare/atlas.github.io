@@ -1,0 +1,765 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="OSM," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称OSM）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，地球上的每个人都可以免费得到这份全球的数据。由于众包的性质，OSM的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的OSM数据源使我们的地图能够有更好的时效性。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实时更新OSM数据库">
+<meta property="og:url" content="http://cartosquare.github.io/2016/05/07/minutely-osm-database/index.html">
+<meta property="og:site_name" content="徐翔的博客">
+<meta property="og:description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称OSM）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，地球上的每个人都可以免费得到这份全球的数据。由于众包的性质，OSM的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的OSM数据源使我们的地图能够有更好的时效性。">
+<meta property="og:updated_time" content="2016-08-25T14:30:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实时更新OSM数据库">
+<meta name="twitter:description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称OSM）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，地球上的每个人都可以免费得到这份全球的数据。由于众包的性质，OSM的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的OSM数据源使我们的地图能够有更好的时效性。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6322756439613900000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://cartosquare.github.io/2016/05/07/minutely-osm-database/"/>
+
+  <title> 实时更新OSM数据库 | 徐翔的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?002275764b4b85b3fc6c30280c446d45";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">徐翔的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">漂亮做事 清楚行文</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                实时更新OSM数据库
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-05-07T00:00:00+08:00" content="2016-05-07">
+              2016-05-07
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/07/minutely-osm-database/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/minutely-osm-database/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。<a href="http://www.openstreetmap.org/" target="_blank" rel="external">OpenStreetMap</a>（简称OSM）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，地球上的每个人都可以免费得到这份全球的数据。由于众包的性质，OSM的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的OSM数据源使我们的地图能够有更好的时效性。</p>
+<a id="more"></a>
+<h2 id="依赖的工具"><a href="#依赖的工具" class="headerlink" title="依赖的工具"></a>依赖的工具</h2><ul>
+<li><a href="https://github.com/openstreetmap/osm2pgsql" target="_blank" rel="external">osm2pgsql</a></li>
+</ul>
+<p>osm2pgsql 可以将OSM的数据导入PostgreSQL中，转化成易于渲染的结构，并且支持增量更新。</p>
+<ul>
+<li><a href="https://github.com/openstreetmap/osmosis" target="_blank" rel="external">osmosis</a></li>
+</ul>
+<p>osmosis 是一个java的命令行工具，主要用来进行OSM数据的各种格式之间的转换，这里用来从OSM远程服务器中获取更改集，从而osm2pgsql可以将此更改集增量应用到数据库中。</p>
+<ul>
+<li>PostgreSQL, 带postgis拓展</li>
+</ul>
+<p>在进行下面的操作之前，请先安装好这三个软件。</p>
+<h2 id="一、-初始化数据库"><a href="#一、-初始化数据库" class="headerlink" title="一、 初始化数据库"></a>一、 初始化数据库</h2><ol>
+<li><p>下载<a href="http://planet.openstreetmap.org/" target="_blank" rel="external">全球</a>或者<a href="http://download.geofabrik.de/index.html" target="_blank" rel="external">某个区域</a>的osm数据，最好选择pbf格式，相比于xml格式，pbf格式会小很多。下载的时候记下数据的生产时间，下面选择同步起始时间的时候会用到，这个时间在下载的页面里会有说明。</p>
+</li>
+<li><p>使用下述sql创建一个数据库，并且建立拓展。</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">createdb osm</div><div class="line">psql -d osm -c &apos;CREATE EXTENSION postgis; CREATE EXTENSION hstore;&apos;</div></pre></td></tr></table></figure>
+<p>这里osm是我的数据库名，如果不习惯用命令行，可以用pgAdmin来进行上述操作。总之，现在我们有了一个全新的带有空间拓展的数据库了。</p>
+<ol>
+<li>使用下面的命令导入之前下载好的数据</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osm2pgsql -c -d osm --slim -C &lt;75% Mem&gt; --flat-nodes &lt;flat nodes&gt; -U gis -W -H localhost -P 5432 you.osm.pbf</div></pre></td></tr></table></figure>
+<p>这里有几个地方要注意，一个是-C选项最好指定你电脑的内存的75%，单位为Mb，并且最大只能为30000，–flat-nodes 用来指定一个文件路径，存放这个文件的位置至少要有20G的空闲空间（如果导入全球数据的话）。<br>执行这个命令可能会耗费一段时间，特别是导入全球数据，可能需要几天，如果导入全国的数据，我用8G内存的Macbook Pro只需要不到一个小时。注意虽然我们下载的数据量可能不是很大，但是导入到数据库后会占据很可观的数据磁盘空间，我的笔记本里全国的数据占据了接近10G的空间，因此导入比较大的范围的数据需要保证有足够的磁盘空间可用。</p>
+<h2 id="二、初始化更新频率"><a href="#二、初始化更新频率" class="headerlink" title="二、初始化更新频率"></a>二、初始化更新频率</h2><ol>
+<li>首先指定更新的工作目录。下面的这行可以放到主目录下的 .bash_profile里，如果是windows用户可以新建一个系统的环境变量。</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export WORKDIR_OSM=$HOME/.osmosis</div></pre></td></tr></table></figure>
+<ol>
+<li>初始化工作目录</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir $WORKDIR_OSM</div><div class="line">osmosis --read-replication-interval-init workingDirectory=$WORKDIR_OSM</div></pre></td></tr></table></figure>
+<p>上面的命令告诉osmosis从哪个目录寻找更新的信息，以及下载数据到哪里。osmosis会在这个目录里创建configuration.txt和download.lock这两个文件。download.lock文件用来确保同一时刻只会进行一个更新任务。configuration.txt文件则用来指定更新的频率。默认情况下，osmosis会提取每分钟的更改集，如果想改为提取每小时或者是天的，可以把configuration.txt里的baseurl中的replication/minute/部分改为replication/hour/或者replication/day/。默认情况下每次执行更新任务最多只会提取1分钟的更改集，可以把maxInterval=3600设为0，这样子就可以一次提取所有的更改集。</p>
+<p>为了让osmosis知道从哪个时刻开始进行更新，我们还要告诉它我们刚刚导入的数据的时间，访问<a href="https://osm.mazdermind.de/replicate-sequences/" target="_blank" rel="external">Peter Körner’s website tool</a>，输入我们的数据的时间，可以得到一个UTC格式的时间文件，把它保存到工作目录中，并命名为state.txt。</p>
+<ol>
+<li>执行更新任务</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osmosis -q --rri --bc --simc --bc --write-xml-change &quot;-&quot; | osm2pgsql -s -a -b &quot;73,3,136,54&quot; -U gis -d osm -P 5432 -H localhost -e 15 -o expire.list -</div></pre></td></tr></table></figure>
+<p>上述的命令中，如果导入的是全球的数据就不需要有-b参数。expire.list中包含的是底第15级的dirty tile（即数据有更新的瓦片），这些瓦片需要重新生成。</p>
+<p>linux上可以使用crontab命令定期执行上述命令，这样就可以得到一个以分钟级的频率与OSM数据保持同步的本地数据库了。</p>
+<p>如果使用-b选项指定了更新的范围，可能会使数据库变大，此时可以使用下面的sql删除掉无关的way和relation。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">DELETE FROM planet_osm_ways AS w WHERE 0 = (SELECT count(1) FROM planet_osm_nodes AS n WHERE n.id = ANY(w.nodes));</div><div class="line"></div><div class="line">DELETE FROM planet_osm_rels AS r WHERE</div><div class="line">  0=(SELECT count(1) FROM planet_osm_nodes AS n WHERE n.id = ANY(r.parts))</div><div class="line">AND</div><div class="line">  0=(SELECT count(1) FROM planet_osm_ways AS w WHERE w.id = ANY(r.parts));</div><div class="line">REINDEX TABLE planet_osm_ways;</div><div class="line">REINDEX TABLE planet_osm_rels;</div><div class="line">VACUUM FULL;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Donate</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Atlas WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Atlas Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/OSM/" rel="tag">#OSM</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/04/22/sorting-algorithms/" rel="next" title="排序算法">
+                <i class="fa fa-chevron-left"></i> 排序算法
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/07/minutely-osm-database/"
+           data-title="实时更新OSM数据库" data-url="http://cartosquare.github.io/2016/05/07/minutely-osm-database/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Atlas" />
+          <p class="site-author-name" itemprop="name">Atlas</p>
+          <p class="site-description motion-element" itemprop="description">只闻花香，不谈悲喜；喝茶读书，不争朝夕。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/cartosquare" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.geohey.com/author/atlasxu/" target="_blank" title="WorkBlog">
+                  
+                    <i class="fa fa-fw fa-heartbeat"></i>
+                  
+                  WorkBlog
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://geohey.com" title="GeoHey" target="_blank">GeoHey</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://git.oschina.net/xiangxu" title="GitOSC" target="_blank">GitOSC</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖的工具"><span class="nav-number">1.</span> <span class="nav-text">依赖的工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、-初始化数据库"><span class="nav-number">2.</span> <span class="nav-text">一、 初始化数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、初始化更新频率"><span class="nav-number">3.</span> <span class="nav-text">二、初始化更新频率</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Atlas</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xuxiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
