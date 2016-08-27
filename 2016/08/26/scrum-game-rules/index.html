@@ -1,0 +1,903 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="scrum," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="许多公司都在用 Scrum，我们公司也不例外。那么 Scrum 到底是什么？我们是否真的在实践 Scrum 的原则？要知道如果没有严格按照 Scrum 的原则实践，那么我们用的 Scrum 也就不是 Scrum 了。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrum 游戏规则">
+<meta property="og:url" content="http://cartosquare.github.io/2016/08/26/scrum-game-rules/index.html">
+<meta property="og:site_name" content="徐翔的博客">
+<meta property="og:description" content="许多公司都在用 Scrum，我们公司也不例外。那么 Scrum 到底是什么？我们是否真的在实践 Scrum 的原则？要知道如果没有严格按照 Scrum 的原则实践，那么我们用的 Scrum 也就不是 Scrum 了。">
+<meta property="og:updated_time" content="2016-08-26T17:44:23.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Scrum 游戏规则">
+<meta name="twitter:description" content="许多公司都在用 Scrum，我们公司也不例外。那么 Scrum 到底是什么？我们是否真的在实践 Scrum 的原则？要知道如果没有严格按照 Scrum 的原则实践，那么我们用的 Scrum 也就不是 Scrum 了。">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6322756439613900000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://cartosquare.github.io/2016/08/26/scrum-game-rules/"/>
+
+  <title> Scrum 游戏规则 | 徐翔的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?002275764b4b85b3fc6c30280c446d45";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">徐翔的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">漂亮做事 清楚行文</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Scrum 游戏规则
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-26T23:46:18+08:00" content="2016-08-26">
+              2016-08-26
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/方法论/" itemprop="url" rel="index">
+                    <span itemprop="name">方法论</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/26/scrum-game-rules/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/scrum-game-rules/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>许多公司都在用 Scrum，我们公司也不例外。那么 Scrum 到底是什么？我们是否真的在实践 Scrum 的原则？要知道如果没有严格按照 Scrum 的原则实践，那么我们用的 Scrum 也就不是 Scrum 了。</p>
+<a id="more"></a>
+<h2 id="Scrum-的定义"><a href="#Scrum-的定义" class="headerlink" title="Scrum 的定义"></a>Scrum 的定义</h2><p>Scrum 是一个框架，用于开发和持续支持复杂产品的一个过程框架。Scrum 是：</p>
+<ul>
+<li>轻量级的</li>
+<li>易于理解的</li>
+<li><strong>难以精通的</strong>（没错！易于理解但难以精通！！！）</li>
+</ul>
+<p>Scrum 框架由 Scrum 团队以及与之相关的角色、事件、工件和规则组成。框架中的每个部分都有其特定的目的，对于 Scrum 的成功与使用是至关重要的。下文会详细介绍这几个组成部分，在此之前，我们先来看看 Scrum 的理论依据，<strong>看看 Scrum 的内部到底流的是什么血液</strong>。</p>
+<h2 id="Scrum-理论"><a href="#Scrum-理论" class="headerlink" title="Scrum 理论"></a>Scrum 理论</h2><p>Scrum 实际上是基于经验过程控制理论，也就是<strong>经验主义</strong>。经验主义主张知识源自实际经验以及从当前已知情况下做出决定所获得。而 Scrum 采用的迭代、增量式的方法正是不断利用实际经验来优化对未来的预测和管理风险。</p>
+<p>在经验过程控制中，<strong>透明</strong>、<strong>检视</strong>和<strong>适应</strong>是其中的三大支柱，支撑起每一个经验过程控制的实施。而 Scrum 中也同样流淌着这三种血液。</p>
+<h3 id="透明"><a href="#透明" class="headerlink" title="透明"></a>透明</h3><p>过程中的关键环节必须是透明的。要拥有透明，就要为这些关键环节制定统一的标准，这样所有关心这些环节的人都会有统一的理解。例如在 Scrum 中：</p>
+<ul>
+<li>所有参与者谈及过程时都必须使用统一的术语</li>
+<li>负责完成工作和验收工作的人必须对“完成”的定义，有一致的理解</li>
+</ul>
+<h3 id="检视"><a href="#检视" class="headerlink" title="检视"></a>检视</h3><p>Scrum 的使用者必须经常检视 Scrum 工件和完成 Sprint 目标的进展，以便发现不必要的差异。检视不应该过于频繁而阻碍工作本身。</p>
+<h3 id="适应"><a href="#适应" class="headerlink" title="适应"></a>适应</h3><p>如果检视者发现过程中的一个或多个方面偏离于可接受范围之外，并且将会导致产品不可接受时，就必须对过程或过程化的内容加以调整。调整工作必须尽快执行才能避免进一步的偏离。</p>
+<p>在检视与适应上，Scrum 规定了4个正式事件：</p>
+<ul>
+<li>Sprint 计划会议</li>
+<li>每日 Scrum 站会</li>
+<li>Sprint 评审会议</li>
+<li>Sprint 回顾会议</li>
+</ul>
+<p>以上便是 Scrum 的内在理论，可以看出实际上 Scrum 的核心是要完成透明、检视与适应这三个支柱。Scrum 通过 团队以及与之相关的角色、事件、工件和规则来保证上述这三大支柱成为现实，实际上，在执行 Scrum 游戏规则时，<strong>Scrum 团队成员正慢慢有着共同的价值观</strong>。</p>
+<h2 id="Scrum-价值观"><a href="#Scrum-价值观" class="headerlink" title="Scrum 价值观"></a>Scrum 价值观</h2><p><strong>承诺</strong>、<strong>勇气</strong>、<strong>专注</strong>、<strong>开放</strong>和<strong>敬重</strong>是决定 Scrum 是否成功的五项价值观。Scrum 团队致力于去实现共同的目标，团队成员有勇气去做正确的事并且处理那些棘手的问题；每个人专注于 Sprint 和 Scrum 团队目标的工作；Scrum 团队及其利益攸关者同意将所有工作和执行工作<br>的挑战进行公开；Scrum 团队成员相互敬重，<strong>彼此成为更有能力和独立的人</strong>。</p>
+<p>了解了 Scrum 的定义、理论依据和价值观，我们现在首先看看 Scrum 中最重要的 <strong>Scrum 团队</strong>的组成。</p>
+<h2 id="Scrum-团队"><a href="#Scrum-团队" class="headerlink" title="Scrum 团队"></a>Scrum 团队</h2><p>Scrum 团队由一名产品负责人、开发团队和一名 Scrum Master 组成。Scrum 团队有以下特点：</p>
+<ul>
+<li>跨职能的自组织团队</li>
+<li>自组织团队自己选择如何以最好的方式来完成工作，而不是由团队之外的人来指导</li>
+<li>跨职能团队拥有完成工作所需的全部技能，不需要依赖团队之外的人<br>Scrum 团队之所以这么设计，是为了追求最佳的灵活力、创造力和生产力</li>
+</ul>
+<h3 id="产品负责人"><a href="#产品负责人" class="headerlink" title="产品负责人"></a>产品负责人</h3><p>产品负责人负责最大化产品和开发团队工作的价值，是负责管理产品待办列表的唯一责任人。产品待办列表的管理包括：</p>
+<ul>
+<li>清晰地表述产品待办列表项</li>
+<li>对产品待办列表项进行排序，使其最好地实现目标和使命</li>
+<li>优化开发团队所执行工作的价值</li>
+<li>确保产品待办列表对所有人是可见、透明和清晰的，同时显示 Scrum 团队下一步要做的工作</li>
+<li>确保开发团队对产品待办列表项有足够深的了解</li>
+</ul>
+<p>产品负责人可以亲自完成上述工作，或者也可以让开发团队完成。然而无论何者，产品负责人是最终负责任的人。另外请注意，<strong>为了保证产品负责人的工作取得成功，组织中的所有人员都必须尊重他/她的决定；另外一旦待办列表确定，任何人都不得要求开发团队按照另一套需求展开工作或是做其他任何人指定的工作</strong></p>
+<h3 id="开发团队"><a href="#开发团队" class="headerlink" title="开发团队"></a>开发团队</h3><p>开发团队负责创建和交付产品增量。开发团队有以下特点：</p>
+<ul>
+<li>他们是<strong>自组织</strong>的。没有任何人有权告诉开发团队应该如何把产品待办列表变成潜在可发布的功能增量</li>
+<li>开发团队是跨职能的，团队作为一个整体，拥有创建产品增量所需的全部技能</li>
+<li>在开发团队内部没有头衔，不管承担哪种工作都只有开发人员这一头衔，无一例外。</li>
+<li>开发团队内不存在子团队</li>
+<li>开发团队中的每个成员也许有特长和专注的领域，但是责任属于整个开发团队</li>
+<li>开发团队的规模一般在3至9人，太小没有足够互动，生产力增长不大；太大则需要过多的沟通成本</li>
+</ul>
+<h3 id="Scrum-Master"><a href="#Scrum-Master" class="headerlink" title="Scrum Master"></a>Scrum Master</h3><p>Scrum Master 负责保证所有人都能正确地理解并实施 Scrum，让 Scrum 团队遵循 Scrum 的理论、实践和规则。</p>
+<p>Scrum Master 实际上是一位服务型领导者。通过服务产品负责人、开发人员来最大化 Scrum 团队创造的价值。</p>
+<h4 id="Scrum-Master-如何服务产品负责人"><a href="#Scrum-Master-如何服务产品负责人" class="headerlink" title="Scrum Master 如何服务产品负责人"></a>Scrum Master 如何服务产品负责人</h4><ul>
+<li>找到有效管理产品待办列表的办法</li>
+<li>帮助 Scrum 团队理解为何需要清晰且简明的产品待办列表项</li>
+<li>理解在经验主义环境中的产品规划</li>
+<li>确保产品负责人懂得如何来安排产品待办列表使其达到最大化价值</li>
+<li>理解并实践敏捷性</li>
+<li>按要求或需要引导 Scrum 事件</li>
+</ul>
+<h4 id="Scrum-Master-如何服务开发团队"><a href="#Scrum-Master-如何服务开发团队" class="headerlink" title="Scrum Master 如何服务开发团队"></a>Scrum Master 如何服务开发团队</h4><ul>
+<li>在自组织和跨职能方面给予开发团队指导</li>
+<li>帮助开发团队创造高价值的产品</li>
+<li>移除开发团队工作进展中的障碍</li>
+<li>按要求或需要引导 Scrum 事件</li>
+<li>在 Scrum 还未完全采纳和理解的组织环境中指导开发团队</li>
+</ul>
+<h4 id="Scrum-Master-如何服务组织"><a href="#Scrum-Master-如何服务组织" class="headerlink" title="Scrum Master 如何服务组织"></a>Scrum Master 如何服务组织</h4><ul>
+<li>带领并指导组织采纳 Scrum</li>
+<li>在组织范围内规划 Scrum 的实施</li>
+<li>帮助员工和利益攸关者理解并实施 Scrum 和经验产品开发</li>
+<li>引发能够提升 Scrum 团队生产效率的改变</li>
+<li>与其他 Scrum Master 一起工作，增加组织中 Scrum 应用的有效性</li>
+</ul>
+<p>至此，Scrum 团队已经介绍完毕，下面来看看 Scrum 中的事件有哪些。</p>
+<h2 id="Scrum-事件"><a href="#Scrum-事件" class="headerlink" title="Scrum 事件"></a>Scrum 事件</h2><p>Scrum 用固定的事件来产生规律性，由此来减少 Scrum 之外的其它会议的必要。Scrum 事件都有时间盒的限定，即每一个事件限制在最长的时间范围内。Scrum 中的每个事件<br>都是用来进行检视和适应的正式机会。下面分别介绍 Scrum 中的几个事件。</p>
+<h3 id="Sprint"><a href="#Sprint" class="headerlink" title="Sprint"></a>Sprint</h3><p>Sprint 是 Scrum 的核心，其长度（持续时间）为一个月或更短时间。在这段时间内<br>构建一个“完成的”、可用的和潜在可发布的产品增量。在整个开发过程期间，Sprint 的长<br>度通常保持一致。前一个 Sprint 结束后，新的下一个 Sprint 紧接着立即开始。</p>
+<p>Sprint 由 Sprint 计划会议、每日 Scrum 站会、开发工作、 Sprint 评审会议和 Sprint 回顾会议构成。</p>
+<h4 id="Sprint-计划会议"><a href="#Sprint-计划会议" class="headerlink" title="Sprint 计划会议"></a>Sprint 计划会议</h4><p>Sprint 中要做的工作在 Sprint 计划会议中来做计划。这份工作计划是由整个 Scrum 团队共<br>同协作完成的。<br>Sprint 计划会议回答以下问题：</p>
+<ul>
+<li>接下来的 Sprint 交付的增量中要包含什么内容？</li>
+<li>要如何完成交付增量所需的工作？</li>
+</ul>
+<p>下面详细介绍这两个话题</p>
+<h5 id="话题一：-这次-Sprint-能做什么"><a href="#话题一：-这次-Sprint-能做什么" class="headerlink" title="话题一： 这次 Sprint 能做什么"></a><strong>话题一： 这次 Sprint 能做什么</strong></h5><p>开发团队预测在这次 Sprint 中要开发的功能。产品负责人讲解 Sprint 的目标以及达成该目<br>标所需完成的产品待办列表项。整个 Scrum 团队协同工作来理解 Sprint 的工作。</p>
+<p>Sprint 会议的输入是产品待办列表、最新的产品增量、开发团队在这个 Sprint 中能力的预<br>测以及开发团队的以往表现。开发团队自己决定选择产品待办列表项的数量。只有开发团<br>队可以评估接下来的 Sprint 可以完成什么工作。</p>
+<p>在开发团队预测完这个 Sprint 中可交付的产品待办列表项之后，Scrum 团队草拟一个<br>Sprint 目标。Sprint 目标是在这个 Sprint 通过实现产品待办列表要达到的目的，同时它也为<br>开发团队提供指引，使得开发团队明确开发增量的目的。</p>
+<h5 id="话题二：-如何完成所选的工作？"><a href="#话题二：-如何完成所选的工作？" class="headerlink" title="话题二： 如何完成所选的工作？"></a><strong>话题二： 如何完成所选的工作？</strong></h5><p>在设定了 Sprint 目标并选出这个 Sprint 要完成的产品待办列表项之后，开发团队将决定如<br>何在 Sprint 中把这些功能构建成“完成”的产品增量。<strong>这个 Sprint 中所选出的产品待办列表<br>项加上交付它们的计划称之为 Sprint 待办列表</strong>。</p>
+<p>开发团队通常从设计整个系统开始，到如何将产品待办列表转换成可工作的产品增量所需<br>要的工作。</p>
+<p>在Sprint 计划会议的最后，开发团队规划出在 Sprint 最初几天内所要做的工作，通常以一天<br>或更少为一个单位。开发团队自组织地领取 Sprint 待办产品列表中的工作，领取工作在<br>Sprint 计划会议和 Sprint 期间按需进行。</p>
+<p>产品负责人能够帮助解释清楚所选定的产品待办列表项，并作出权衡。如果开发团队认为<br>工作过多或过少，他们可以与产品负责人重新协商所选的产品待办列表项。开发团队也可<br>以邀请其他人员参加会议，以获得技术或领域知识方面的建议。</p>
+<p>在 Sprint 计划会议结束时，开发团队应该能够向产品负责人和 Scrum Master 解释他们将如<br>何以自组织团队的形式完成 Sprint 目标并开发出预期的产品增量。</p>
+<h5 id="Sprint-目标"><a href="#Sprint-目标" class="headerlink" title="Sprint 目标"></a>Sprint 目标</h5><p>Sprint 目标是在当前 Sprint 通过实现产品待办列表要达到的目的。它为开发团队提供指引，使得团队明确<strong>为什么要构建增量</strong>。Sprint 目标在 Sprint 计划会议中确定。Sprint 目标为开发团队在 Sprint 中所实现的功能留有一定的弹性。所选定的产品待办列表项会提供一个连贯一致的功能，也即是 Sprint 目标。Sprint 目标可以是任何其他的连贯性来促使开发团队一起工作而不是分开独自做。</p>
+<p>开发团队必须在工作中时刻谨记 Sprint 目标。为了达成 Sprint 目标，需要实现相应的功能和实施所需的技术。如果所需工作和预期的不同，开发团队需要与产品负责人沟通协商 Sprint 待办列表的范围。</p>
+<h4 id="每日-Scrum-站会"><a href="#每日-Scrum-站会" class="headerlink" title="每日 Scrum 站会"></a>每日 Scrum 站会</h4><p>每日 Scrum 站会是一个以 15 分钟为限的事件，它让开发团队同步开发活动，并为接下了的 24 小时制定计划。这需要检视上次每日站会以来的工作和预测下次每日站会之前所能够完成的工作。</p>
+<p>每日 Scrum 站会在同一时间同一地点举行，以便降低复杂性。在会议上，每一个开发团队成员都需要说明:</p>
+<ul>
+<li>昨天，我为帮助开发团队达成 Sprint 目标做了什么？</li>
+<li>今天，我为帮助开发团队达成 Sprint 目标准备做什么？</li>
+<li>是否有任何障碍在阻碍我或开发团队达成 Sprint 目标？</li>
+</ul>
+<p>开发团队借由每日 Scrum 站会来检视完成 Sprint 目标的进度，并检视完成 Sprint 待办列表的工作进度趋势。每日 Scrum 站会优化了开发团队达成 Sprint 目标的可能性。每天，开发团队应该知道如何以自组织团队来协同工作以达成 Sprint 目标，并在 Sprint 结束时开发出预期中的增量。开发团队或者开发团队成员通常会在每日 Scrum 站会后立即聚到一起进行更详细的讨论，或者为 Sprint 中剩余的工作进行调整或重新计划。</p>
+<p>Scrum Master 确保开发团队每日站会如期举行，但开发团队自己负责召开会议。Scrum Master 教导开发团队将每日 Scrum 会议时间控制在 15 分钟内。</p>
+<p>Scrum Master 强制执行每日 Scrum 站会规则：只有开发团队成员才能参加。</p>
+<p>每日 Scrum 站会增进交流沟通、减少其他会议、发现开发过程中需要移除的障碍、突显并促进快速地做决策、提高开发团队的认知程度。<strong>这是一个进行检视与适应的关键会议</strong>。</p>
+<h4 id="Sprint-评审会议"><a href="#Sprint-评审会议" class="headerlink" title="Sprint 评审会议"></a>Sprint 评审会议</h4><p>Sprint 评审会议在 Sprint 快结束时举行 ，用以检视所交付的产品增量并按需调整产品待办列表。</p>
+<p>在 Sprint 评审会议中，Scrum 团队和利益攸关者协同讨论在这次 Sprint 中所完成的工作。根据完成情况和 Sprint 期间产品待办列表的变化，所有参会人员协同讨论接下来可能要做的事情来优化价值。<strong>这是一个非正式会议，并不是一个进度汇报会议，演示增量的目的是为了获取反馈并促进合作</strong>。</p>
+<p>Sprint 评审会议包含以下内容：</p>
+<ul>
+<li>产品负责人邀请 Scrum 团队和主要的利益攸关者参加会议</li>
+<li>产品负责人说明哪些产品待办列表项已经“完成”和哪些没有“完成”</li>
+<li>开发团队讨论在 Sprint 期间哪些工作做的很好，遭遇到什么问题以及问题是如何解决的</li>
+<li>开发团队演示“完成”的工作并解答关于所交付增量的问题</li>
+<li>产品负责人讨论当前的产品待办列表的情况。他／她根据到目前为止的进度来预测可能的完成日期（如果有需要的话）</li>
+<li>参会的所有人就下一步的工作进行探讨，这样， Sprint 评审会议就能够为接下了的 Sprint 计划会议提供有价值的输入信息</li>
+<li>评审市场或潜在的产品使用方式所带来的接下来要做的最有价值的东西的改变</li>
+<li>为下个预期产品版本的发布评审时间表、预算、潜力和市场。</li>
+</ul>
+<p>Sprint 评审会议的结果是一份修订后的产品待办列表，阐明很可能进入下个 Sprint 的产品待办列表项。产品待办列表也有可能为了迎接新的机会而进行全局性地调整。</p>
+<h4 id="Sprint-回顾会议"><a href="#Sprint-回顾会议" class="headerlink" title="Sprint 回顾会议"></a>Sprint 回顾会议</h4><p>Sprint 回顾会议是 Scrum 团队检视自身并创建下一个 Sprint 改进计划的机会。</p>
+<p>Sprint 回顾会议发生在 Sprint 评审会议结束之后，下个 Sprint 计划会议之前。Scrum Master 要确保会议举行，并且每个参会者都明白会议的目的。Scrum Master 教导大家遵守时间盒的规则。Scrum Master 作为 Scrum 过程的责任者，作为团队的一员参加该会议。</p>
+<p>Sprint 回顾会议的目的在于：</p>
+<ul>
+<li>检视前一个 Sprint 中关于人、关系、过程和工具的情况如何</li>
+<li>找出并加以排序做得好的和潜在需要改进的主要方面</li>
+<li>制定改进 Scrum 团队工作方式的计划</li>
+</ul>
+<p>Scrum Master 鼓励 Scrum 团队在 Scrum 的过程框架内改进开发过程和实践，使得他们能在下个 Sprint 中更高效更愉快。<strong>在每个 Sprint 回顾会议中，Scrum 团队通过适当地调整“完成”的定义的方式来计划提高产品质量</strong>。</p>
+<p>在 Sprint 回顾会议结束时，Scrum 团队应该明确接下来的 Sprint 中需要实施的改进。在下一个 Sprint 中实施这些改进是基于 Scrum 团队对自身的检视而做出的适当调整。虽然改进可以在任何时间执行，Sprint 回顾会议提供了一个专注于检视和适应的正式机会。</p>
+<h2 id="Scrum-工件"><a href="#Scrum-工件" class="headerlink" title="Scrum 工件"></a>Scrum 工件</h2><p>Scrum 的工件以不同的方式表现工作任务和价值，可以用来提供透明以及检视和适应的机会。Scrum 所定义的工件是特别地设计的，是为了给关键信息提供最大透明化，因此每个人对工件都需要有相同的理解。下面是 Scrum 中用到的工件。</p>
+<h3 id="产品待办列表"><a href="#产品待办列表" class="headerlink" title="产品待办列表"></a>产品待办列表</h3><p>产品待办列表是一份有序列表，其中包含产品需要的一切可能的东西，也是产品需求变动的唯一来源。产品负责人负责管理产品待办列表的内容、可用性和排序。</p>
+<p>产品待办列表永远是不完整的。最早开发的产品待办列表只列举最初所知的以及理解最透彻的需求。产品待办列表会随着产品及其应用环境的改变而演进。产品待办列表是动态的，需要持续更新以反映出产品需要什么来保持其适用性、竞争力和有用。只要产品存在，产品待办列表也就同样存在。</p>
+<p>产品待办列表列出所有的特性、功能、需求、增强和修复等对未来要发布的产品进行的改变。产品待办列表项具有这些属性：描述、次序、估算和价值。</p>
+<p>随着产品的使用、价值的获取和获得市场的反馈，产品待办列表会成长为更大和更详尽的列表。因为需求永不停止改变，所以产品待办列表就如一份活的工件。业务需求、市场形势或者技术的变化都会引起产品待办列表的改变。</p>
+<p>多个 Scrum 团队常常会一起参与对同一产品的开发。一个产品只有一个产品待办列表用于描述下一步产品开发工作。那么这就可能需要使用能够对产品待办列表项进行分组的属性。</p>
+<p>产品待办列表精化指的是为产品待办列表项增添细节、估算和排序的动作。这是一个持续的过程，产品负责人和开发团队协同工作在产品待办列表项的细节上。在产品待办列表精化过程中，产品待办列表项被重新评审和修改。Scrum 团队决定如何来完成精化以及何时来完成。精化的工作通常占用开发团队不超过 10% 的产能。然而，产品负责人或者其他人在产品负责人的斟酌下，产品待办列表项可以在任何时间来更新。</p>
+<p>排序越高的产品待办列表项通常比排序低的更清晰同时包含更多细节。根据更清晰的内容和更详尽的细节信息就能做出更为准确的估算；同样，排序越低，则细节信息越少。产品待办列表项中那些即将会占用开发团队下一个 Sprint 大部分时间的项会被加以精化，因此，任一产品待办列表项都能够在 Sprint 的时间盒期限内适当地“完成”。这些能够被开发团队在一个 Sprint 中“完成”的产品待办列表项称为“准备就绪”，它们将作为 Sprint 计划会议中的待选产品列表项。产品待办列表项的足够透明程度通常要经过上述的精化活动来获得。</p>
+<p>开发团队负责所有估算工作。产品负责人可以通过帮助开发团队更好地理解需求，并根据情况权衡取舍来影响他们，但是最终估算是由开发团队决定的。</p>
+<h3 id="监控目标实现的进度"><a href="#监控目标实现的进度" class="headerlink" title="监控目标实现的进度"></a>监控目标实现的进度</h3><p>在任何时刻，达成目标的剩余工作是可以累计的。产品负责人至少在每个 Sprint 评审会议中都必须跟踪剩余工作总量。产品负责人比较这次的剩余工作量与之前 Sprint 评审会议时的剩余工作量，来评估在期望的时间点达成目标的进度。这个信息对所有的利益攸关者都是透明的。</p>
+<p>各种不同趋势走向的实践已经被使用在预测进度方面，例如，燃尽图（burn-downs）、燃烧图（burn-ups）或者累积流图（cumulative flows）。这些工具都被证实是有用的。然而，它们并不能用来取代经验主义的重要性。在复杂的环境中，未来将要发生的事是无法预知的。只有已经发生的事才能用来做前瞻性的决策。</p>
+<h3 id="Sprint-待办列表"><a href="#Sprint-待办列表" class="headerlink" title="Sprint 待办列表"></a>Sprint 待办列表</h3><p>Sprint 待办列表是一组为当前 Sprint 选出的产品待办列表项，同时加上交付产品增量和实现 Sprint 目标的计划。Sprint 待办列表是开发团队对于下一个产品增量所需的那些功能以及交付那些功能到“完成”的增量中所需工作的预测。</p>
+<p>Sprint 产品待办列表将开发团队用来达成 Sprint 目标的所有工作变得清晰可见。</p>
+<p>Sprint 产品待办列表是拥有足够细节的计划，任何进度的变化可以在每日 Scrum 站会中清晰地看到。开发团队在 Sprint 期间修改 Sprint 待办列表，使得 Sprint 待办列表在 Sprint 期间涌现。涌现发生在开发团队按计划开展工作并学习到更多的关于哪些工作是达成 Sprint 目标所必需的工作时。</p>
+<p>当新工作出现时，开发团队需要将其加入到 Sprint 待办列表中去。随着工作的执行或完成，剩余的工作量被估算并更新。当计划中的某个部分失去开发意义，就可以将其移除。在 Sprint 期间，只有开发团队可以改变 Sprint 待办列表。Sprint 待办列表是高度可见的，是对开发团队计划在当前 Sprint 内工作完成情况的实时反映，该列表由开发团队全权负责。</p>
+<h3 id="监控-Sprint-进度"><a href="#监控-Sprint-进度" class="headerlink" title="监控 Sprint 进度"></a>监控 Sprint 进度</h3><p>在 Sprint 的任何时间点都可以计算 Sprint 待办列表中所有剩余工作的总和。开发团队至少在每日 Scrum 站会时跟踪剩余的工作量，预测达成 Sprint 目标的可能性。通过在 Sprint 中不断跟踪剩余的工作量，开发团队可以管理自己的进度。</p>
+<h3 id="增量"><a href="#增量" class="headerlink" title="增量"></a>增量</h3><p>增量是一个 Sprint 完成的所有产品待办列表项的总和，以及之前所有 Sprint 所产生的增量的价值总和。在 Sprint 的最后，新的增量必须是“完成”的，这意味着它必须可用并且达到了 Scrum 团队“完成”的定义的标准。无论产品负责人是否决定真正发布它，增量必须可用。</p>
+<h3 id="工件透明"><a href="#工件透明" class="headerlink" title="工件透明"></a>工件透明</h3><p>Scrum 依赖于透明。优化价值和控制风险的决定都是基于所获知的工件状态。当工件的状态是完全透明时，这些做出的决定才有一个坚实的基础；当工件的状态是不完全透明时，这些做出的决定就会有瑕疵，而价值也可能因此遭受损失，同时风险也可能会因此而增加。</p>
+<p>Scrum Master 必须和产品负责人、开发团队和其他相关人员一起合作，以确保所有工件都是完全透明的。有些实践就是为应对不完全透明的状态而生的，Scrum Master 必须帮助每个人，让他们能够在遇到不透明的情况下采取最合适的实践。Scrum Master 能够通过检视工件、嗅探模式、倾听周围的声音以及观察预期和实际结果的差异来发现不完全透明。</p>
+<p>Scrum Master 的职责就是和 Scrum 团队以及组织一起合作增加工件的透明化。这一工作通常包括学习、说服和改变。 透明化不会在一夜之间发生，但是这是一条必经之路。</p>
+<h3 id="“完成”的定义"><a href="#“完成”的定义" class="headerlink" title="“完成”的定义"></a>“完成”的定义</h3><p>当产品待办列表项或增量被描述为“完成”时，每个人都必须理解“完成”意味着什么。虽然在不同 Scrum 团队之间会存在巨大的差别，但是每个团队成员必须对完成工作意味着什么有相同的理解以便确保透明化。这就是 Scrum 团队的“完成”定义，用来评估产品增量是否完成。</p>
+<p>这一定义也同时被用来指导开发团队了解在 Sprint 计划会议时能够选择多少产品待办列表项。每个 Sprint 的目标在于交付符合 Scrum 团队当前“完成”的定义的潜在可交付功能增量。</p>
+<p>开发团队在每个 Sprint 都交付产品功能增量。这一增量是可用的，所以产品负责人可以选择立即发布它。如果“完成”的定义对增量来说是开发组织的惯例、标准或指南，那么所有 Scrum 团队都必须遵守它，以此为最低标准。如果增量“完成”的定义不是开发组织的惯例，那么 Scrum 团队中的开发团队就必须制定适合于产品的“完成”的定义。如果系统或产品发布由多个 Scrum 团队一起开发，那么所有 Scrum 团队中的开发团队必须一起参与制定“完成”的定义。</p>
+<p>每个增量都添加至之前的所有增量上，并且经过彻底地测试，以此确保整合在一起的所有增量都能工作。</p>
+<p>随着团队的成熟，“完成”的定义会扩大，包含更为严格的标准来保证更高的质量。任何产品或系统都应该对其上面开发的工作有“完成”的定义。</p>
+<h2 id="Scrum-各部分缺一不可"><a href="#Scrum-各部分缺一不可" class="headerlink" title="Scrum 各部分缺一不可"></a>Scrum 各部分缺一不可</h2><p>Scrum 的角色、工件、事件和规则是不可改变的。虽然只实施部分的 Scrum 是可能的，但这样就不是 Scrum 了。Scrum 只以整体的形式而存在，唯其如此才能作为其他技术、方法和实践的容器运作良好。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>Donate</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Atlas WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Atlas Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/scrum/" rel="tag">#scrum</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/25/hexo-for-blogs/" rel="next" title="使用 hexo 搭建个人博客">
+                <i class="fa fa-chevron-left"></i> 使用 hexo 搭建个人博客
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/26/scrum-game-rules/"
+           data-title="Scrum 游戏规则" data-url="http://cartosquare.github.io/2016/08/26/scrum-game-rules/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Atlas" />
+          <p class="site-author-name" itemprop="name">Atlas</p>
+          <p class="site-description motion-element" itemprop="description">只闻花香，不谈悲喜；喝茶读书，不争朝夕。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/cartosquare" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.geohey.com/author/atlasxu/" target="_blank" title="WorkBlog">
+                  
+                    <i class="fa fa-fw fa-pencil-square-o"></i>
+                  
+                  WorkBlog
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://geohey.com" title="GeoHey" target="_blank">GeoHey</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://git.oschina.net/xiangxu" title="GitOSC" target="_blank">GitOSC</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-的定义"><span class="nav-number">1.</span> <span class="nav-text">Scrum 的定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-理论"><span class="nav-number">2.</span> <span class="nav-text">Scrum 理论</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#透明"><span class="nav-number">2.1.</span> <span class="nav-text">透明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检视"><span class="nav-number">2.2.</span> <span class="nav-text">检视</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适应"><span class="nav-number">2.3.</span> <span class="nav-text">适应</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-价值观"><span class="nav-number">3.</span> <span class="nav-text">Scrum 价值观</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-团队"><span class="nav-number">4.</span> <span class="nav-text">Scrum 团队</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#产品负责人"><span class="nav-number">4.1.</span> <span class="nav-text">产品负责人</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发团队"><span class="nav-number">4.2.</span> <span class="nav-text">开发团队</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Scrum-Master"><span class="nav-number">4.3.</span> <span class="nav-text">Scrum Master</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrum-Master-如何服务产品负责人"><span class="nav-number">4.3.1.</span> <span class="nav-text">Scrum Master 如何服务产品负责人</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrum-Master-如何服务开发团队"><span class="nav-number">4.3.2.</span> <span class="nav-text">Scrum Master 如何服务开发团队</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Scrum-Master-如何服务组织"><span class="nav-number">4.3.3.</span> <span class="nav-text">Scrum Master 如何服务组织</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-事件"><span class="nav-number">5.</span> <span class="nav-text">Scrum 事件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sprint"><span class="nav-number">5.1.</span> <span class="nav-text">Sprint</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sprint-计划会议"><span class="nav-number">5.1.1.</span> <span class="nav-text">Sprint 计划会议</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#话题一：-这次-Sprint-能做什么"><span class="nav-number">5.1.1.1.</span> <span class="nav-text">话题一： 这次 Sprint 能做什么</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#话题二：-如何完成所选的工作？"><span class="nav-number">5.1.1.2.</span> <span class="nav-text">话题二： 如何完成所选的工作？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sprint-目标"><span class="nav-number">5.1.1.3.</span> <span class="nav-text">Sprint 目标</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#每日-Scrum-站会"><span class="nav-number">5.1.2.</span> <span class="nav-text">每日 Scrum 站会</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sprint-评审会议"><span class="nav-number">5.1.3.</span> <span class="nav-text">Sprint 评审会议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sprint-回顾会议"><span class="nav-number">5.1.4.</span> <span class="nav-text">Sprint 回顾会议</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-工件"><span class="nav-number">6.</span> <span class="nav-text">Scrum 工件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#产品待办列表"><span class="nav-number">6.1.</span> <span class="nav-text">产品待办列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监控目标实现的进度"><span class="nav-number">6.2.</span> <span class="nav-text">监控目标实现的进度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sprint-待办列表"><span class="nav-number">6.3.</span> <span class="nav-text">Sprint 待办列表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#监控-Sprint-进度"><span class="nav-number">6.4.</span> <span class="nav-text">监控 Sprint 进度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#增量"><span class="nav-number">6.5.</span> <span class="nav-text">增量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工件透明"><span class="nav-number">6.6.</span> <span class="nav-text">工件透明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#“完成”的定义"><span class="nav-number">6.7.</span> <span class="nav-text">“完成”的定义</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Scrum-各部分缺一不可"><span class="nav-number">7.</span> <span class="nav-text">Scrum 各部分缺一不可</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Atlas</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xuxiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+
+</body>
+</html>
