@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="OSM," />
+  <meta name="keywords" content="git commits,statistic logs," />
 
 
 
@@ -102,16 +102,30 @@
 
 
 
-<meta name="description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。">
+<meta name="description" content="随着一个项目的推进，项目的代码越来越多，团队成员也可能越来越多。这时候，如何跟踪项目的演进对于项目管理者来说就成了一个问题。项目管理者往往需要知道项目代码数量随着时间的推移发生的变化、每天/每周/每月/每年的提交情况以及每个贡献者的提交情况等等。而这些统计信息无法直接从 git log 中直接获取，最近发现了一个叫GitStats的工具可以从 git 提交历史中自动生成这些统计信息，并生成 HTM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实时更新OSM数据库">
-<meta property="og:url" content="http://cartosquare.github.io/2016/05/07/minutely-osm-database/index.html">
+<meta property="og:title" content="git commits 统计分析">
+<meta property="og:url" content="http://cartosquare.github.io/2016/08/27/statistic-git-commits/index.html">
 <meta property="og:site_name" content="徐翔的博客">
-<meta property="og:description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。">
-<meta property="og:updated_time" content="2016-08-27T02:28:34.000Z">
+<meta property="og:description" content="随着一个项目的推进，项目的代码越来越多，团队成员也可能越来越多。这时候，如何跟踪项目的演进对于项目管理者来说就成了一个问题。项目管理者往往需要知道项目代码数量随着时间的推移发生的变化、每天/每周/每月/每年的提交情况以及每个贡献者的提交情况等等。而这些统计信息无法直接从 git log 中直接获取，最近发现了一个叫GitStats的工具可以从 git 提交历史中自动生成这些统计信息，并生成 HTM">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/general_info.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/weekly_activity.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/hours_of_day.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/days_of_week.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/hours_of_week.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/month_of_year.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/year.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/year_month.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/authors.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/lines_per_authors.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/commits_per_author.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/authors_per_months.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/authors_per_year.png">
+<meta property="og:updated_time" content="2016-08-27T06:59:55.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实时更新OSM数据库">
-<meta name="twitter:description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。">
+<meta name="twitter:title" content="git commits 统计分析">
+<meta name="twitter:description" content="随着一个项目的推进，项目的代码越来越多，团队成员也可能越来越多。这时候，如何跟踪项目的演进对于项目管理者来说就成了一个问题。项目管理者往往需要知道项目代码数量随着时间的推移发生的变化、每天/每周/每月/每年的提交情况以及每个贡献者的提交情况等等。而这些统计信息无法直接从 git log 中直接获取，最近发现了一个叫GitStats的工具可以从 git 提交历史中自动生成这些统计信息，并生成 HTM">
+<meta name="twitter:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/general_info.png">
 
 
 
@@ -132,9 +146,9 @@
 
 
 
-  <link rel="canonical" href="http://cartosquare.github.io/2016/05/07/minutely-osm-database/"/>
+  <link rel="canonical" href="http://cartosquare.github.io/2016/08/27/statistic-git-commits/"/>
 
-  <title> 实时更新OSM数据库 | 徐翔的博客 </title>
+  <title> git commits 统计分析 | 徐翔的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +298,7 @@
             
             
               
-                实时更新OSM数据库
+                git commits 统计分析
               
             
           </h1>
@@ -296,8 +310,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-07T00:00:00+08:00" content="2016-05-07">
-              2016-05-07
+            <time itemprop="dateCreated" datetime="2016-08-27T12:45:57+08:00" content="2016-08-27">
+              2016-08-27
             </time>
           </span>
 
@@ -310,8 +324,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/GIS/" itemprop="url" rel="index">
-                    <span itemprop="name">GIS</span>
+                  <a href="/categories/工具/" itemprop="url" rel="index">
+                    <span itemprop="name">工具</span>
                   </a>
                 </span>
 
@@ -326,8 +340,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/07/minutely-osm-database/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/minutely-osm-database/" itemprop="commentsCount"></span>
+                <a href="/2016/08/27/statistic-git-commits/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/statistic-git-commits/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -350,35 +364,56 @@
       
 
       
-        <p>巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。<a href="http://www.openstreetmap.org/" target="_blank" rel="external">OpenStreetMap</a>（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。</p>
+        <p>随着一个项目的推进，项目的代码越来越多，团队成员也可能越来越多。这时候，如何跟踪项目的演进对于项目管理者来说就成了一个问题。项目管理者往往需要知道项目代码数量随着时间的推移发生的变化、每天/每周/每月/每年的提交情况以及每个贡献者的提交情况等等。而这些统计信息无法直接从 git log 中直接获取，最近发现了一个叫<a href="http://gitstats.sourceforge.net/" target="_blank" rel="external">GitStats</a>的工具可以从 git 提交历史中自动生成这些统计信息，并生成 HTML 形式的报告。下面简要介绍一下这个工具。</p>
 <a id="more"></a>
-<h2 id="依赖的工具"><a href="#依赖的工具" class="headerlink" title="依赖的工具"></a>依赖的工具</h2><ul>
-<li><p><a href="https://github.com/openstreetmap/osm2pgsql" target="_blank" rel="external">osm2pgsql</a> osm2pgsql  可以将 OSM 的数据导入 PostgreSQL 中，转化成易于渲染的结构，并且支持增量更新。</p>
+<p>GitStats 生成的统计信息主要有四个方面：</p>
+<h2 id="一般统计信息"><a href="#一般统计信息" class="headerlink" title="一般统计信息"></a>一般统计信息</h2><p>包括以下几项</p>
+<ul>
+<li>项目名称</li>
+<li>统计的时间段</li>
+<li>总共的文件数目</li>
+<li>总共的代码行数</li>
+<li>总共提交次数、每天平均提交次数</li>
+<li>贡献者数量、平均每个贡献者的提交次数</li>
+</ul>
+<p>下图是一个例子：</p>
+<p><img src="/images/blogs/statistic-git-commits/general_info.png" alt="一般统计信息"></p>
+<h2 id="活动信息"><a href="#活动信息" class="headerlink" title="活动信息"></a>活动信息</h2><p>包括：</p>
+<ul>
+<li>过去32周每周的提交次数<br><img src="/images/blogs/statistic-git-commits/weekly_activity.png" alt="weekly_activity"></li>
+<li>按小时统计的提交次数<br><img src="/images/blogs/statistic-git-commits/hours_of_day.png" alt="hours_of_day"></li>
+<li>按星期统计的提交次数<br><img src="/images/blogs/statistic-git-commits/days_of_week.png" alt="days_of_week"></li>
+<li>按小时和星期统计的提交次数<br><img src="/images/blogs/statistic-git-commits/hours_of_week.png" alt="hours_of_week"></li>
+<li>按月份统计的提交次数<br><img src="/images/blogs/statistic-git-commits/month_of_year.png" alt="month_of_year"></li>
+<li>按年统计的提交次数<br><img src="/images/blogs/statistic-git-commits/year.png" alt="year"></li>
+<li>按月份和年统计的提交次数<br><img src="/images/blogs/statistic-git-commits/year_month.png" alt="weekly_activity"></li>
+</ul>
+<h2 id="贡献者信息"><a href="#贡献者信息" class="headerlink" title="贡献者信息"></a>贡献者信息</h2><ul>
+<li><p>贡献者列表（包括名字、提交次数以及占总提交次数的百分比，第一次提交日期，最后一次提交日期，加入项目的天数、活跃的天数等等<br><img src="/images/blogs/statistic-git-commits/authors.png" alt="authors"></p>
 </li>
-<li><p><a href="https://github.com/openstreetmap/osmosis" target="_blank" rel="external">osmosis</a> osmosis 是一个 java 的命令行工具，主要用来进行 OSM 数据的各种格式之间的转换，这里用来从 OSM 远程服务器中获取更改集，从而 osm2pgsql 可以将此更改集增量应用到数据库中。</p>
+<li><p>每位贡献者累积添加的代码行数曲线<br><img src="/images/blogs/statistic-git-commits/lines_per_authors.png" alt="lines_per_authors"></p>
 </li>
-<li><p>PostgreSQL, 带 postgis 拓展</p>
+<li><p>每位贡献者的提交次数曲线<br><img src="/images/blogs/statistic-git-commits/commits_per_author.png" alt="commits_per_author"></p>
+</li>
+<li><p>每位贡献者每个月的提交次数<br><img src="/images/blogs/statistic-git-commits/authors_per_months.png" alt="authors_per_months"></p>
+</li>
+<li><p>每位贡献者每年的提交次数<br><img src="/images/blogs/statistic-git-commits/authors_per_year.png" alt="authors_per_year"></p>
 </li>
 </ul>
-<h2 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h2><p>下载<a href="http://planet.openstreetmap.org/" target="_blank" rel="external">全球</a>或者<a href="http://download.geofabrik.de/index.html" target="_blank" rel="external">某个区域</a>的 osm 数据，最好选择 pbf 格式，相比于 xml 格式，pbf 格式会小很多。下载的时候记下数据的生产时间，下面选择同步起始时间的时候会用到，这个时间在下载的页面里会有说明。</p>
-<p>使用下述 sql 创建一个数据库，并且建立拓展。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">createdb osm</div><div class="line">psql -d osm -c &apos;CREATE EXTENSION postgis; CREATE EXTENSION hstore;&apos;</div></pre></td></tr></table></figure>
-<p>这里 osm 是我的数据库名，如果不习惯用命令行，可以用 pgAdmin 来进行上述操作。总之，现在我们有了一个全新的带有空间拓展的数据库了。</p>
-<p>使用下面的命令导入之前下载好的数据</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osm2pgsql -c -d osm --slim -C &lt;75% Mem&gt; --flat-nodes &lt;flat nodes&gt; -U gis -W -H localhost -P 5432 you.osm.pbf</div></pre></td></tr></table></figure>
-<p>这里有几个地方要注意，一个是<em>-C</em>选项最好指定你电脑的内存的75%，单位为 Mb，并且最大只能为30000，<em>–flat-nodes</em> 用来指定一个文件路径，存放这个文件的位置至少要有20G的空闲空间（如果导入全球数据的话）。<br>执行这个命令可能会耗费一段时间，特别是导入全球数据，可能需要几天，如果导入全国的数据，我用8G内存的 Macbook Pro 只需要不到一个小时。注意虽然我们下载的数据量可能不是很大，但是导入到数据库后会占据很可观的数据磁盘空间，我的笔记本里全国的数据占据了接近10G的空间，因此导入比较大的范围的数据需要保证有足够的磁盘空间可用。</p>
-<h2 id="设定更新频率"><a href="#设定更新频率" class="headerlink" title="设定更新频率"></a>设定更新频率</h2><p>首先指定更新的工作目录。下面的这行可以放到主目录下的 .bash_profile 里，如果是 windows 用户可以新建一个系统的环境变量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">export WORKDIR_OSM=$HOME/.osmosis</div></pre></td></tr></table></figure>
-<p>初始化工作目录</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mkdir $WORKDIR_OSM</div><div class="line">osmosis --read-replication-interval-init workingDirectory=$WORKDIR_OSM</div></pre></td></tr></table></figure>
-<p>上面的命令告诉 <em>osmosis</em> 从哪个目录寻找更新的信息，以及下载数据到哪里。<em>osmosis</em> 会在这个目录里创建 <em>configuration.txt</em> 和 <em>download.lock</em> 这两个文件。<em>download.lock</em> 文件用来确保同一时刻只会进行一个更新任务。<em>configuration.txt</em> 文件则用来指定更新的频率。默认情况下，<em>osmosis</em> 会提取每分钟的更改集，如果想改为提取每小时或者是天的，可以把 <em>configuration.txt</em> 里的 <em>baseurl</em> 中的 <em>replication/minute/</em> 部分改为 <em>replication/hour/</em> 或者 <em>replication/day/</em>。默认情况下每次执行更新任务最多只会提取1分钟的更改集，可以把 <em>maxInterval=3600</em> 设为0，这样子就可以一次提取所有的更改集。</p>
-<p>为了让<em>osmosis</em>知道从哪个时刻开始进行更新，我们还要告诉它我们刚刚导入的数据的时间，访问<a href="https://osm.mazdermind.de/replicate-sequences/" target="_blank" rel="external">Peter Körner’s website tool</a>，输入我们的数据的时间，可以得到一个UTC格式的时间文件，把它保存到工作目录中，并命名为 <em>state.txt</em>。</p>
-<p>执行更新任务</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">osmosis -q --rri --bc --simc --bc --write-xml-change &quot;-&quot; | osm2pgsql -s -a -b &quot;73,3,136,54&quot; -U gis -d osm -P 5432 -H localhost -e 15 -o expire.list -</div></pre></td></tr></table></figure>
-<p>上述的命令中，如果导入的是全球的数据就不需要有 <em>-b</em> 参数。<em>expire.list</em> 中包含的是第15级的 dirty tile（即数据有更新的瓦片），这些瓦片需要重新生成。</p>
-<p>linux 上可以使用 crontab 命令定期执行上述命令，这样就可以得到一个以分钟级的频率与 OSM 数据保持同步的本地数据库了。</p>
-<p>如果使用 <em>-b</em> 选项指定了更新的范围，可能会使数据库变大，此时可以使用下面的 sql 删除掉无关的 way 和 relation。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">DELETE FROM planet_osm_ways AS w WHERE 0 = (SELECT count(1) FROM planet_osm_nodes AS n WHERE n.id = ANY(w.nodes));</div><div class="line"></div><div class="line">DELETE FROM planet_osm_rels AS r WHERE</div><div class="line">  0=(SELECT count(1) FROM planet_osm_nodes AS n WHERE n.id = ANY(r.parts))</div><div class="line">AND</div><div class="line">  0=(SELECT count(1) FROM planet_osm_ways AS w WHERE w.id = ANY(r.parts));</div><div class="line">REINDEX TABLE planet_osm_ways;</div><div class="line">REINDEX TABLE planet_osm_rels;</div><div class="line">VACUUM FULL;</div></pre></td></tr></table></figure>
+<h2 id="文件信息"><a href="#文件信息" class="headerlink" title="文件信息"></a>文件信息</h2><p>包括</p>
+<ul>
+<li>总文件数</li>
+<li>代码总行数</li>
+<li>平均文件大小</li>
+<li>文件数量随时间变化曲线</li>
+<li>各种类型文件的数量及占的百分比</li>
+</ul>
+<h2 id="代码信息"><a href="#代码信息" class="headerlink" title="代码信息"></a>代码信息</h2><ul>
+<li>总代码行数</li>
+<li>代码行数随时间的变化曲线</li>
+</ul>
+<p>总之，自动化地使用 GitStats 生成项目的统计信息能够大大减轻了对多个代码仓库各项指标的跟踪工作，易于管理者统计一段时间来仓库的变化以及每一位贡献者的提交统计。</p>
+<p>看了这么多，如果你对 GitStats 感兴趣并想尝试一下，可以 clone 我的<a href="https://github.com/cartosquare/git-commits-vis.git" target="_blank" rel="external">代码</a>来批量生成你的所有仓库的统计信息。</p>
 
       
     </div>
@@ -422,7 +457,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OSM/" rel="tag">#OSM</a>
+            <a href="/tags/git-commits/" rel="tag">#git commits</a>
+          
+            <a href="/tags/statistic-logs/" rel="tag">#statistic logs</a>
           
         </div>
       
@@ -431,17 +468,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/22/sorting-algorithms/" rel="next" title="常用的排序算法">
-                <i class="fa fa-chevron-left"></i> 常用的排序算法
+              <a href="/2016/08/26/scrum-game-rules/" rel="next" title="Scrum 游戏规则">
+                <i class="fa fa-chevron-left"></i> Scrum 游戏规则
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/25/hexo-for-blogs/" rel="prev" title="使用 hexo 搭建个人博客">
-                使用 hexo 搭建个人博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -467,8 +500,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/07/minutely-osm-database/"
-           data-title="实时更新OSM数据库" data-url="http://cartosquare.github.io/2016/05/07/minutely-osm-database/">
+      <div class="ds-thread" data-thread-key="2016/08/27/statistic-git-commits/"
+           data-title="git commits 统计分析" data-url="http://cartosquare.github.io/2016/08/27/statistic-git-commits/">
       </div>
     
   </div>
@@ -597,7 +630,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖的工具"><span class="nav-number">1.</span> <span class="nav-text">依赖的工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化数据库"><span class="nav-number">2.</span> <span class="nav-text">初始化数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设定更新频率"><span class="nav-number">3.</span> <span class="nav-text">设定更新频率</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一般统计信息"><span class="nav-number">1.</span> <span class="nav-text">一般统计信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#活动信息"><span class="nav-number">2.</span> <span class="nav-text">活动信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#贡献者信息"><span class="nav-number">3.</span> <span class="nav-text">贡献者信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件信息"><span class="nav-number">4.</span> <span class="nav-text">文件信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码信息"><span class="nav-number">5.</span> <span class="nav-text">代码信息</span></a></li></ol></div>
             
           </div>
         </section>
