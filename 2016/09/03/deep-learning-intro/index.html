@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="OSM," />
+  <meta name="keywords" content="深度学习,影像识别,深度卷积神经网络," />
 
 
 
@@ -102,16 +102,22 @@
 
 
 
-<meta name="description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。">
+<meta name="description" content="最近深度学习在计算机视觉领域取得了巨大的突破，更是随着AlphaGo与李世石的大战被普通老百姓所津津乐道。传统的遥感影像识别势必会在深度学习的影响下向前进一步发展，用深度学习来探索地球在不远的将来也将成为现实。
+什么是深度学习深度学习实际上依赖的是深度神经网络。最近在计算机视觉上取得重大突破的是一种称为深度卷积神经网络的结构。科学研究表明，人的大脑里面有成百上千亿个神经元，这些神经元组成的网络支持">
 <meta property="og:type" content="article">
-<meta property="og:title" content="实时更新OSM数据库">
-<meta property="og:url" content="http://cartosquare.github.io/2016/05/07/minutely-osm-database/index.html">
+<meta property="og:title" content="用深度学习来探索地球，你信吗？">
+<meta property="og:url" content="http://cartosquare.github.io/2016/09/03/deep-learning-intro/index.html">
 <meta property="og:site_name" content="CartoSquare">
-<meta property="og:description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。">
-<meta property="og:updated_time" content="2016-08-27T02:28:34.000Z">
+<meta property="og:description" content="最近深度学习在计算机视觉领域取得了巨大的突破，更是随着AlphaGo与李世石的大战被普通老百姓所津津乐道。传统的遥感影像识别势必会在深度学习的影响下向前进一步发展，用深度学习来探索地球在不远的将来也将成为现实。
+什么是深度学习深度学习实际上依赖的是深度神经网络。最近在计算机视觉上取得重大突破的是一种称为深度卷积神经网络的结构。科学研究表明，人的大脑里面有成百上千亿个神经元，这些神经元组成的网络支持">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/deep-learning-intro/cnn_brain.png">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/deep-learning-intro/cnn.png">
+<meta property="og:updated_time" content="2016-09-03T16:19:37.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实时更新OSM数据库">
-<meta name="twitter:description" content="巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。OpenStreetMap（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。">
+<meta name="twitter:title" content="用深度学习来探索地球，你信吗？">
+<meta name="twitter:description" content="最近深度学习在计算机视觉领域取得了巨大的突破，更是随着AlphaGo与李世石的大战被普通老百姓所津津乐道。传统的遥感影像识别势必会在深度学习的影响下向前进一步发展，用深度学习来探索地球在不远的将来也将成为现实。
+什么是深度学习深度学习实际上依赖的是深度神经网络。最近在计算机视觉上取得重大突破的是一种称为深度卷积神经网络的结构。科学研究表明，人的大脑里面有成百上千亿个神经元，这些神经元组成的网络支持">
+<meta name="twitter:image" content="http://cartosquare.github.io/images/blogs/deep-learning-intro/cnn_brain.png">
 
 
 
@@ -132,9 +138,9 @@
 
 
 
-  <link rel="canonical" href="http://cartosquare.github.io/2016/05/07/minutely-osm-database/"/>
+  <link rel="canonical" href="http://cartosquare.github.io/2016/09/03/deep-learning-intro/"/>
 
-  <title> 实时更新OSM数据库 | CartoSquare </title>
+  <title> 用深度学习来探索地球，你信吗？ | CartoSquare </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -284,7 +290,7 @@
             
             
               
-                实时更新OSM数据库
+                用深度学习来探索地球，你信吗？
               
             
           </h1>
@@ -296,8 +302,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-07T00:00:00+08:00" content="2016-05-07">
-              2016-05-07
+            <time itemprop="dateCreated" datetime="2016-09-03T20:01:42+08:00" content="2016-09-03">
+              2016-09-03
             </time>
           </span>
 
@@ -326,8 +332,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/05/07/minutely-osm-database/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/minutely-osm-database/" itemprop="commentsCount"></span>
+                <a href="/2016/09/03/deep-learning-intro/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/deep-learning-intro/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -337,7 +343,7 @@
 
           
           
-             <span id="/2016/05/07/minutely-osm-database/" class="leancloud_visitors" data-flag-title="实时更新OSM数据库">
+             <span id="/2016/09/03/deep-learning-intro/" class="leancloud_visitors" data-flag-title="用深度学习来探索地球，你信吗？">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -359,35 +365,30 @@
       
 
       
-        <p>巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。<a href="http://www.openstreetmap.org/" target="_blank" rel="external">OpenStreetMap</a>（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。</p>
-<a id="more"></a>
-<h2 id="依赖的工具"><a href="#依赖的工具" class="headerlink" title="依赖的工具"></a>依赖的工具</h2><ul>
-<li><p><a href="https://github.com/openstreetmap/osm2pgsql" target="_blank" rel="external">osm2pgsql</a> osm2pgsql  可以将 OSM 的数据导入 PostgreSQL 中，转化成易于渲染的结构，并且支持增量更新。</p>
-</li>
-<li><p><a href="https://github.com/openstreetmap/osmosis" target="_blank" rel="external">osmosis</a> osmosis 是一个 java 的命令行工具，主要用来进行 OSM 数据的各种格式之间的转换，这里用来从 OSM 远程服务器中获取更改集，从而 osm2pgsql 可以将此更改集增量应用到数据库中。</p>
-</li>
-<li><p>PostgreSQL, 带 postgis 拓展</p>
-</li>
-</ul>
-<h2 id="初始化数据库"><a href="#初始化数据库" class="headerlink" title="初始化数据库"></a>初始化数据库</h2><p>下载<a href="http://planet.openstreetmap.org/" target="_blank" rel="external">全球</a>或者<a href="http://download.geofabrik.de/index.html" target="_blank" rel="external">某个区域</a>的 osm 数据，最好选择 pbf 格式，相比于 xml 格式，pbf 格式会小很多。下载的时候记下数据的生产时间，下面选择同步起始时间的时候会用到，这个时间在下载的页面里会有说明。</p>
-<p>使用下述 sql 创建一个数据库，并且建立拓展。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">createdb osm</div><div class="line">psql -d osm -c &apos;CREATE EXTENSION postgis; CREATE EXTENSION hstore;&apos;</div></pre></td></tr></table></figure>
-<p>这里 osm 是我的数据库名，如果不习惯用命令行，可以用 pgAdmin 来进行上述操作。总之，现在我们有了一个全新的带有空间拓展的数据库了。</p>
-<p>使用下面的命令导入之前下载好的数据</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">osm2pgsql -c -d osm --slim -C &lt;75% Mem&gt; --flat-nodes &lt;flat nodes&gt; -U gis -W -H localhost -P 5432 you.osm.pbf</div></pre></td></tr></table></figure>
-<p>这里有几个地方要注意，一个是<em>-C</em>选项最好指定你电脑的内存的75%，单位为 Mb，并且最大只能为30000，<em>–flat-nodes</em> 用来指定一个文件路径，存放这个文件的位置至少要有20G的空闲空间（如果导入全球数据的话）。<br>执行这个命令可能会耗费一段时间，特别是导入全球数据，可能需要几天，如果导入全国的数据，我用8G内存的 Macbook Pro 只需要不到一个小时。注意虽然我们下载的数据量可能不是很大，但是导入到数据库后会占据很可观的数据磁盘空间，我的笔记本里全国的数据占据了接近10G的空间，因此导入比较大的范围的数据需要保证有足够的磁盘空间可用。</p>
-<h2 id="设定更新频率"><a href="#设定更新频率" class="headerlink" title="设定更新频率"></a>设定更新频率</h2><p>首先指定更新的工作目录。下面的这行可以放到主目录下的 .bash_profile 里，如果是 windows 用户可以新建一个系统的环境变量。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">export WORKDIR_OSM=$HOME/.osmosis</div></pre></td></tr></table></figure>
-<p>初始化工作目录</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mkdir $WORKDIR_OSM</div><div class="line">osmosis --read-replication-interval-init workingDirectory=$WORKDIR_OSM</div></pre></td></tr></table></figure>
-<p>上面的命令告诉 <em>osmosis</em> 从哪个目录寻找更新的信息，以及下载数据到哪里。<em>osmosis</em> 会在这个目录里创建 <em>configuration.txt</em> 和 <em>download.lock</em> 这两个文件。<em>download.lock</em> 文件用来确保同一时刻只会进行一个更新任务。<em>configuration.txt</em> 文件则用来指定更新的频率。默认情况下，<em>osmosis</em> 会提取每分钟的更改集，如果想改为提取每小时或者是天的，可以把 <em>configuration.txt</em> 里的 <em>baseurl</em> 中的 <em>replication/minute/</em> 部分改为 <em>replication/hour/</em> 或者 <em>replication/day/</em>。默认情况下每次执行更新任务最多只会提取1分钟的更改集，可以把 <em>maxInterval=3600</em> 设为0，这样子就可以一次提取所有的更改集。</p>
-<p>为了让<em>osmosis</em>知道从哪个时刻开始进行更新，我们还要告诉它我们刚刚导入的数据的时间，访问<a href="https://osm.mazdermind.de/replicate-sequences/" target="_blank" rel="external">Peter Körner’s website tool</a>，输入我们的数据的时间，可以得到一个UTC格式的时间文件，把它保存到工作目录中，并命名为 <em>state.txt</em>。</p>
-<p>执行更新任务</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">osmosis -q --rri --bc --simc --bc --write-xml-change &quot;-&quot; | osm2pgsql -s -a -b &quot;73,3,136,54&quot; -U gis -d osm -P 5432 -H localhost -e 15 -o expire.list -</div></pre></td></tr></table></figure>
-<p>上述的命令中，如果导入的是全球的数据就不需要有 <em>-b</em> 参数。<em>expire.list</em> 中包含的是第15级的 dirty tile（即数据有更新的瓦片），这些瓦片需要重新生成。</p>
-<p>linux 上可以使用 crontab 命令定期执行上述命令，这样就可以得到一个以分钟级的频率与 OSM 数据保持同步的本地数据库了。</p>
-<p>如果使用 <em>-b</em> 选项指定了更新的范围，可能会使数据库变大，此时可以使用下面的 sql 删除掉无关的 way 和 relation。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">DELETE FROM planet_osm_ways AS w WHERE 0 = (SELECT count(1) FROM planet_osm_nodes AS n WHERE n.id = ANY(w.nodes));</div><div class="line"></div><div class="line">DELETE FROM planet_osm_rels AS r WHERE</div><div class="line">  0=(SELECT count(1) FROM planet_osm_nodes AS n WHERE n.id = ANY(r.parts))</div><div class="line">AND</div><div class="line">  0=(SELECT count(1) FROM planet_osm_ways AS w WHERE w.id = ANY(r.parts));</div><div class="line">REINDEX TABLE planet_osm_ways;</div><div class="line">REINDEX TABLE planet_osm_rels;</div><div class="line">VACUUM FULL;</div></pre></td></tr></table></figure>
+        <p>最近深度学习在计算机视觉领域取得了巨大的突破，更是随着AlphaGo与李世石的大战被普通老百姓所津津乐道。传统的遥感影像识别势必会在深度学习的影响下向前进一步发展，用深度学习来探索地球在不远的将来也将成为现实。</p>
+<h2 id="什么是深度学习"><a href="#什么是深度学习" class="headerlink" title="什么是深度学习"></a>什么是深度学习</h2><p>深度学习实际上依赖的是深度神经网络。最近在计算机视觉上取得重大突破的是一种称为深度卷积神经网络的结构。科学研究表明，人的大脑里面有成百上千亿个神经元，这些神经元组成的网络支持着大脑的识别、分析等活动。深度卷积神经网络正是对大脑神经元结构的一种仿生工程。</p>
+<p><img src="/images/blogs/deep-learning-intro/cnn_brain.png" alt="cnn_brain"></p>
+<p>拿图像识别为例。假设墙上挂有一副画，我们观察这幅画时，图像通过反射的光线进入到眼睛的成像系统，进而传给V1结构，V1结构包含大量的神经元，然后进入V4结构识别复杂的纹理，最后到达大脑皮层得出识别结果。</p>
+<p>大脑在识别这幅画的时候，是以一种分层的方式来逐步识别的，比如我们可能最开始注意到这是一幅森林的图像，然后再注意到图像里的一些比较锐利的线段、细微的纹理变化等等。最后我们就可以一一识别图像里的物体，比如树木、动物等。</p>
+<p>受人脑识别图像的启发，深度卷积神经网络也是由许多神经元组成，并且神经元分层排布。把图像里的所有像素作为输入，每一层的神经元都会去观测图像里的不同模式的特征，层数越深，观测的特征就越抽象，因为下一层的观测是在上一层观测的基础之上进行的。到最后一层，神经网络也被设计为输出图像里的物体类别。</p>
+<p>在使用神经网络分类之前，要使用大量的样本数据去训练神经网络，经过训练的神经网络知道哪些特征（或者特征的组合）对于分类的作用最为显著，在输入一个新的图像时，就可以用学习到的特征对图像进行分类。</p>
+<p><img src="/images/blogs/deep-learning-intro/cnn.png" alt="cnn"></p>
+<p>上图表示的是深度卷积神经网络识别图像的过程。最左边的鸟类图像是输入，最右边一层输出这个图像分别属于哪些类别的概率，从图中可以看出，这个图像属于bird这个类别的概率最大，说明神经网络成功识别出了图像。二者中间的许多层就是神经网络识别出来的不同的特征，在上图中，只把每层中最显著的10个特征可视化出来，实际上每一层的特征数量要远远大于10个。可以看出，层数越深，识别出来的特征就越抽象，这符合大脑的认知模式。</p>
+<p>深度卷积神经网络之所以能取得媲美人类大脑的分类精度，在于它和人脑一样，可以同时观测图像里不同模式的特征，并且分层处理。而传统的图像分类手段只是采取单一的特征去分类，因此精度远不如深度神经网络。为了让大家理解深度卷积神经网络同时观测的特征之多，我们可以做一个简单的计算：假设深度卷积神经网络第一个卷积层观测了12个特征，第二个卷积层在上一个卷积层的基础上观测了28个特征，那么总共就是28x12=336个特征，如果第三个卷积层在上一个卷积层的基础上观测128个特征，那么总共就是336x128=43008个特征……而现在最多的深度卷积网络已经超过了上百层，可想而知观测的特征是极其庞大的，所以说用“上帝之眼”来形容深度卷积网络识别图像的过程一点都不为过。而这也是深度卷积网络获得成功的关键所在。在这么多特征中，总能找到能够很好分类图像的显著特征。</p>
+<h2 id="深度学习在影像识别中的应用"><a href="#深度学习在影像识别中的应用" class="headerlink" title="深度学习在影像识别中的应用"></a>深度学习在影像识别中的应用</h2><p>传统的影像解译主要是根据影像中的色调、几何形态、纹理等特征来识别物体，而深度学习可以自动地观测数量庞大的特征来进行识别。遥感影像和普通的图片相比有优点也有缺点，优点是遥感影像不局限于普通彩色图片的RGB三个波段，越多的波段能够观测的特征就越多，也就越容易进行识别；而缺点则是遥感影像的分辨率一般没有图片那么高，但是现在随着越来越多的高精度传感器被发射升空，未来这个缺点将会被逐步克服。</p>
+<p>借助深度学习网络，我们就可以自动化地对影像进行识别、甚至是搜索。下面是我在公司做的一个 demo 视频：</p>
+<iframe height="320" width="100%" src="http://player.youku.com/embed/XMTY2NzQ2NTYyNA==" frameborder="0" allowfullscreen></iframe>
+
+<p>你也可以尝试这个<a href="http://demo.geohey.com/terrain-context/2" target="_blank" rel="external">交互demo</a>来识别你感兴趣的地区。</p>
+<p>除了分类，深度卷积神经网络还可以对原始图像进行分割。下面的demo可以从你选择的矩形范围内分割出其中的建筑出来。</p>
+<iframe height="320" width="100%" src="http://demo.geohey.com:8898/" frameborder="0" allowfullscreen></iframe>
+
+
+<p>如果我们能够对遥感影像进行分类和分割，那可以应用在哪里呢？</p>
+<p>首先是<strong>识别</strong>，这个应用场景是我们要寻找某个区域内的地物的时候，比如马航失事飞机的搜索、战时敌军机场的寻找等等。除了简单的搜索，还可以进行相似地物的搜索，正如上面分类 demo 展示的，当你选中一个地物时，我们可以搜索出和这个地物相似的其它地物。</p>
+<p>其次是<strong>数据采集</strong>，矢量地图往往无法包含所有要素信息，并且更新间隔较长。如果能够从卫星影像中提取出矢量信息，补充到矢量数据库中，则可以极大减少人力采集数据的成本和数据更新的时间。比如，上面的建筑分割 demo ，我们可以很容易通过分割的方式统计某个城市建筑的面积。将来，如果分割精度进一步提高，完全可以自动化地提取全国的建筑矢量图层。</p>
+<p>最后是<strong>监控</strong>，卫星在空中每天围绕着地球转，利用它拍摄的影像来监控目标是十分合适的。比如，监控工地的建设进度、城市建成区的拓展、农作物的生长情况、河流的萎缩情况以及野生动物的活动等等，而这一切都要建立在影像自动识别的前提之下。</p>
+<p>当然，这里列出的并不完全，可以利用影像去做的事情还有更多！</p>
 
       
     </div>
@@ -436,7 +437,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/OSM/" rel="tag">#OSM</a>
+            <a href="/tags/深度学习/" rel="tag">#深度学习</a>
+          
+            <a href="/tags/影像识别/" rel="tag">#影像识别</a>
+          
+            <a href="/tags/深度卷积神经网络/" rel="tag">#深度卷积神经网络</a>
           
         </div>
       
@@ -445,17 +450,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/04/22/sorting-algorithms/" rel="next" title="常用的排序算法">
-                <i class="fa fa-chevron-left"></i> 常用的排序算法
+              <a href="/2016/08/29/propositions/" rel="next" title="计算机中的数学一：什么是命题">
+                <i class="fa fa-chevron-left"></i> 计算机中的数学一：什么是命题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/25/hexo-for-blogs/" rel="prev" title="使用 hexo 搭建个人博客">
-                使用 hexo 搭建个人博客 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -481,8 +482,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/05/07/minutely-osm-database/"
-           data-title="实时更新OSM数据库" data-url="http://cartosquare.github.io/2016/05/07/minutely-osm-database/">
+      <div class="ds-thread" data-thread-key="2016/09/03/deep-learning-intro/"
+           data-title="用深度学习来探索地球，你信吗？" data-url="http://cartosquare.github.io/2016/09/03/deep-learning-intro/">
       </div>
     
   </div>
@@ -611,7 +612,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#依赖的工具"><span class="nav-text">依赖的工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化数据库"><span class="nav-text">初始化数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设定更新频率"><span class="nav-text">设定更新频率</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是深度学习"><span class="nav-text">什么是深度学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深度学习在影像识别中的应用"><span class="nav-text">深度学习在影像识别中的应用</span></a></li></ol></div>
             
           </div>
         </section>
