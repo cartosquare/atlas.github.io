@@ -1,0 +1,969 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="数论,加密算法,RSA 算法," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="数论是现在无数的公钥加密系统、数字签名、加密哈希函数以及电子支付系统的基础。
+数论是关于整数的理论，首先来了解一些基本的概念和理论。
+整除定义：a 整除 b，当且仅当存在某个整数k，使得 $ak = b$。通常用符号 $a | b$ 来表示 a 整除 b。根据定义，如果 $a | b$，那么 b 就是 a 的整数倍。从这个定义可以得出，任何整数都可以整除 0。
+关于整除的一些引理
+如果 $a |">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数论和加密算法">
+<meta property="og:url" content="http://cartosquare.github.io/2016/09/15/number-theory-and-rsa-algorithm/index.html">
+<meta property="og:site_name" content="CartoSquare">
+<meta property="og:description" content="数论是现在无数的公钥加密系统、数字签名、加密哈希函数以及电子支付系统的基础。
+数论是关于整数的理论，首先来了解一些基本的概念和理论。
+整除定义：a 整除 b，当且仅当存在某个整数k，使得 $ak = b$。通常用符号 $a | b$ 来表示 a 整除 b。根据定义，如果 $a | b$，那么 b 就是 a 的整数倍。从这个定义可以得出，任何整数都可以整除 0。
+关于整除的一些引理
+如果 $a |">
+<meta property="og:updated_time" content="2016-09-15T17:25:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数论和加密算法">
+<meta name="twitter:description" content="数论是现在无数的公钥加密系统、数字签名、加密哈希函数以及电子支付系统的基础。
+数论是关于整数的理论，首先来了解一些基本的概念和理论。
+整除定义：a 整除 b，当且仅当存在某个整数k，使得 $ak = b$。通常用符号 $a | b$ 来表示 a 整除 b。根据定义，如果 $a | b$，那么 b 就是 a 的整数倍。从这个定义可以得出，任何整数都可以整除 0。
+关于整除的一些引理
+如果 $a |">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6322756439613900000,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://cartosquare.github.io/2016/09/15/number-theory-and-rsa-algorithm/"/>
+
+  <title> 数论和加密算法 | CartoSquare </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?45f95bde75317a93118efe0cfdfa761d";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">CartoSquare</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">关于地图的技术与工作方式</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数论和加密算法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-09-15T21:10:54+08:00" content="2016-09-15">
+              2016-09-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/数学/" itemprop="url" rel="index">
+                    <span itemprop="name">数学</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/09/15/number-theory-and-rsa-algorithm/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/15/number-theory-and-rsa-algorithm/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+             <span id="/2016/09/15/number-theory-and-rsa-algorithm/" class="leancloud_visitors" data-flag-title="数论和加密算法">
+               &nbsp; | &nbsp;
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               <span class="post-meta-item-text">阅读次数 </span>
+               <span class="leancloud-visitors-count"></span>
+              </span>
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>数论是现在无数的公钥加密系统、数字签名、加密哈希函数以及电子支付系统的基础。</p>
+<p>数论是关于整数的理论，首先来了解一些基本的概念和理论。</p>
+<h2 id="整除"><a href="#整除" class="headerlink" title="整除"></a>整除</h2><p>定义：a 整除 b，当且仅当存在某个整数k，使得 $ak = b$。<br>通常用符号 $a | b$ 来表示 a 整除 b。根据定义，如果 $a | b$，那么 b 就是 a 的整数倍。从这个定义可以得出，任何整数都可以整除 0。</p>
+<h3 id="关于整除的一些引理"><a href="#关于整除的一些引理" class="headerlink" title="关于整除的一些引理"></a>关于整除的一些引理</h3><ul>
+<li>如果 $a | b$，那么对于任意 c，都有 $a | bc$</li>
+<li>如果 $a | b$ 并且 $b | c$， 那么 $a | c$</li>
+<li>如果 $a | b$ 并且 $a | c$，那么对于任意 s 和 t 都有 $a | sb + tc$</li>
+<li>对于任意 $c \neq 0$, $a | b$ 当且仅当 $ca | cb$</li>
+</ul>
+<h3 id="当无法整除的时候-…"><a href="#当无法整除的时候-…" class="headerlink" title="当无法整除的时候 …"></a>当无法整除的时候 …</h3><p>整除定理：令 n 和 d 为整数且$d \gt 0$，存在唯一的一对整数 q 和 r，使得：</p>
+<p>$$n = q \cdot d + r \;AND\; 0 \le r \lt d$$</p>
+<p>其中 q 称为 n 被 d 除的<em>商</em>，而 r 称为 n 被 d 除的<em>余数</em>。接下来我们用 $qcnt(n, d)$ 和 $rem(n, d)$ 分别表示这两者。举个栗子，$qcnt(2716, 10) = 271$ , $rem(2716, 10) = 6$，因为 $2716 = 271 * 10 + 6$</p>
+<h2 id="最大公约数"><a href="#最大公约数" class="headerlink" title="最大公约数"></a>最大公约数</h2><p>a 和 b 的最大公约数是指能同时整除 a 和 b 的最大整数，通常用符号 $gcd(a,b)$表示。（gcd 是 greatest common divisor 的缩写）。比如，$gcd(18,24) = 6$</p>
+<h3 id="最大公约数和线性组合"><a href="#最大公约数和线性组合" class="headerlink" title="最大公约数和线性组合"></a>最大公约数和线性组合</h3><p>定理：a 和 b 的最大公约数是 a 和 b 可能的线性组合中最小的一个。<br>比如，54和44的最大公约数是4，显然4是52和44的一个线性组合：</p>
+<p>$$6 \cdot 52 + (-7) \cdot 44 = 4$$</p>
+<p>并且，52和44的其它线性组合没有比4更小的。</p>
+<p>推论：一个整数是 a 和 b 的线性组合，当且仅当它是 $gcd(a,b)$ 的倍数<br>推论：假设我们有两个容量分别为 a 和 b 的容器，每个容器里能准确量出的水量永远是 a 和 b 的线性组合，也即是 a 和 b 的最大公约数的倍数。</p>
+<h3 id="最大公约数的性质"><a href="#最大公约数的性质" class="headerlink" title="最大公约数的性质"></a>最大公约数的性质</h3><ul>
+<li>每一个能整除 a 和 b 的数都能整数 $gcd(a,b)$</li>
+<li>对于任意 $k&gt;0$, 都有 $gcd(ka,kb) = k \cdot gcd(a,b)$</li>
+<li>如果 $gcd(a,b) = 1$，并且 $gcd(a,c) = 1$，那么 $gcd(a, bc) = 1$</li>
+<li>如果 $a | bc$，并且 $gcd(a,b) = 1$，那么 $a | c$</li>
+<li>$gcd(a, b) = gcd(b, rem(a, b))$</li>
+</ul>
+<p>其中第5点性质需要特别注意，它指导我们如何快速地计算两个数的最大公约数。比如：<br>$$gcd(28, 21) = gcd(21, rem(28,21)) = gcd(21, 7) = gcd(7, rem(21, 7)=gcd(7,0) = 7$$</p>
+<h2 id="算术基本定理"><a href="#算术基本定理" class="headerlink" title="算术基本定理"></a>算术基本定理</h2><p>算术基本定理：每一个正整数都可以写成唯一的由质数相乘的形式：<br>$$n = p_1 \cdot p_1 \cdot p_2 \cdot \cdot \cdot p_j \; (p_1 \lt p_1 \lt p_2 \cdot \cdot \cdot \lt p_j)$$</p>
+<p>这个定理告诉我们，每一个正整数都可以由一组质数相乘得到。</p>
+<h2 id="求余运算"><a href="#求余运算" class="headerlink" title="求余运算"></a>求余运算</h2><p>同余的定义：a 和 b 对 n 做求模操作是同余的，当且仅当 $n | (a - b)$，这可以写成：<br>$$a\equiv b\pmod n$$</p>
+<p>显然，当 a 和 b 的差能被 n 整除，那么 a 和 b 对 n 求模就没差异了，因为求模过程中要减去尽可能多的 n，而 a，b刚好相差整数个 n。</p>
+<p>比如，$29 \equiv 15 \pmod 7$，因为 $7 | (29 - 15)$</p>
+<p>同余和余数之间的关系：$a\equiv b\pmod n$ 当且仅当 $rem(a, n) = rem(b, n)$</p>
+<p>另一个推论：$a \equiv rem(a, n) \pmod n$<br>下面是一些同余的其它性质：</p>
+<ul>
+<li>$a \equiv a \pmod n$</li>
+<li>如果 $a \equiv b \pmod n$，那么 $b \equiv a \pmod n$</li>
+<li>如果 $a \equiv b \pmod n$ 并且 $b \equiv c \pmod n$，那么 $a \equiv c \pmod n$</li>
+<li>如果 $a \equiv b \pmod n$，那么 $a + c \equiv b + c \pmod n$</li>
+<li>如果 $a \equiv b \pmod n$，那么 $ac \equiv bc \pmod n$</li>
+<li>如果 $a \equiv b \pmod n$ 并且 $c \equiv d \pmod n$，那么 $a+c \equiv b+d \pmod n$</li>
+<li>如果 $a \equiv b \pmod n$ 并且 $c \equiv d \pmod n$，那么 $ac \equiv bd \pmod n$</li>
+</ul>
+<h2 id="质数求模算术"><a href="#质数求模算术" class="headerlink" title="质数求模算术"></a>质数求模算术</h2><h3 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h3><p>数 x 的乘法逆元表示为 $x^{-1}$，且有<br>$$x \cdot x^{-1} = 1$$<br>有一个例外是0没有逆元。实际上，乘法逆元是作用于实数域中的，比如 $3 * \frac 1 3 = 1$，而一个整数的逆元不可能还是一个整数。</p>
+<p>然而，在求模运算中，整数的逆元还可能是整数！比如，假设5是模数，那么 3 就是 7 的乘法逆元，因为：<br>$$7 \cdot 3 \equiv 1 \pmod 5$$</p>
+<p>事实上，所有以5为模数，和3同余的数都是7的乘法逆元。</p>
+<p>引理：如果 p 是质数，并且 k 不是 p 的整数倍，那么以 p 为模数，k 存在乘法逆元。</p>
+<h3 id="相消"><a href="#相消" class="headerlink" title="相消"></a>相消</h3><p>实数算术的一个特点是可以消除公约数，换句话说，如果 $m_1k=m2k$，且 $k \neq 0$，那么我们可以消去 k，得到 $m_1 = m_2$。然而，在求模算术中，消除公约数却是不允许的，比如：<br>$$2\cdot3 \equiv 4 \cdot 3 \pmod 6$$<br>消除3，上式就不成立了。然而，当模数是质数时，消除却是成立的。</p>
+<p>引理：假设 p 是一个质数，并且 k 不是 p 的倍数。那么：<br>如果 $ak \equiv bk \pmod p$，就有 $a \equiv b \pmod p$</p>
+<p>引理：假设 p 是一个质数，并且 k 不是 p 的倍数。那么序列：</p>
+<p> $$rem(1\cdot k, p), rem(2\cdot k, p), …, rem(((p-1)\cdot k), p)$$</p>
+<p> 是下面序列的一个排序：<br>$$1, 2, …, (p - 1) $$</p>
+<p>也即这两个序列相等，只是元素的顺序不同。</p>
+<h3 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h3><p>费马小定理：假设 p 是一个质数，k不是 p 的倍数，那么：<br>$$k^{p-1} \equiv 1 \pmod p$$</p>
+<p>根据费马小定理，有：<br>$$k^{p-2} \cdot k \equiv 1 \pmod p$$<br>因此，$k^{p-2}$一定是 k 的乘法逆元</p>
+<h2 id="任意模量的算术"><a href="#任意模量的算术" class="headerlink" title="任意模量的算术"></a>任意模量的算术</h2><h3 id="互质"><a href="#互质" class="headerlink" title="互质"></a>互质</h3><p>数 a 和数 b 是互质的，当且仅当 $gcd(a, b) = 1$。比如，8和15是互质的，因为二者的最大公约数为1。注意到，除了质数的倍数，所有整数和某个质数 p 都是互质的。</p>
+<p>引理：令 n 是一个正整数。如果 k 与 n 互质，那么存在一个整数 $k^{-1}$使得：<br>$$k \cdot k^{-1} \equiv 1 \pmod n$$<br>从这个引理可以看出，不需模数是质数，只要 k 和 n互质，就可以安全地进行消去操作。</p>
+<p>推论：假设 n 是一个正整数并且 k 与 n 互质，如果<br>$$ak \equiv bk \pmod n$$<br>那么<br>$$a \equiv b \pmod n$$</p>
+<p>引理：假设 n 是一个正整数并且 k 与 n 互质。那么序列：</p>
+<p> $$rem(k_1\cdot k, n), rem(k_2\cdot k, n), …, rem((k_r\cdot k), n)$$</p>
+<p> 是下面序列的一个排序：<br>$$k_1, k_2, …, k_r$$</p>
+<p>也即这两个序列相等，只是元素的顺序不同。</p>
+<h3 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h3><p>欧拉函数 $\phi(n)$表示集合${1,2,…,n}$中和 n 互质的数的个数。比如$\phi(7) = 6$，因为1，2，3，4，5，6与7是互质的。</p>
+<p>定理：对任意的数 n， 如果$p_1,p_2,…,p_j$ 是 n 的互不相同的质因子，那么：<br>$$\phi(n) = n(1-\frac 1 p_1)(1-\frac 1 p_2)\cdot \cdot \cdot (1-\frac 1 p_j)$$</p>
+<p>推论：令 $n = pq$，p，q 为不同的质数，那么 $\phi(n) = (p - 1)(q - 1)$</p>
+<p>欧拉定理：假设 n 是一个正整数并且 k 与 n 互质，那么：<br>$$k^{\phi(n)} \equiv 1 \pmod n$$</p>
+<h2 id="图灵的故事"><a href="#图灵的故事" class="headerlink" title="图灵的故事"></a>图灵的故事</h2><p>图灵是计算机领域的天才，也是他最早提出用数论来解决加密传输的问题。当时它未把文章发表，只留有代码，下面我们就看看众多的计算机学家如何从图灵的代码开始，一步步完善，最终形成如今成熟加密系统的过程。</p>
+<h3 id="图灵代码（版本1-0）"><a href="#图灵代码（版本1-0）" class="headerlink" title="图灵代码（版本1.0）"></a>图灵代码（版本1.0）</h3><p>实现加密传输的第一个问题是要把文字信息转换为整数，这样我们就可以对整数应用数学操作。这个过程不是加密的过程，因此可以使用一些简单的办法，比如把每个字符或者汉子用一个数字表示，所有字符表示的数字串联在一起就形成了一个很大的整数。比如，“今晚两点行动”可以用下面的方法编码：<br>    今   晚   两   点   行   动<br>    22  09  03  20  15  25<br>图灵的代码需要信息被编码成一个质数，而实际上，通过在原有的整数后面添加几位数可以达到这个要求，这个算法已经比较成熟。信息被编码成质数后，加密和解密的过程按照下面的方式进行。假设 m 是未加密的信息，$m^*$是加密后的信息，k是密钥：</p>
+<p><strong>开始前</strong> 信息的发送和接收方在某个阴暗的街角确定一个密钥k，k是一个很大的质数。</p>
+<p><strong>加密</strong> 信息的发送方通过下面的方式加密信息：<br>$$m^* = m \cdot k$$</p>
+<p><strong>解密</strong> 信息的接收方通过下面的方式还原信息：<br>$${m^* \over k} = {m \cdot k \over k} = m$$</p>
+<p>图灵算法加密过后的数是原来的质数与一个很大的质数密钥相乘的结果，是一个很大的数，要想直接因式分解这个数得到密钥k是很难得一件事，然而，使用数论的技巧却可以很容易打破这个系统。<br>假设我们得到了两个经过加密的信息：</p>
+<p>$$m_1^\ast= m_1 \cdot k \;and\; m_2^\ast= m_2 \cdot k$$</p>
+<p>那么$m_1^\ast$$和$$m_2^\ast$的最大公约数就是k！从前面可以知道，k可以非常快速地求出来！</p>
+<h3 id="图灵代码（版本2-0）"><a href="#图灵代码（版本2-0）" class="headerlink" title="图灵代码（版本2.0）"></a>图灵代码（版本2.0）</h3><p><strong>开始前</strong> 信息的发送和接收方确定一个很大的质数 p, p可以是公开的（p将作为我们的模数）。另外，他们还偷偷地确定一个私有密钥$k\in {1,2,…,p-1}$</p>
+<p><strong>加密</strong> 信息 m 可以是集合${0,1,2,…,p-1}$中的任意一个数，并且 m 不需要是质数。信息的发送方通过下面的方式加密信息：<br>$$m^* = rem(mk, p)$$<br>可以看出，加密过程不是简单的求积，而是将求积的结果取了模</p>
+<p><strong>解密</strong> 首先计算出k的乘法逆元$k^{-1}$，那么有<br>$$m = rem(m^*k^{-1}, p)$$</p>
+<p>实际上，这个思路的公钥k也极容易泄露出去！统计者只需要知道一对加密前和加密后的信息就可以窃取公钥。</p>
+<h3 id="RSA-算法"><a href="#RSA-算法" class="headerlink" title="RSA 算法"></a>RSA 算法</h3><p>RSA 公钥加密算法是目前使用最广泛的加密算法，很难被窃取，下面是它的信息传递过程。</p>
+<p><strong>开始前</strong> 信息接收方使用下面的方式创建一个公钥和一个私钥</p>
+<ol>
+<li>生成两个不同的质数，p 和 q。由于它们要用来生成私钥，因此必须要藏好。</li>
+<li>让 n = pq。</li>
+<li>选择一个整数 e 是得 $gcd(e, (p-1)(q-1)) = 1$。公钥对就是(e, n),可以被广泛分发。</li>
+<li>计算 d，使得 $de \equiv 1 \pmod {(p-1)(q-1)}$。私钥对就是(d, n),必须要藏好。</li>
+</ol>
+<p><strong>加密</strong> 给定一个信息 m，发送方首先检查 $gcd(m, n) = 1$,接着用公钥对信息进行加密：<br>$$m^*=rem(m^e,n)$$</p>
+<p><strong>解密</strong> 使用私钥把加密的信息还原回去：<br>$$m=rem((m^*)^d, n)$$</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat-qrcode.jpg" alt="Atlas wechat" style="width: 200px; max-width: 100%;"/>
+    <div>关注微信号来订阅博客</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>如果觉得文章有用，请小额捐赠¥3</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Atlas WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay.jpg" alt="Atlas Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数论/" rel="tag">#数论</a>
+          
+            <a href="/tags/加密算法/" rel="tag">#加密算法</a>
+          
+            <a href="/tags/RSA-算法/" rel="tag">#RSA 算法</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/03/deep-learning-intro/" rel="next" title="用深度学习来探索地球，你信吗？">
+                <i class="fa fa-chevron-left"></i> 用深度学习来探索地球，你信吗？
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/09/15/number-theory-and-rsa-algorithm/"
+           data-title="数论和加密算法" data-url="http://cartosquare.github.io/2016/09/15/number-theory-and-rsa-algorithm/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Atlas" />
+          <p class="site-author-name" itemprop="name">Atlas</p>
+          <p class="site-description motion-element" itemprop="description">只闻花香，不谈悲喜；喝茶读书，不争朝夕。</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/cartosquare" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.geohey.com/author/atlasxu/" target="_blank" title="WorkBlog">
+                  
+                    <i class="fa fa-fw fa-pencil-square-o"></i>
+                  
+                  WorkBlog
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <i class="fa  fa-fw fa-globe"></i>
+              Links
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+                <li class="links-of-blogroll-item">
+                  <a href="https://geohey.com" title="GeoHey" target="_blank">GeoHey</a>
+                </li>
+              
+                <li class="links-of-blogroll-item">
+                  <a href="http://git.oschina.net/xiangxu" title="GitOSC" target="_blank">GitOSC</a>
+                </li>
+              
+            </ul>
+          </div>
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#整除"><span class="nav-text">整除</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于整除的一些引理"><span class="nav-text">关于整除的一些引理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当无法整除的时候-…"><span class="nav-text">当无法整除的时候 …</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最大公约数"><span class="nav-text">最大公约数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#最大公约数和线性组合"><span class="nav-text">最大公约数和线性组合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最大公约数的性质"><span class="nav-text">最大公约数的性质</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#算术基本定理"><span class="nav-text">算术基本定理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#求余运算"><span class="nav-text">求余运算</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#质数求模算术"><span class="nav-text">质数求模算术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#乘法逆元"><span class="nav-text">乘法逆元</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相消"><span class="nav-text">相消</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#费马小定理"><span class="nav-text">费马小定理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#任意模量的算术"><span class="nav-text">任意模量的算术</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#互质"><span class="nav-text">互质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#欧拉定理"><span class="nav-text">欧拉定理</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图灵的故事"><span class="nav-text">图灵的故事</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#图灵代码（版本1-0）"><span class="nav-text">图灵代码（版本1.0）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图灵代码（版本2-0）"><span class="nav-text">图灵代码（版本2.0）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RSA-算法"><span class="nav-text">RSA 算法</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Atlas</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"xuxiang"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+      for (i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("10YAS9M2R9KOAXrUi439Oxnq-gzGzoHsz", "MiIO1wgWvfdB9pVTgqIrI8tl");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+</body>
+</html>
