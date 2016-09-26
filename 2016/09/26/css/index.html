@@ -107,7 +107,7 @@
 <meta property="og:url" content="http://cartosquare.github.io/2016/09/26/css/index.html">
 <meta property="og:site_name" content="CartoSquare">
 <meta property="og:image" content="http://cartosquare.github.io/images/blogs/html-tags/css.png">
-<meta property="og:updated_time" content="2016-09-26T15:09:11.000Z">
+<meta property="og:updated_time" content="2016-09-26T15:10:29.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS 属性">
 <meta name="twitter:image" content="http://cartosquare.github.io/images/blogs/html-tags/css.png">
@@ -461,10 +461,8 @@
 </li>
 </ul>
 <h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul>
-<li>list-style-type<br>项目列表样式。<br>对于无序列表，可以取值：<br>none，disc，circle，square</li>
-</ul>
-<p>对于有序列表，可以取值：<br>decimal， decimal-leding-zero，lower-alpha， upper-alpha， lower-roman， upper-roman</p>
-<ul>
+<li><p>list-style-type<br>项目列表样式。<br>对于无序列表，可以取值：<br>none，disc，circle，square<br>对于有序列表，可以取值：<br>decimal， decimal-leding-zero，lower-alpha， upper-alpha， lower-roman， upper-roman</p>
+</li>
 <li><p>list-style-image<br>使用图片作为项目列表符号</p>
 </li>
 <li><p>list-style-position<br>默认情况下，列表会缩进到页面中。该属性用于表示标记显示的位置，是在包含主题内容的盒子内部，还是在其外部：outside， inside。</p>
@@ -521,16 +519,16 @@
 <h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><ul>
 <li>position</li>
 </ul>
-<p>三种用于控制页面布局的定位机制：<br>普通流<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:static</div></pre></td></tr></table></figure></p>
+<p>三种用于控制页面布局的定位机制：<br><strong>普通流</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:static</div></pre></td></tr></table></figure></p>
 <p>每个块级元素都换行显示，以至于页面中的每个项目都显示在前一个项目的下面。即使指定了盒子的宽度，并且也有足够的空间让两个元素并排显示，但是他们还是不会出现在一起。这是浏览器的默认行为。</p>
-<p>相对定位<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:relative</div></pre></td></tr></table></figure></p>
+<p><strong>相对定位</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:relative</div></pre></td></tr></table></figure></p>
 <p>把一个元素从它在普通流中所处的位置进行上、下、左、右的移动。这种移动不会影响周围元素的位置，他们还是处于普通流中所处的位置。</p>
 <p>通过制定 top，left，right，bottom 属性可以把一个元素以其在普通流中所处的位置为起点进行移动。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">p.example &#123;</div><div class="line">    position: relative;</div><div class="line">    top: 10px;</div><div class="line">    left: 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>绝对定位<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:absolute</div></pre></td></tr></table></figure></p>
+<p><strong>绝对定位</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:absolute</div></pre></td></tr></table></figure></p>
 <p>绝对定位的元素的位置相对于它包含的元素。它完全脱离了普通流，也就是说不会影响到周围任何元素的位置。使用绝对定位的元素随着页面的滚动而移动。</p>
 <p>盒子的位移属性 top，left，right，bottom 用于指定元素相对于它的包含元素应该显示什么位置。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">h1 &#123;</div><div class="line">    position: absolute;</div><div class="line">    top: 0px;</div><div class="line">    left: 500px;</div><div class="line">    width: 250px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>在上面的例子中，h1元素被定位于页面顶端并距离页面左侧边缘500像素的位置。</p>
-<p>固定定位<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:fixed</div></pre></td></tr></table></figure></p>
+<p><strong>固定定位</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:fixed</div></pre></td></tr></table></figure></p>
 <p>固定定位是绝对定位的一种形式，与相对于包含元素的定位不同，他是将元素相对于浏览器窗口进行定位。固定定位的元素不会影响周围元素的位置，而且当页面上下滚动时，它不会移动。</p>
 <ul>
 <li>z-index<br>当使用相对定位、固定定位或者绝对定位时，盒子是可以重叠的，这时可以使用 z-index 元素指定层次。数值越大，元素的层次越靠前。</li>
