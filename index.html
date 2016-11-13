@@ -5,10 +5,10 @@
   
 
 
-<html class="theme-next pisces use-motion">
+<html class="theme-next pisces use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
 
 
 
@@ -81,9 +81,9 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -95,7 +95,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
 
@@ -114,24 +114,35 @@
 
 
 
-<script type="text/javascript" id="hexo.configuration">
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
+    root: '/',
     scheme: 'Pisces',
     sidebar: {"position":"left","display":"post"},
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: 6322756439613900000,
+      userId: '6322756439613900000',
       author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
 </script>
 
 
 
-
   <link rel="canonical" href="http://cartosquare.github.io/"/>
+
+
+
+
 
   <title> CartoSquare </title>
 </head>
@@ -255,6 +266,8 @@
   
 </nav>
 
+
+
  </div>
     </header>
 
@@ -268,13 +281,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/09/26/css/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Atlas">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="CartoSquare">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="CartoSquare" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -300,9 +326,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-26T21:38:46+08:00" content="2016-09-26">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-26T21:38:46+08:00">
               2016-09-26
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-10-03T19:47:19+08:00">
+              2016-10-03
+            </time>
+            
           </span>
 
           
@@ -313,7 +349,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/程序语言/" itemprop="url" rel="index">
                     <span itemprop="name">程序语言</span>
                   </a>
@@ -331,7 +367,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/09/26/css/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/css/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/css/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -352,6 +388,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -365,11 +404,13 @@
       
         
           <p><img src="/images/blogs/html-tags/css.png" alt="html"><br>
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/26/css/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -381,6 +422,7 @@
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -399,13 +441,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/09/24/html-tags/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Atlas">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="CartoSquare">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="CartoSquare" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -431,9 +486,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-24T21:38:46+08:00" content="2016-09-24">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-24T21:38:46+08:00">
               2016-09-24
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-09-26T22:40:38+08:00">
+              2016-09-26
+            </time>
+            
           </span>
 
           
@@ -444,7 +509,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/程序语言/" itemprop="url" rel="index">
                     <span itemprop="name">程序语言</span>
                   </a>
@@ -462,7 +527,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/09/24/html-tags/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/24/html-tags/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/24/html-tags/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -483,6 +548,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -496,11 +564,13 @@
       
         
           <p><img src="/images/blogs/html-tags/html.png" alt="html"><br>
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/24/html-tags/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -512,6 +582,7 @@
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -530,13 +601,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/09/15/number-theory-and-rsa-algorithm/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Atlas">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="CartoSquare">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="CartoSquare" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -562,9 +646,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-15T21:10:54+08:00" content="2016-09-15">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-15T21:10:54+08:00">
               2016-09-15
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-09-16T10:36:12+08:00">
+              2016-09-16
+            </time>
+            
           </span>
 
           
@@ -575,7 +669,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/数学/" itemprop="url" rel="index">
                     <span itemprop="name">数学</span>
                   </a>
@@ -593,7 +687,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/09/15/number-theory-and-rsa-algorithm/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/15/number-theory-and-rsa-algorithm/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/15/number-theory-and-rsa-algorithm/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -614,6 +708,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -628,11 +725,13 @@
         
           <p>当我们使用 git 同步代码，ssh 远程登录虚拟机、使用数字签名、加密哈希函数以及电子支付系统时，都会用到公钥加密系统，而支撑起公钥加密系统的理论便是数论。</p>
 <p>数论是关于整数的理论，首先来了解一些基本的概念和理论，然后再看看前人为实现安全加密做出的努力，最后再介绍现在广泛使用的 RSA 公钥加密算法。</p>
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/15/number-theory-and-rsa-algorithm/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -644,6 +743,7 @@
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -662,13 +762,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/09/03/deep-learning-intro/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Atlas">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="CartoSquare">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="CartoSquare" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -694,9 +807,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-03T20:01:42+08:00" content="2016-09-03">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-03T20:01:42+08:00">
               2016-09-03
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-09-04T10:59:22+08:00">
+              2016-09-04
+            </time>
+            
           </span>
 
           
@@ -707,7 +830,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/GIS/" itemprop="url" rel="index">
                     <span itemprop="name">GIS</span>
                   </a>
@@ -725,7 +848,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/09/03/deep-learning-intro/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/deep-learning-intro/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/03/deep-learning-intro/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -746,6 +869,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -759,11 +885,13 @@
       
         
           <p>最近深度学习在计算机视觉领域取得了巨大的突破，更是随着AlphaGo与李世石的大战被普通老百姓所津津乐道。传统的遥感影像识别势必会在深度学习的影响下向前进一步发展，用深度学习来探索地球在不远的将来也将成为现实。</p>
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/09/03/deep-learning-intro/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -775,6 +903,7 @@
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -793,13 +922,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/08/29/propositions/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Atlas">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="CartoSquare">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="CartoSquare" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -825,9 +967,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-29T22:11:58+08:00" content="2016-08-29">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-29T22:11:58+08:00">
               2016-08-29
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-09-10T08:57:30+08:00">
+              2016-09-10
+            </time>
+            
           </span>
 
           
@@ -838,7 +990,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/数学/" itemprop="url" rel="index">
                     <span itemprop="name">数学</span>
                   </a>
@@ -856,7 +1008,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/08/29/propositions/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/propositions/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/29/propositions/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -877,6 +1029,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -892,11 +1047,13 @@
           <p>计算机领域中的许多问题往往需要用数学模型和方法来解决，而数学的独特的证明方式在其中起着核心的作用。</p>
 <p>简单来说，证明是一种建立事实的方法。然而，就像“美丽”这个词一样，“事实”有时候也是因人而异的：在法官眼中，事实得由证据来决定；在商界，事实可能由一个可信赖的人或是组织或仅仅是你的 boss 指定；在物理或是生物领域，事实由实验来确定；在哲学中，事实如“我思故我在”这句名言般缥缈。</p>
 <p>当然，数学有它自己对于证明的定义。</p>
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/29/propositions/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -908,6 +1065,7 @@
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -926,13 +1084,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/08/27/statistic-git-commits/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Atlas">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="CartoSquare">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="CartoSquare" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -958,9 +1129,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-27T12:45:57+08:00" content="2016-08-27">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-27T12:45:57+08:00">
               2016-08-27
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-08-27T14:59:55+08:00">
+              2016-08-27
+            </time>
+            
           </span>
 
           
@@ -971,7 +1152,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/工具/" itemprop="url" rel="index">
                     <span itemprop="name">工具</span>
                   </a>
@@ -989,7 +1170,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/08/27/statistic-git-commits/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/statistic-git-commits/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/27/statistic-git-commits/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1010,6 +1191,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -1023,11 +1207,13 @@
       
         
           <p>随着一个项目的推进，项目的代码越来越多，团队成员也可能越来越多。这时候，如何跟踪项目的演进对于项目管理者来说就成了一个问题。项目管理者往往需要知道项目代码数量随着时间的推移发生的变化、每天/每周/每月/每年的提交情况以及每个贡献者的提交情况等等。而这些统计信息无法直接从 git log 中直接获取，最近发现了一个叫<a href="http://gitstats.sourceforge.net/">GitStats</a>的工具可以从 git 提交历史中自动生成这些统计信息，并生成 HTML 形式的报告。下面简要介绍一下这个工具。</p>
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/27/statistic-git-commits/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1039,6 +1225,7 @@
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -1057,13 +1244,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/08/26/scrum-game-rules/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Atlas">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="CartoSquare">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="CartoSquare" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -1089,9 +1289,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-26T23:46:18+08:00" content="2016-08-26">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-26T23:46:18+08:00">
               2016-08-26
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-08-27T10:34:35+08:00">
+              2016-08-27
+            </time>
+            
           </span>
 
           
@@ -1102,7 +1312,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/方法论/" itemprop="url" rel="index">
                     <span itemprop="name">方法论</span>
                   </a>
@@ -1120,7 +1330,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/08/26/scrum-game-rules/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/scrum-game-rules/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/26/scrum-game-rules/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1141,6 +1351,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -1154,11 +1367,13 @@
       
         
           <p>许多公司都在用 Scrum，我们公司也不例外。那么 Scrum 到底是什么？我们是否真的在实践 Scrum 的原则？要知道如果没有严格按照 Scrum 的原则实践，那么我们用的 Scrum 也就不是 Scrum 了。</p>
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/26/scrum-game-rules/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1170,6 +1385,7 @@
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -1188,13 +1404,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/08/25/hexo-for-blogs/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Atlas">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="CartoSquare">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="CartoSquare" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -1220,9 +1449,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-25T23:07:07+08:00" content="2016-08-25">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-08-25T23:07:07+08:00">
               2016-08-25
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-08-27T16:01:59+08:00">
+              2016-08-27
+            </time>
+            
           </span>
 
           
@@ -1233,7 +1472,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/工具/" itemprop="url" rel="index">
                     <span itemprop="name">工具</span>
                   </a>
@@ -1251,7 +1490,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/08/25/hexo-for-blogs/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/hexo-for-blogs/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/25/hexo-for-blogs/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1272,6 +1511,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -1286,11 +1528,13 @@
         
           <p>作为开发人员，每天都在接触许多新的东西，如果不记下来下次还得 Google，有时候觉得许多时间都浪费在了解决相同的问题上了。</p>
 <p>而这也是我搭建博客的初衷：把一些比较技术的东西记录下来，给自己也给他人引导。</p>
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/25/hexo-for-blogs/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1302,6 +1546,7 @@
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -1320,13 +1565,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/05/07/minutely-osm-database/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Atlas">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="CartoSquare">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="CartoSquare" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -1352,9 +1610,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-05-07T00:00:00+08:00" content="2016-05-07">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-05-07T00:00:00+08:00">
               2016-05-07
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-08-27T10:28:34+08:00">
+              2016-08-27
+            </time>
+            
           </span>
 
           
@@ -1365,7 +1633,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/GIS/" itemprop="url" rel="index">
                     <span itemprop="name">GIS</span>
                   </a>
@@ -1383,7 +1651,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/05/07/minutely-osm-database/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/minutely-osm-database/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/07/minutely-osm-database/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1404,6 +1672,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -1417,11 +1688,13 @@
       
         
           <p>巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。<a href="http://www.openstreetmap.org/">OpenStreetMap</a>（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。</p>
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/05/07/minutely-osm-database/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1433,6 +1706,7 @@
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -1451,13 +1725,26 @@
       
 
   
-  
 
   
   
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/04/22/sorting-algorithms/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="Atlas">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="CartoSquare">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="CartoSquare" src="">
+    </span>
+  </span>
 
     
       <header class="post-header">
@@ -1483,9 +1770,19 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-04-22T00:00:00+08:00" content="2016-04-22">
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-22T00:00:00+08:00">
               2016-04-22
             </time>
+
+            &nbsp;|&nbsp;
+
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-check-o"></i>
+            </span>
+            <time title="Post modified" itemprop="dateModified" datetime="2016-08-29T21:13:18+08:00">
+              2016-08-29
+            </time>
+            
           </span>
 
           
@@ -1496,7 +1793,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/算法/" itemprop="url" rel="index">
                     <span itemprop="name">算法</span>
                   </a>
@@ -1514,7 +1811,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="/2016/04/22/sorting-algorithms/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/sorting-algorithms/" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/22/sorting-algorithms/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1535,6 +1832,9 @@
           
 
           
+          
+          
+
         </div>
       </header>
     
@@ -1550,11 +1850,13 @@
           <p>还记得上数据结构的时候，耗费了大量脑细胞却总是记不住种类繁多的排序算法；而勉强记住，应付了考试后，过了几个月又忘得一干二净，没办法，只能写下来供以后参考。</p>
 <p>其实从排序算法的类别繁多以及在数据结构课程中占的时间比例可以看出这是计算机领域最经典也是研究最广泛的算法，这样说来，我等凡夫俗子不能马上顿悟也是情有可原了。</p>
 <p>闲话少说，进入正题。</p>
+          <!--noindex-->
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/22/sorting-algorithms/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1566,6 +1868,7 @@
     <div>
       
     </div>
+
 
     <footer class="post-footer">
       
@@ -1611,7 +1914,7 @@
 
       
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -1697,6 +2000,9 @@
           </div>
         
 
+        
+
+
       </section>
 
       
@@ -1721,6 +2027,7 @@
   <span class="author" itemprop="copyrightHolder">Atlas</span>
 </div>
 
+
 <div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
@@ -1731,6 +2038,7 @@
     NexT.Pisces
   </a>
 </div>
+
 
         
 
@@ -1764,49 +2072,49 @@
 
 
   
-  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
   
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
 
   
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
 
   
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
-
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
   
 
 
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
 
 
 
@@ -1831,7 +2139,12 @@
 
   
     
-    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
     <script src="/js/src/hook-duoshuo.js"></script>
   
 
@@ -1840,29 +2153,33 @@
 
 
 
+
+
   
   
 
   
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-  </script>
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
 
-  <script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-      for (i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-    });
-  </script>
-  <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
 
 
   
@@ -1975,6 +2292,9 @@
 
 
   
+
+  
+
 
 </body>
 </html>
