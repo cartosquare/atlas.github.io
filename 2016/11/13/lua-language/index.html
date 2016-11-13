@@ -86,7 +86,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="CSS," />
+  <meta name="keywords" content="Lua," />
 
 
 
@@ -102,15 +102,21 @@
 
 
 
+<meta name="description" content="最近在忙着做地理方面的机器学习的研究，把博客给荒废了。今天就把最近常用的Lua编程语言做些笔记，方便以后参考。
+Lua 是一门动态类型的脚本语言，具有很强的拓展性，可以和C/C++进行交互。Lua的语法简单、运行十分高效，通常应用于嵌入式程序、C程序，当然也可以单独使用Lua进行程序设计。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS 属性">
-<meta property="og:url" content="http://cartosquare.github.io/2016/09/26/css/index.html">
+<meta property="og:title" content="Lua 语言">
+<meta property="og:url" content="http://cartosquare.github.io/2016/11/13/lua-language/index.html">
 <meta property="og:site_name" content="CartoSquare">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/html-tags/css.png">
-<meta property="og:updated_time" content="2016-10-03T11:47:19.000Z">
+<meta property="og:description" content="最近在忙着做地理方面的机器学习的研究，把博客给荒废了。今天就把最近常用的Lua编程语言做些笔记，方便以后参考。
+Lua 是一门动态类型的脚本语言，具有很强的拓展性，可以和C/C++进行交互。Lua的语法简单、运行十分高效，通常应用于嵌入式程序、C程序，当然也可以单独使用Lua进行程序设计。">
+<meta property="og:image" content="http://cartosquare.github.io/images/blogs/lua-language/logo.png">
+<meta property="og:updated_time" content="2016-11-13T02:27:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS 属性">
-<meta name="twitter:image" content="http://cartosquare.github.io/images/blogs/html-tags/css.png">
+<meta name="twitter:title" content="Lua 语言">
+<meta name="twitter:description" content="最近在忙着做地理方面的机器学习的研究，把博客给荒废了。今天就把最近常用的Lua编程语言做些笔记，方便以后参考。
+Lua 是一门动态类型的脚本语言，具有很强的拓展性，可以和C/C++进行交互。Lua的语法简单、运行十分高效，通常应用于嵌入式程序、C程序，当然也可以单独使用Lua进行程序设计。">
+<meta name="twitter:image" content="http://cartosquare.github.io/images/blogs/lua-language/logo.png">
 
 
 
@@ -138,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://cartosquare.github.io/2016/09/26/css/"/>
+  <link rel="canonical" href="http://cartosquare.github.io/2016/11/13/lua-language/"/>
 
 
 
 
 
-  <title> CSS 属性 | CartoSquare </title>
+  <title> Lua 语言 | CartoSquare </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -285,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/09/26/css/">
+  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/11/13/lua-language/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="Atlas">
@@ -309,7 +315,7 @@
             
             
               
-                CSS 属性
+                Lua 语言
               
             
           </h1>
@@ -321,8 +327,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-09-26T21:38:46+08:00">
-              2016-09-26
+            <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-13T09:30:09+08:00">
+              2016-11-13
             </time>
 
             &nbsp;|&nbsp;
@@ -330,8 +336,8 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-10-03T19:47:19+08:00">
-              2016-10-03
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-13T10:27:53+08:00">
+              2016-11-13
             </time>
             
           </span>
@@ -361,8 +367,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/26/css/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/26/css/" itemprop="commentCount"></span>
+                <a href="/2016/11/13/lua-language/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/13/lua-language/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -372,7 +378,7 @@
 
           
           
-             <span id="/2016/09/26/css/" class="leancloud_visitors" data-flag-title="CSS 属性">
+             <span id="/2016/11/13/lua-language/" class="leancloud_visitors" data-flag-title="Lua 语言">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -397,216 +403,62 @@
       
 
       
-        <p><img src="/images/blogs/html-tags/css.png" alt="html"><br><a id="more"></a></p>
-<h2 id="颜色"><a href="#颜色" class="headerlink" title="颜色"></a>颜色</h2><ul>
-<li><p>color<br>前景色</p>
+        <p>最近在忙着做地理方面的机器学习的研究，把博客给荒废了。今天就把最近常用的Lua编程语言做些笔记，方便以后参考。</p>
+<p>Lua 是一门动态类型的脚本语言，具有很强的拓展性，可以和C/C++进行交互。Lua的语法简单、运行十分高效，通常应用于嵌入式程序、C程序，当然也可以单独使用Lua进行程序设计。</p>
+<p><img src="/images/blogs/lua-language/logo.png" alt="html"><br><a id="more"></a></p>
+<h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
+<li><p>单行注释</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="comment">-- 两个短横线表示一个单行注释</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>background-color<br>背景色</p>
-</li>
-<li><p>opacity<br>透明度</p>
-</li>
-<li><p>颜色指定的三种方式<br>RGB、RGBA；16进制；hsl、hsla（hsl指定色调、饱和度以及明度）。</p>
-</li>
-</ul>
-<h2 id="文本"><a href="#文本" class="headerlink" title="文本"></a>文本</h2><h3 id="字体术语"><a href="#字体术语" class="headerlink" title="字体术语"></a>字体术语</h3><ul>
-<li><p>衬线字体（SERIF）<br>字符在笔画的末端有一些额外的装饰（称为称线）。通常打印长篇文本时使用衬线字体。包括 Georgia，Times，Times New Roman。</p>
-</li>
-<li><p>无称线字体（SANS-SERIF)<br>字母拥有笔直的线条，设计更为简洁。屏幕分辨率要地于打印分辨率，因此当文本比较小时，屏幕上使用无衬线字体阅读起来会更清晰。包括 Arial， Verdana， Helvetica。</p>
-</li>
-<li><p>等宽字体（MONOSAPCE）<br>每个字母的宽度都相同。因为可以精确地对齐，通常用于显示代码。包括 Courier， Courier New。</p>
+<li><p>块注释</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="comment">--[[</span></div><div class="line">    使用两个短横线和两个方括号</div><div class="line">    表示多行注释</div><div class="line">--]]</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<h3 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h3><ul>
-<li>font-family<br>指定一组字体，以逗号隔开，如：<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">body &#123;</div><div class="line">    font-family: Geogia, Times, serif;</div><div class="line">&#125;</div><div class="line">h1,h2 &#123;</div><div class="line">    font-family: Arial, Verdana, sans-serif;</div><div class="line">&#125;</div><div class="line">.credits &#123;</div><div class="line">    font-family: &quot;Courier New&quot;, Courier, monospace;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="基本变量"><a href="#基本变量" class="headerlink" title="基本变量"></a>基本变量</h2><ul>
+<li><p>nil<br>表示值未定义</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line">t = <span class="keyword">nil</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>boolean</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line">t = <span class="keyword">false</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>number<br>Lua中所有的数都是double类型的</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line">num = <span class="number">42</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>string</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line">s1 = <span class="string">'通常用单引号表示字符串'</span></div><div class="line">s2 = <span class="string">"双引号也可以表示字符串"</span></div><div class="line">s3 = <span class="string">[[ 两个方括号</span></div><div class="line">        表示多行的</div><div class="line">        字符串 ]]</div></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>如上所示，将通用字体名作为一类字体的结尾也是很常见的做法。</p>
-<ul>
-<li><p>font-size<br>可以以像素（px）、百分数(%)、或是EM值（em）为单位。1em相当于一个字母m的宽度。<br>要保证字体以希望的大小出现，最好的方式就是以像素为单位对字体大小进行设置。</p>
+<h2 id="流程控制"><a href="#流程控制" class="headerlink" title="流程控制"></a>流程控制</h2><ul>
+<li><p>if 语句</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> num &gt; <span class="number">40</span> <span class="keyword">then</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">'over 40'</span>)</div><div class="line"><span class="keyword">elseif</span> s ~= <span class="string">'abc'</span> <span class="keyword">then</span></div><div class="line">    <span class="built_in">io</span>.write(<span class="string">'s is not equal to abc'</span>)</div><div class="line"><span class="keyword">else</span></div><div class="line">    <span class="built_in">print</span>(<span class="string">'num &lt;= 40 and s == abc'</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>@font-face<br>可以通过指定下载地址来获得计算机上没有的字体。</p>
+<li><p>while 语句</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="keyword">while</span> num &lt; <span class="number">50</span> <span class="keyword">do</span></div><div class="line">    num = num + <span class="number">1</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>font-weight<br>取值 normal 或 bold</p>
+<li><p>for 语句</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> i = <span class="number">0</span>, <span class="number">10</span> <span class="keyword">do</span></div><div class="line">    <span class="built_in">print</span>(i)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">for</span> j = <span class="number">100</span>, <span class="number">1</span>, <span class="number">-1</span> <span class="keyword">do</span></div><div class="line">    <span class="built_in">print</span>(j)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>font-style<br>取值 normal 或 italic 或 oblique。其中 italic 是文本以斜体显示；而 oblique 仅仅是把文本倾斜一个角度显示而已。</p>
+<li><p>and or 语句，类似于其它语言的三元操作符：a?b:c</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line">ans = aBoolValue <span class="keyword">and</span> <span class="string">'yes'</span> <span class="keyword">or</span> <span class="string">'no'</span></div></pre></td></tr></table></figure>
 </li>
-<li><p>text-transform<br>改变文本的大小写。取值 uppercase 或 lowercase 或 capitalize。</p>
-</li>
-<li><p>text-decoration<br>可取以下值：<br>none：把应用在文本上的装饰线去掉<br>underline：文本底部增加一条实线<br>overline：文本顶部增加一条实线<br>line-through: 用一条实线穿过文字<br>blink：使文本动态闪烁（会招人烦！）</p>
-</li>
-<li><p>line-height<br>行间距。一般而言，垂直的行间距应该要大于文字间距。</p>
-</li>
-<li><p>letter-spacing<br>字距</p>
-</li>
-<li><p>word-spacing<br>单词间距</p>
-</li>
-<li><p>text-align<br>文字对齐方式。可取值 left， right， center， justify。</p>
-</li>
-<li><p>text-indent<br>对首行文本进行缩进。</p>
-</li>
-<li><p>text-shadow<br>创建投影。需要指定三个长度值和一种颜色。第一个长度值表明阴影向左或向右延伸的距离；第二个长度值表明阴影向上或向下延伸的距离；第三个长度值为可选项，用于指定投影的模糊程度；最后一项是投影的颜色值。</p>
-</li>
-<li><p>:first-letter<br>伪元素，指定首字母。</p>
-</li>
-<li><p>:first-line<br>伪元素，指定首行</p>
+<li><p>repeat until 语句</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="keyword">repeat</span></div><div class="line">    <span class="built_in">print</span>(num)</div><div class="line">    num = num - <span class="number">1</span></div><div class="line"><span class="keyword">until</span> num == <span class="number">0</span></div></pre></td></tr></table></figure>
 </li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">p.intro:first-letter &#123;</div><div class="line">    font-size: 200%;</div><div class="line">&#125;</div><div class="line">p.intro.first-line &#123;</div><div class="line">    font-weight: bold;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><p>:link<br>未访问过的链接</p>
-</li>
-<li><p>:visited<br>访问过的链接</p>
-</li>
-<li><p>:hover<br>光标悬停其上的元素</p>
-</li>
-<li><p>:active<br>用户单击的元素</p>
-</li>
-<li><p>:focus<br>占据焦点的元素</p>
-</li>
-</ul>
-<h2 id="盒子"><a href="#盒子" class="headerlink" title="盒子"></a>盒子</h2><p>每一个元素都是一个矩形的盒子。</p>
-<ul>
-<li><p>width，height<br>控制盒子大小</p>
-</li>
-<li><p>min-width，max-width<br>限制盒子宽度</p>
-</li>
-<li><p>min-height, max-height<br>限制盒子高度</p>
-</li>
-<li><p>overflow<br>内容溢出盒子的处理方式：hidden，scroll</p>
-</li>
-<li><p>border-width<br>盒子边框宽度</p>
-</li>
-<li><p>border-style<br>边框样式：solid, dotted, dashed, double, groove, ridge, insert, outset, hidden/none<br>可以用下面的属性对各个方向的边框样式单独设置：<br>border-top-style<br>border-left-style<br>border-right-style<br>border-bottom-style</p>
-</li>
-<li><p>border-color<br>边框颜色。也可以对各个方向的边框分别设置颜色。</p>
-</li>
-<li><p>border<br>同时指定边框的宽度，样式和颜色</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">p &#123;</div><div class="line">    width: 250px;</div><div class="line">    border: 3px dotted #0088dd;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>padding<br>内边距：元素内容与元素边框之间的距离。可以用下面的属性分别指定各个方向上的内边距：<br>padding-top<br>padding-right<br>padding-bottom<br>padding-left<br>也可以用 padding 这个属性快速指定（以上、右、下、左的顺序）</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">padding: 10px 5px 3px 1px;</div></pre></td></tr></table></figure>
-</li>
-<li><p>margin<br>外边距：盒子之间的距离。不同方向的指定参照 padding。<br>指定 left-margin 和 right-margin 分别为 auto 可以使盒子居中显示。</p>
-</li>
-<li><p>display<br>允许将一个内联元素转换为块级元素，反之亦然。取值：<br>inline：使块级元素表现得像内联元素。<br>block：使内联元素表现得像块级元素。<br>inline-block：使块级元素像内联元素那样浮动并保持其它块级元素的特征。<br>none：将一个元素从页面上隐藏。页面上会像没有这个元素一样。</p>
-</li>
-<li><p>visibility<br>从用户视线中隐藏盒子，但保留了盒子原来占用的空间。取值：<br>hidden：隐藏元素。<br>visible：显示元素<br>注意和 display 的区别。</p>
-</li>
-<li><p>border-image<br>设定边框图像</p>
-</li>
-<li><p>box-shadow<br>在盒子周围添加投影</p>
-</li>
-<li><p>border-radius<br>在盒子上创建圆角（指定一个半径）<br>创建椭圆形（指定两个半径）</p>
-</li>
-</ul>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><ul>
-<li><p>list-style-type<br>项目列表样式。<br>对于无序列表，可以取值：<br>none，disc，circle，square<br>对于有序列表，可以取值：<br>decimal， decimal-leding-zero，lower-alpha， upper-alpha， lower-roman， upper-roman</p>
-</li>
-<li><p>list-style-image<br>使用图片作为项目列表符号</p>
-</li>
-<li><p>list-style-position<br>默认情况下，列表会缩进到页面中。该属性用于表示标记显示的位置，是在包含主题内容的盒子内部，还是在其外部：outside， inside。</p>
-</li>
-<li><p>list-style<br>使用这个属性可以同时指定列表的位置和样式。</p>
-</li>
-</ul>
-<h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><ul>
-<li><p>width</p>
-</li>
-<li><p>padding<br>单元格与其内容之间的空隙</p>
-</li>
-<li><p>text-transform</p>
-</li>
-<li><p>letter-spacing，font-size<br>用于为表格标题内容增加额外的样式</p>
-</li>
-<li><p>border-top, border-bottom<br>用于设置表格标题上方和下方的边框</p>
-</li>
-<li><p>text-align<br>设置左右对齐</p>
-</li>
-<li><p>background-color<br>用于交替改变表格行的背景颜色</p>
-</li>
-<li><p>:hover<br>用户把光标停在某个单元格时高亮显示</p>
-</li>
-<li><p>empty-cells<br>设置空单元格的边框，取值：<br>show，hide，inherit</p>
-</li>
-<li><p>border-spacing, border-collapse<br>设置单元格之间的间隙</p>
-</li>
-</ul>
-<h2 id="表单"><a href="#表单" class="headerlink" title="表单"></a>表单</h2><h3 id="文本框样式"><a href="#文本框样式" class="headerlink" title="文本框样式"></a>文本框样式</h3><ul>
-<li><p>font-size<br>用户输入文本大小</p>
-</li>
-<li><p>color<br>文本颜色</p>
-</li>
-<li><p>background-color<br>文本输入框颜色</p>
-</li>
-<li><p>border<br>文本输入框边框</p>
-</li>
-<li><p>background-image<br>为盒子增加背景图像</p>
-</li>
-</ul>
-<h3 id="提交按钮样式"><a href="#提交按钮样式" class="headerlink" title="提交按钮样式"></a>提交按钮样式</h3><ul>
-<li><p>color<br>控制文本按钮颜色</p>
-</li>
-<li><p>text-shadow<br>显示3D效果文本</p>
-</li>
-<li><p>border-bottom<br>使按钮下方边框稍微粗一点，从而使3D效果更逼真</p>
-</li>
-<li><p>background-color</p>
-</li>
-<li><p>:hover<br>鼠标悬停按钮之上</p>
-</li>
-</ul>
-<h2 id="布局"><a href="#布局" class="headerlink" title="布局"></a>布局</h2><ul>
-<li>position</li>
-</ul>
-<p>三种用于控制页面布局的定位机制：<br><strong>普通流</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:static</div></pre></td></tr></table></figure></p>
-<p>每个块级元素都换行显示，以至于页面中的每个项目都显示在前一个项目的下面。即使指定了盒子的宽度，并且也有足够的空间让两个元素并排显示，但是他们还是不会出现在一起。这是浏览器的默认行为。</p>
-<p><strong>相对定位</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:relative</div></pre></td></tr></table></figure></p>
-<p>把一个元素从它在普通流中所处的位置进行上、下、左、右的移动。这种移动不会影响周围元素的位置，他们还是处于普通流中所处的位置。</p>
-<p>通过制定 top，left，right，bottom 属性可以把一个元素以其在普通流中所处的位置为起点进行移动。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">p.example &#123;</div><div class="line">    position: relative;</div><div class="line">    top: 10px;</div><div class="line">    left: 100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>绝对定位</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:absolute</div></pre></td></tr></table></figure></p>
-<p>绝对定位的元素的位置相对于它包含的元素。它完全脱离了普通流，也就是说不会影响到周围任何元素的位置。使用绝对定位的元素随着页面的滚动而移动。</p>
-<p>盒子的位移属性 top，left，right，bottom 用于指定元素相对于它的包含元素应该显示什么位置。<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">h1 &#123;</div><div class="line">    position: absolute;</div><div class="line">    top: 0px;</div><div class="line">    left: 500px;</div><div class="line">    width: 250px;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>在上面的例子中，h1元素被定位于页面顶端并距离页面左侧边缘500像素的位置。</p>
-<p><strong>固定定位</strong><br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">position:fixed</div></pre></td></tr></table></figure></p>
-<p>固定定位是绝对定位的一种形式，与相对于包含元素的定位不同，他是将元素相对于浏览器窗口进行定位。固定定位的元素不会影响周围元素的位置，而且当页面上下滚动时，它不会移动。</p>
-<ul>
-<li>z-index<br>当使用相对定位、固定定位或者绝对定位时，盒子是可以重叠的，这时可以使用 z-index 元素指定层次。数值越大，元素的层次越靠前。</li>
-</ul>
-<ul>
-<li><p>float<br>float 属性允许将普通流中的元素在它的包含元素内尽可能地向左或向右排列。<br><strong>位于包含元素中的其它内容会在浮动元素的周围流动。</strong></p>
-</li>
-<li><p>clear<br>用来清楚某一侧的浮动元素，取值：<br>left，right，both，none</p>
-</li>
-<li><p>可以用并排的float元素创建并排布局</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">.column1, .column2, .column3 &#123;</div><div class="line">    width: 300px;</div><div class="line">    float: left;</div><div class="line">    margin: 10px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><ul>
-<li><p>通用型选择器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">* &#123;&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>类型选择器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">h1, h2,h3 &#123;&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>类选择器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">.note &#123;&#125;</div><div class="line">p.note &#123;&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>ID选择器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#intro &#123;&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>子元素选择器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">li&gt;a &#123;&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>后代选择器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">p a &#123;&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>相邻兄弟选择器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">h1+p &#123;&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>普通兄弟选择器</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">h1~p &#123;&#125;</div></pre></td></tr></table></figure></li>
-</ul>
-
+<h2 id="方法-Functions"><a href="#方法-Functions" class="headerlink" title="方法(Functions)"></a>方法(Functions)</h2><figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">fib</span><span class="params">(n)</span></span></div><div class="line">    <span class="keyword">if</span> n &lt; <span class="number">2</span> <span class="keyword">then</span> <span class="keyword">return</span> n <span class="keyword">end</span></div><div class="line">    <span class="keyword">return</span> fib(n - <span class="number">2</span>) + bib(n - <span class="number">1</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="comment">--闭包和匿名方法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">adder</span><span class="params">(x)</span></span></div><div class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span><span class="params">(y)</span></span> <span class="keyword">return</span> x + y <span class="keyword">end</span></div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">a1 = adder(<span class="number">9</span>)</div><div class="line">a2 = adder(<span class="number">36</span>)</div><div class="line"><span class="built_in">print</span>(a1(<span class="number">16</span>))  <span class="comment">--&gt; 25</span></div><div class="line"><span class="built_in">print</span>(a2(<span class="number">64</span>))  <span class="comment">--&gt; 100</span></div><div class="line"></div><div class="line"><span class="comment">-- 方法也是一种类型，可以被赋值</span></div><div class="line">f = <span class="function"><span class="keyword">function</span> <span class="params">(x)</span></span> <span class="keyword">return</span> x * x <span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h2 id="表（Tables）"><a href="#表（Tables）" class="headerlink" title="表（Tables）"></a>表（Tables）</h2><p>Tables是Lua唯一的也是最重要的数据结构，Tables实际上是关联数列。Table中的元素都以键值对的形式组织。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="comment">-- 一般的键是字符串</span></div><div class="line">t = &#123;key1 = <span class="string">'value1'</span>, key2 = <span class="keyword">false</span>&#125;</div><div class="line"></div><div class="line"><span class="comment">-- 字符串的键可以通过点操作取值</span></div><div class="line"><span class="built_in">print</span>(t.key1)  <span class="comment">-- Prints 'value1'.</span></div><div class="line"></div><div class="line"><span class="comment">--任何非nil的值都可以作为键</span></div><div class="line">u = &#123;[<span class="string">'@!#'</span>] = <span class="string">'qbert'</span>, [&#123;&#125;] = <span class="number">1729</span>, [<span class="number">6.28</span>] = <span class="string">'tau'</span>&#125;</div><div class="line"></div><div class="line"><span class="comment">--通过方括号的形式去取值</span></div><div class="line"><span class="built_in">print</span>(u[<span class="number">6.28</span>])  <span class="comment">-- prints "tau"</span></div><div class="line"></div><div class="line"><span class="comment">-- 若不指定键，通常会用默认的int表示，通过这种方式可以表示数组</span></div><div class="line">v = &#123;<span class="string">'value1'</span>, <span class="string">'value2'</span>, <span class="number">1.21</span>, <span class="string">'gigawatts'</span>&#125;</div><div class="line"><span class="keyword">for</span> i = <span class="number">1</span>, #v <span class="keyword">do</span>  <span class="comment">-- #v is the size of v for lists.</span></div><div class="line">  <span class="built_in">print</span>(v[i])  <span class="comment">-- Indices start at 1 !! SO CRAZY!</span></div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+<h2 id="Metatables-and-metamethods"><a href="#Metatables-and-metamethods" class="headerlink" title="Metatables and metamethods"></a>Metatables and metamethods</h2><p>一个Table可以包含一个Metatable来重载操作符行为。<br>下面显示了如何表示复数的相加：<br><figure class="highlight lua"><table><tr><td class="code"><pre><div class="line">f1 = &#123;a = <span class="number">1</span>, b = <span class="number">2</span>&#125;  <span class="comment">-- Represents the fraction a/b.</span></div><div class="line">f2 = &#123;a = <span class="number">2</span>, b = <span class="number">3</span>&#125;</div><div class="line"></div><div class="line"><span class="comment">-- This would fail:</span></div><div class="line"><span class="comment">-- s = f1 + f2</span></div><div class="line"></div><div class="line">metafraction = &#123;&#125;</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">metafraction.__add</span><span class="params">(f1, f2)</span></span></div><div class="line">  <span class="keyword">local</span> sum = &#123;&#125;</div><div class="line">  sum.b = f1.b * f2.b</div><div class="line">  sum.a = f1.a * f2.b + f2.a * f1.b</div><div class="line">  <span class="keyword">return</span> sum</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="built_in">setmetatable</span>(f1, metafraction)</div><div class="line"><span class="built_in">setmetatable</span>(f2, metafraction)</div><div class="line"></div><div class="line">s = f1 + f2  <span class="comment">-- call __add(f1, f2) on f1's metatable</span></div></pre></td></tr></table></figure></p>
+<p>可以通过metatable来定义默认的键值对<br><figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="comment">-- An __index on a metatable overloads dot lookups:</span></div><div class="line">defaultFavs = &#123;animal = <span class="string">'gru'</span>, food = <span class="string">'donuts'</span>&#125;</div><div class="line">myFavs = &#123;food = <span class="string">'pizza'</span>&#125;</div><div class="line"><span class="built_in">setmetatable</span>(myFavs, &#123;__index = defaultFavs&#125;)</div><div class="line">eatenBy = myFavs.animal  <span class="comment">-- works! thanks, metatable</span></div></pre></td></tr></table></figure></p>
+<h2 id="类和继承"><a href="#类和继承" class="headerlink" title="类和继承"></a>类和继承</h2><p>Lua没有类的对象，但是可以通过Table和Metatable来构造。</p>
+<p>Dog类<br><figure class="highlight lua"><table><tr><td class="code"><pre><div class="line">Dog = &#123;&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog:new</span><span class="params">()</span></span></div><div class="line">    <span class="keyword">local</span> newObj = &#123;sound = <span class="string">'woof'</span>&#125;</div><div class="line">    self.__index = self</div><div class="line">    <span class="keyword">return</span> <span class="built_in">setmetatable</span>(newObj, self)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Dog:makeSound</span><span class="params">()</span></span></div><div class="line">    <span class="built_in">print</span>(<span class="string">'I say '</span> .. self.sound)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">mrDog = Dog:new()</div><div class="line">mrDog:makeSound() <span class="comment">-- 'I say woof'</span></div></pre></td></tr></table></figure></p>
+<p>Dog:new 和Dog:makeSound这种冒号调用方法的方式可以隐式地传递当前调用对象进入函数，也就是函数体中引用的self。</p>
+<p>继承Dog类<br><figure class="highlight lua"><table><tr><td class="code"><pre><div class="line">LoundDog = Dog:new()</div><div class="line"><span class="function"><span class="keyword">function</span> = <span class="title">LoundDog:makeSound</span><span class="params">()</span></span></div><div class="line">    <span class="keyword">local</span> s = self.sound .. <span class="string">' '</span></div><div class="line">    <span class="built_in">print</span>(s .. s .. s)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line">seymour = LoundDog:new()</div><div class="line">seymour:makeSound() <span class="comment">-- 'woof woof woof'</span></div></pre></td></tr></table></figure></p>
+<p>LoudDog 得到了 Dog 的变量和函数，并且重新定义了makeSound这个函数。</p>
+<h2 id="Modules"><a href="#Modules" class="headerlink" title="Modules"></a>Modules</h2><p>Modules用来分离和共享代码。<br>Modules一般返回一个Table对象。</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="comment">-- mymod.lua</span></div><div class="line"><span class="keyword">local</span> M = &#123;&#125;</div><div class="line"></div><div class="line"><span class="keyword">local</span> <span class="function"><span class="keyword">function</span> <span class="title">sayMyName</span><span class="params">()</span></span></div><div class="line">  <span class="built_in">print</span>(<span class="string">'Hrunkner'</span>)</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">M.sayHello</span><span class="params">()</span></span></div><div class="line">  <span class="built_in">print</span>(<span class="string">'Why hello there'</span>)</div><div class="line">  sayMyName()</div><div class="line"><span class="keyword">end</span></div><div class="line"></div><div class="line"><span class="keyword">return</span> M</div></pre></td></tr></table></figure>
+<p>另一个文件可以调用mymod.lua这个模块</p>
+<figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="keyword">local</span> mod = <span class="built_in">require</span>(<span class="string">'mymod'</span>)  <span class="comment">-- Run the file mod.lua.</span></div><div class="line"></div><div class="line"><span class="comment">-- This works because mod here = M in mod.lua:</span></div><div class="line">mod.sayHello()  <span class="comment">-- Says hello to Hrunkner.</span></div><div class="line"></div><div class="line"><span class="comment">-- This is wrong; sayMyName only exists in mod.lua:</span></div><div class="line">mod.sayMyName()  <span class="comment">-- error</span></div></pre></td></tr></table></figure>
       
     </div>
 
@@ -655,7 +507,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/Lua/" rel="tag"># Lua</a>
           
         </div>
       
@@ -664,8 +516,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/24/html-tags/" rel="next" title="HTML 标签">
-                <i class="fa fa-chevron-left"></i> HTML 标签
+              <a href="/2016/09/26/css/" rel="next" title="CSS 属性">
+                <i class="fa fa-chevron-left"></i> CSS 属性
               </a>
             
           </div>
@@ -673,10 +525,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/13/lua-language/" rel="prev" title="Lua 语言">
-                Lua 语言 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -702,8 +550,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/26/css/"
-           data-title="CSS 属性" data-url="http://cartosquare.github.io/2016/09/26/css/">
+      <div class="ds-thread" data-thread-key="2016/11/13/lua-language/"
+           data-title="Lua 语言" data-url="http://cartosquare.github.io/2016/11/13/lua-language/">
       </div>
     
   </div>
@@ -838,7 +686,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#颜色"><span class="nav-text">颜色</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文本"><span class="nav-text">文本</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字体术语"><span class="nav-text">字体术语</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字体"><span class="nav-text">字体</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#盒子"><span class="nav-text">盒子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#列表"><span class="nav-text">列表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格"><span class="nav-text">表格</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单"><span class="nav-text">表单</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#文本框样式"><span class="nav-text">文本框样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#提交按钮样式"><span class="nav-text">提交按钮样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#布局"><span class="nav-text">布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#选择器"><span class="nav-text">选择器</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本变量"><span class="nav-text">基本变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-Functions"><span class="nav-text">方法(Functions)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表（Tables）"><span class="nav-text">表（Tables）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Metatables-and-metamethods"><span class="nav-text">Metatables and metamethods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和继承"><span class="nav-text">类和继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modules"><span class="nav-text">Modules</span></a></li></ol></div>
             
 
           </div>
