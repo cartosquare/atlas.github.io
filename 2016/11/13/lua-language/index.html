@@ -111,7 +111,7 @@ Lua 是一门动态类型的脚本语言，具有很强的拓展性，可以和C
 <meta property="og:description" content="最近在忙着做地理方面的机器学习的研究，把博客给荒废了。今天就把最近常用的Lua编程语言做些笔记，方便以后参考。
 Lua 是一门动态类型的脚本语言，具有很强的拓展性，可以和C/C++进行交互。Lua的语法简单、运行十分高效，通常应用于嵌入式程序、C程序，当然也可以单独使用Lua进行程序设计。">
 <meta property="og:image" content="http://cartosquare.github.io/images/blogs/lua-language/logo.png">
-<meta property="og:updated_time" content="2016-11-13T02:36:49.000Z">
+<meta property="og:updated_time" content="2016-11-13T02:44:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Lua 语言">
 <meta name="twitter:description" content="最近在忙着做地理方面的机器学习的研究，把博客给荒废了。今天就把最近常用的Lua编程语言做些笔记，方便以后参考。
@@ -336,7 +336,7 @@ Lua 是一门动态类型的脚本语言，具有很强的拓展性，可以和C
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2016-11-13T10:36:49+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2016-11-13T10:44:38+08:00">
               2016-11-13
             </time>
             
@@ -406,6 +406,16 @@ Lua 是一门动态类型的脚本语言，具有很强的拓展性，可以和C
         <p>最近在忙着做地理方面的机器学习的研究，把博客给荒废了。今天就把最近常用的Lua编程语言做些笔记，方便以后参考。</p>
 <p><a href="http://www.lua.org/" target="_blank" rel="external">Lua</a> 是一门动态类型的脚本语言，具有很强的拓展性，可以和C/C++进行交互。Lua的语法简单、运行十分高效，通常应用于嵌入式程序、C程序，当然也可以单独使用Lua进行程序设计。</p>
 <p><img src="/images/blogs/lua-language/logo.png" alt="html"><br><a id="more"></a></p>
+<h2 id="安装-Lua"><a href="#安装-Lua" class="headerlink" title="安装 Lua"></a>安装 Lua</h2><ul>
+<li><p>windows<br>使用 <a href="http://luadist.org/" target="_blank" rel="external">LuaDist</a> 进行安装</p>
+</li>
+<li><p>linux</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">curl -R -O http://www.lua.org/ftp/lua-5.3.3.tar.gz</div><div class="line">tar zxf lua-5.3.3.tar.gz</div><div class="line">cd lua-5.3.3</div><div class="line">make linux test</div></pre></td></tr></table></figure>
+</li>
+<li><p>mac</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">curl -R -O http://www.lua.org/ftp/lua-5.3.3.tar.gz</div><div class="line">tar zxf lua-5.3.3.tar.gz</div><div class="line">cd lua-5.3.3</div><div class="line">make linux test</div></pre></td></tr></table></figure>
+</li>
+</ul>
 <h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ul>
 <li><p>单行注释</p>
 <figure class="highlight lua"><table><tr><td class="code"><pre><div class="line"><span class="comment">-- 两个短横线表示一个单行注释</span></div></pre></td></tr></table></figure>
@@ -688,7 +698,7 @@ Lua 是一门动态类型的脚本语言，具有很强的拓展性，可以和C
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本变量"><span class="nav-text">基本变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-Functions"><span class="nav-text">方法(Functions)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表（Tables）"><span class="nav-text">表（Tables）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Metatables-and-metamethods"><span class="nav-text">Metatables and metamethods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和继承"><span class="nav-text">类和继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modules"><span class="nav-text">Modules</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装-Lua"><span class="nav-text">安装 Lua</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注释"><span class="nav-text">注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本变量"><span class="nav-text">基本变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#流程控制"><span class="nav-text">流程控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法-Functions"><span class="nav-text">方法(Functions)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表（Tables）"><span class="nav-text">表（Tables）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Metatables-and-metamethods"><span class="nav-text">Metatables and metamethods</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#类和继承"><span class="nav-text">类和继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Modules"><span class="nav-text">Modules</span></a></li></ol></div>
             
 
           </div>
