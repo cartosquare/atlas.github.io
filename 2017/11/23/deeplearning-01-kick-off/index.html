@@ -108,7 +108,7 @@
 <meta property="og:url" content="http://cartosquare.github.io/2017/11/23/deeplearning-01-kick-off/index.html">
 <meta property="og:site_name" content="CartoSquare">
 <meta property="og:description" content="从这篇博客开始，我打算写一系列关于深度学习的文章，旨在梳理深度学习的各个相关组成结构，并探索相应的实现细节。每篇文章可能只会涉及比较小的一个idea，并尽量用caffe2这个库去解读/实现。">
-<meta property="og:updated_time" content="2017-11-23T15:19:37.213Z">
+<meta property="og:updated_time" content="2017-11-23T15:50:51.561Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习之一：Kick Off">
 <meta name="twitter:description" content="从这篇博客开始，我打算写一系列关于深度学习的文章，旨在梳理深度学习的各个相关组成结构，并探索相应的实现细节。每篇文章可能只会涉及比较小的一个idea，并尽量用caffe2这个库去解读/实现。">
@@ -331,7 +331,7 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2017-11-23T23:19:37+08:00">
+            <time title="Post modified" itemprop="dateModified" datetime="2017-11-23T23:50:51+08:00">
               2017-11-23
             </time>
             
@@ -403,7 +403,47 @@
 <p>总结成数学语言，对于由N个D维训练样本组成的集合 $x_i \in R^D$, 每个样本对应一个标签 $y_i$，其中 $i = 1 … N$, $y_i \in 1 … K$，K是数据的总的标签数。机器学习的目的是让电脑得出一个评分函数（score function）$f: R^D -&gt; R^K$, 这个函数可以把某一个训练样本映射为一个标签。评分函数通常写成下面的形式：<br>$$s_i = f(w, x_i)$$<br>即该函数是样本X的函数，w是这个函数的参数集合。不同的机器学习算法体现在评分函数的不同上。线性分类器的评分函数是一个线性函数，只带两个参数（斜率和偏移），SVM分类器的评分函数则是高维函数，至于神经网络乃至深度卷积神经网络的评分函数就够复杂了，参数可以达到数千万乃至上亿。</p>
 <h2 id="机器学习的组成结构"><a href="#机器学习的组成结构" class="headerlink" title="机器学习的组成结构"></a>机器学习的组成结构</h2><p>通常在电脑完成学习之后，可以用评分函数对新的数据进行预测。但是学习的过程还需要代价函数，或者叫损失函数来辅助（Loss function)。在学习（也就是训练）的过程中，损失函数通常放在评分函数之后，也就是以评分函数的输出以及真实的标签为输入，输出一个损失值。通过这个损失值指导评分函数的修正，这里的修正指的是对评分函数的参数进行调整。通过不断的学习，电脑就能够找到合适的一组权重参数，使得评分函数的输出值得到的损失值尽可能小。这个调整权重参数的过程实际上是最小化损失函数，这里目前用的最多的是梯度下降算法。</p>
 <p>总结一下，机器学习的结构可以分成三部分，第一部分是评分函数，用来模拟人的决策过程；第二部分是损失函数，用来衡量机器的决策和真实决策的差异；第三部分是最小化损失函数的过程，用来调整评分函数的权重。等到训练过程结束，我们便可以单独使用评分函数进行预测。</p>
-<h2 id="接下来-…"><a href="#接下来-…" class="headerlink" title="接下来 …"></a>接下来 …</h2>
+<h2 id="接下来的计划-…"><a href="#接下来的计划-…" class="headerlink" title="接下来的计划 …"></a>接下来的计划 …</h2><p>后续的blog将会围绕机器学习的这三部分进行，下面是初步拟定的大纲：</p>
+<ul>
+<li><p>Loss function(svm loss, softmax loss/cross entropy…)</p>
+</li>
+<li><p>Stochastic gradient decent(batch sgd…)</p>
+</li>
+<li><p>Backward propagation(chain-rule, subgradients…)</p>
+</li>
+<li><p>Activation layer</p>
+</li>
+<li><p>Weight initialization</p>
+</li>
+<li><p>Full connected layer(gemm…)</p>
+</li>
+<li><p>Convolutional layer</p>
+</li>
+<li><p>Pool layer</p>
+</li>
+<li><p>Normalization layer</p>
+</li>
+<li><p>CNN case study(alexnet, googlenet, vggnet, resnet…)</p>
+</li>
+<li><p>Upsample layer</p>
+</li>
+<li><p>FCN</p>
+</li>
+<li><p>LSTM</p>
+</li>
+<li><p>SegNet</p>
+</li>
+<li><p>U-Net</p>
+</li>
+<li><p>fast-rcnn/faster-rcnn</p>
+</li>
+<li><p>YOLO</p>
+</li>
+<li><p>SDD</p>
+</li>
+</ul>
+<p>以上列出的是可能会涉及的概念，当然中间还会穿插一些关于影像识别方面的一些具体例子。所有的Blog代码都会基于<a href="https://caffe2.ai/" target="_blank" rel="external">caffe2</a>来开发，这得益于caffe2的高度模块化设计，让我们可以不修改源代码也可以添加自定义的层和相关算法。另外caffe2不仅效率高，而且可以运行在多种设备之上，使得我们的学习代码可以具备工程应用的条件。接下来的所有代码都会放在<a href="https://github.com/cartosquare/caffe2_cpp_tutorial" target="_blank" rel="external">caffe2_cpp_tutoria</a>这个仓库中。</p>
+
       
     </div>
 
@@ -608,7 +648,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是机器学习"><span class="nav-text">什么是机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习的组成结构"><span class="nav-text">机器学习的组成结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来-…"><span class="nav-text">接下来 …</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是机器学习"><span class="nav-text">什么是机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习的组成结构"><span class="nav-text">机器学习的组成结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来的计划-…"><span class="nav-text">接下来的计划 …</span></a></li></ol></div>
             
 
           </div>
