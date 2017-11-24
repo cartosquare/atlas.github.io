@@ -108,7 +108,7 @@
 <meta property="og:url" content="http://cartosquare.github.io/2017/11/23/deeplearning-01-kick-off/index.html">
 <meta property="og:site_name" content="CartoSquare">
 <meta property="og:description" content="从这篇博客开始，我打算写一系列关于深度学习的文章，旨在梳理深度学习的各个相关组成结构，并探索相应的实现细节。每篇文章可能只会涉及比较小的一个idea，并尽量用caffe2这个库去解读/实现。">
-<meta property="og:updated_time" content="2017-11-23T15:50:51.561Z">
+<meta property="og:updated_time" content="2017-11-23T16:07:30.017Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习之一：Kick Off">
 <meta name="twitter:description" content="从这篇博客开始，我打算写一系列关于深度学习的文章，旨在梳理深度学习的各个相关组成结构，并探索相应的实现细节。每篇文章可能只会涉及比较小的一个idea，并尽量用caffe2这个库去解读/实现。">
@@ -331,8 +331,8 @@
             <span class="post-meta-item-icon">
               <i class="fa fa-calendar-check-o"></i>
             </span>
-            <time title="Post modified" itemprop="dateModified" datetime="2017-11-23T23:50:51+08:00">
-              2017-11-23
+            <time title="Post modified" itemprop="dateModified" datetime="2017-11-24T00:07:30+08:00">
+              2017-11-24
             </time>
             
           </span>
@@ -401,7 +401,7 @@
         <p>从这篇博客开始，我打算写一系列关于深度学习的文章，旨在梳理深度学习的各个相关组成结构，并探索相应的实现细节。每篇文章可能只会涉及比较小的一个idea，并尽量用caffe2这个库去解读/实现。<br><a id="more"></a></p>
 <h2 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h2><p>顾名思议，机器学习是让机器进行学习的一门学问。机器学习通过喂给电脑大量的先验知识，让电脑了解数据的分布规律，从而使得电脑具备对数据进行预测的能力。比如，给电脑喂大量带标签的图片（标签表明图片里是什么）之后，我们随便给一个电脑没有看过的图片，它就能够预测这个图片里面是什么。</p>
 <p>总结成数学语言，对于由N个D维训练样本组成的集合 $x_i \in R^D$, 每个样本对应一个标签 $y_i$，其中 $i = 1 … N$, $y_i \in 1 … K$，K是数据的总的标签数。机器学习的目的是让电脑得出一个评分函数（score function）$f: R^D -&gt; R^K$, 这个函数可以把某一个训练样本映射为一个标签。评分函数通常写成下面的形式：<br>$$s_i = f(w, x_i)$$<br>即该函数是样本X的函数，w是这个函数的参数集合。不同的机器学习算法体现在评分函数的不同上。线性分类器的评分函数是一个线性函数，只带两个参数（斜率和偏移），SVM分类器的评分函数则是高维函数，至于神经网络乃至深度卷积神经网络的评分函数就够复杂了，参数可以达到数千万乃至上亿。</p>
-<h2 id="机器学习的组成结构"><a href="#机器学习的组成结构" class="headerlink" title="机器学习的组成结构"></a>机器学习的组成结构</h2><p>通常在电脑完成学习之后，可以用评分函数对新的数据进行预测。但是学习的过程还需要代价函数，或者叫损失函数来辅助（Loss function)。在学习（也就是训练）的过程中，损失函数通常放在评分函数之后，也就是以评分函数的输出以及真实的标签为输入，输出一个损失值。通过这个损失值指导评分函数的修正，这里的修正指的是对评分函数的参数进行调整。通过不断的学习，电脑就能够找到合适的一组权重参数，使得评分函数的输出值得到的损失值尽可能小。这个调整权重参数的过程实际上是最小化损失函数，这里目前用的最多的是梯度下降算法。</p>
+<h2 id="机器学习的组成结构"><a href="#机器学习的组成结构" class="headerlink" title="机器学习的组成结构"></a>机器学习的组成结构</h2><p>通常在电脑完成学习之后，可以用评分函数对新的数据进行预测。但是学习的过程还需要代价函数，或者叫损失函数（Loss function）来辅助。在学习/训练的过程中，损失函数通常放在评分函数之后，以评分函数的输出和真实的标签为输入，计算出一个损失值。通过这个损失值指导评分函数对其参数进行调整。通过不断的学习，电脑就能够找到合适的一组权重参数，使得评分函数的输出值进入到损失函数能得到一个尽可能小的值。这个调整权重参数的过程实际上是最小化损失函数的过程，这里目前用的最多的是梯度下降算法。</p>
 <p>总结一下，机器学习的结构可以分成三部分，第一部分是评分函数，用来模拟人的决策过程；第二部分是损失函数，用来衡量机器的决策和真实决策的差异；第三部分是最小化损失函数的过程，用来调整评分函数的权重。等到训练过程结束，我们便可以单独使用评分函数进行预测。</p>
 <h2 id="接下来的计划-…"><a href="#接下来的计划-…" class="headerlink" title="接下来的计划 …"></a>接下来的计划 …</h2><p>后续的blog将会围绕机器学习的这三部分进行，下面是初步拟定的大纲：</p>
 <ul>
@@ -492,6 +492,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2017/11/24/deeplearning-02-loss-function/" rel="prev" title="深度学习之二：损失函数">
+                深度学习之二：损失函数 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -562,7 +566,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">13</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -579,7 +583,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
