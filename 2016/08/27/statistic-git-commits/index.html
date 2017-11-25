@@ -92,8 +92,6 @@
 
 
 
-  <link rel="alternate" href="/atom.xml" title="CartoSquare" type="application/atom+xml" />
-
 
 
 
@@ -107,27 +105,27 @@
 <meta name="description" content="随着一个项目的推进，项目的代码越来越多，团队成员也可能越来越多。这时候，如何跟踪项目的演进对于项目管理者来说就成了一个问题。项目管理者往往需要知道项目代码数量随着时间的推移发生的变化、每天/每周/每月/每年的提交情况以及每个贡献者的提交情况等等。而这些统计信息无法直接从 git log 中直接获取，最近发现了一个叫GitStats的工具可以从 git 提交历史中自动生成这些统计信息，并生成 HTM">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git commits 统计分析">
-<meta property="og:url" content="http://cartosquare.github.io/2016/08/27/statistic-git-commits/index.html">
+<meta property="og:url" content="http://www.cartosquare.com/2016/08/27/statistic-git-commits/index.html">
 <meta property="og:site_name" content="CartoSquare">
 <meta property="og:description" content="随着一个项目的推进，项目的代码越来越多，团队成员也可能越来越多。这时候，如何跟踪项目的演进对于项目管理者来说就成了一个问题。项目管理者往往需要知道项目代码数量随着时间的推移发生的变化、每天/每周/每月/每年的提交情况以及每个贡献者的提交情况等等。而这些统计信息无法直接从 git log 中直接获取，最近发现了一个叫GitStats的工具可以从 git 提交历史中自动生成这些统计信息，并生成 HTM">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/general_info.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/weekly_activity.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/hours_of_day.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/days_of_week.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/hours_of_week.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/month_of_year.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/year.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/year_month.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/authors.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/lines_per_authors.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/commits_per_author.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/authors_per_months.png">
-<meta property="og:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/authors_per_year.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/general_info.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/weekly_activity.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/hours_of_day.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/days_of_week.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/hours_of_week.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/month_of_year.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/year.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/year_month.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/authors.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/lines_per_authors.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/commits_per_author.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/authors_per_months.png">
+<meta property="og:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/authors_per_year.png">
 <meta property="og:updated_time" content="2016-08-27T06:59:55.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git commits 统计分析">
 <meta name="twitter:description" content="随着一个项目的推进，项目的代码越来越多，团队成员也可能越来越多。这时候，如何跟踪项目的演进对于项目管理者来说就成了一个问题。项目管理者往往需要知道项目代码数量随着时间的推移发生的变化、每天/每周/每月/每年的提交情况以及每个贡献者的提交情况等等。而这些统计信息无法直接从 git log 中直接获取，最近发现了一个叫GitStats的工具可以从 git 提交历史中自动生成这些统计信息，并生成 HTM">
-<meta name="twitter:image" content="http://cartosquare.github.io/images/blogs/statistic-git-commits/general_info.png">
+<meta name="twitter:image" content="http://www.cartosquare.com/images/blogs/statistic-git-commits/general_info.png">
 
 
 
@@ -155,7 +153,7 @@
 
 
 
-  <link rel="canonical" href="http://cartosquare.github.io/2016/08/27/statistic-git-commits/"/>
+  <link rel="canonical" href="http://www.cartosquare.com/2016/08/27/statistic-git-commits/"/>
 
 
 
@@ -325,7 +323,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://cartosquare.github.io/2016/08/27/statistic-git-commits/">
+  <link itemprop="mainEntityOfPage" href="http://www.cartosquare.com/2016/08/27/statistic-git-commits/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="徐翔">
@@ -647,13 +645,6 @@
 
         </nav>
 
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
         
 
         <div class="links-of-author motion-element">
