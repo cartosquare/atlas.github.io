@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>CartoSquare</title>
+  
+  <subtitle>making things. saying things.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://cartosquare.github.io/"/>
+  <updated>2017-11-24T15:02:25.171Z</updated>
+  <id>http://cartosquare.github.io/</id>
+  
+  <author>
+    <name>徐翔</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>深度学习之二：损失函数</title>
+    <link href="http://cartosquare.github.io/2017/11/24/deeplearning-02-loss-function/"/>
+    <id>http://cartosquare.github.io/2017/11/24/deeplearning-02-loss-function/</id>
+    <published>2017-11-24T11:31:20.000Z</published>
+    <updated>2017-11-24T15:02:25.171Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;损失函数定义了机器学习的目标，是构建机器学习结构十分重要的一环。通常，损失函数包含数据损失(data loss)和正则化损失(regularization loss)，前者约束评分函数预测的结果要和真实结果尽可能相近，后者约束的是评分函数的参数要尽可能简单，避免过复杂的模型。对于不同的任务（分类、回归等），需要设计不同类型的损失函数，当然使用最多的损失函数就只有常见的几种，下面分别介绍。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="http://cartosquare.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="深度学习" scheme="http://cartosquare.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="损失函数" scheme="http://cartosquare.github.io/tags/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
+    
+      <category term="SVMLoss" scheme="http://cartosquare.github.io/tags/SVMLoss/"/>
+    
+      <category term="SoftMax" scheme="http://cartosquare.github.io/tags/SoftMax/"/>
+    
+      <category term="CrossEntropy" scheme="http://cartosquare.github.io/tags/CrossEntropy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>深度学习之一：Kick Off</title>
+    <link href="http://cartosquare.github.io/2017/11/23/deeplearning-01-kick-off/"/>
+    <id>http://cartosquare.github.io/2017/11/23/deeplearning-01-kick-off/</id>
+    <published>2017-11-23T14:00:10.000Z</published>
+    <updated>2017-11-23T16:07:30.017Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;从这篇博客开始，我打算写一系列关于深度学习的文章，旨在梳理深度学习的各个相关组成结构，并探索相应的实现细节。每篇文章可能只会涉及比较小的一个idea，并尽量用caffe2这个库去解读/实现。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="http://cartosquare.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="深度学习" scheme="http://cartosquare.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="机器学习" scheme="http://cartosquare.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Lua 语言</title>
+    <link href="http://cartosquare.github.io/2016/11/13/lua-language/"/>
+    <id>http://cartosquare.github.io/2016/11/13/lua-language/</id>
+    <published>2016-11-13T01:30:09.000Z</published>
+    <updated>2016-11-13T03:32:10.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近在忙着做地理方面的机器学习的研究，把博客给荒废了。今天就把最近常用的Lua编程语言做些笔记，方便以后参考。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.lua.org/&quot;&gt;Lua&lt;/a&gt; 是一门动态类型的脚本语言，具有很强的拓展性，可以和C/C++进行交互。Lua的语法简单、运行十分高效，通常应用于嵌入式程序、C程序，当然也可以单独使用Lua进行程序设计。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/images/blogs/lua-language/logo.png&quot; alt=&quot;html&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="程序语言" scheme="http://cartosquare.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="Lua" scheme="http://cartosquare.github.io/tags/Lua/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CSS 属性</title>
+    <link href="http://cartosquare.github.io/2016/09/26/css/"/>
+    <id>http://cartosquare.github.io/2016/09/26/css/</id>
+    <published>2016-09-26T13:38:46.000Z</published>
+    <updated>2016-10-03T11:47:19.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/blogs/html-tags/css.png&quot; alt=&quot;html&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="程序语言" scheme="http://cartosquare.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="CSS" scheme="http://cartosquare.github.io/tags/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HTML 标签</title>
+    <link href="http://cartosquare.github.io/2016/09/24/html-tags/"/>
+    <id>http://cartosquare.github.io/2016/09/24/html-tags/</id>
+    <published>2016-09-24T13:38:46.000Z</published>
+    <updated>2016-09-26T14:40:38.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;/images/blogs/html-tags/html.png&quot; alt=&quot;html&quot;&gt;&lt;br&gt;
+    
+    </summary>
+    
+      <category term="程序语言" scheme="http://cartosquare.github.io/categories/%E7%A8%8B%E5%BA%8F%E8%AF%AD%E8%A8%80/"/>
+    
+    
+      <category term="HTML" scheme="http://cartosquare.github.io/tags/HTML/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机中的数学二：数论和加密算法</title>
+    <link href="http://cartosquare.github.io/2016/09/15/number-theory-and-rsa-algorithm/"/>
+    <id>http://cartosquare.github.io/2016/09/15/number-theory-and-rsa-algorithm/</id>
+    <published>2016-09-15T13:10:54.000Z</published>
+    <updated>2016-09-16T02:36:12.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;当我们使用 git 同步代码，ssh 远程登录虚拟机、使用数字签名、加密哈希函数以及电子支付系统时，都会用到公钥加密系统，而支撑起公钥加密系统的理论便是数论。&lt;/p&gt;
+&lt;p&gt;数论是关于整数的理论，首先来了解一些基本的概念和理论，然后再看看前人为实现安全加密做出的努力，最后再介绍现在广泛使用的 RSA 公钥加密算法。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数学" scheme="http://cartosquare.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="数论" scheme="http://cartosquare.github.io/tags/%E6%95%B0%E8%AE%BA/"/>
+    
+      <category term="加密算法" scheme="http://cartosquare.github.io/tags/%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="RSA 算法" scheme="http://cartosquare.github.io/tags/RSA-%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>用深度学习来探索地球，你信吗？</title>
+    <link href="http://cartosquare.github.io/2016/09/03/deep-learning-intro/"/>
+    <id>http://cartosquare.github.io/2016/09/03/deep-learning-intro/</id>
+    <published>2016-09-03T12:01:42.000Z</published>
+    <updated>2016-09-04T02:59:22.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;最近深度学习在计算机视觉领域取得了巨大的突破，更是随着AlphaGo与李世石的大战被普通老百姓所津津乐道。传统的遥感影像识别势必会在深度学习的影响下向前进一步发展，用深度学习来探索地球在不远的将来也将成为现实。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="GIS" scheme="http://cartosquare.github.io/categories/GIS/"/>
+    
+    
+      <category term="深度学习" scheme="http://cartosquare.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="影像识别" scheme="http://cartosquare.github.io/tags/%E5%BD%B1%E5%83%8F%E8%AF%86%E5%88%AB/"/>
+    
+      <category term="深度卷积神经网络" scheme="http://cartosquare.github.io/tags/%E6%B7%B1%E5%BA%A6%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机中的数学一：如何去证明</title>
+    <link href="http://cartosquare.github.io/2016/08/29/propositions/"/>
+    <id>http://cartosquare.github.io/2016/08/29/propositions/</id>
+    <published>2016-08-29T14:11:58.000Z</published>
+    <updated>2016-09-10T00:57:30.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;计算机领域中的许多问题往往需要用数学模型和方法来解决，而数学的独特的证明方式在其中起着核心的作用。&lt;/p&gt;
+&lt;p&gt;简单来说，证明是一种建立事实的方法。然而，就像“美丽”这个词一样，“事实”有时候也是因人而异的：在法官眼中，事实得由证据来决定；在商界，事实可能由一个可信赖的人或是组织或仅仅是你的 boss 指定；在物理或是生物领域，事实由实验来确定；在哲学中，事实如“我思故我在”这句名言般缥缈。&lt;/p&gt;
+&lt;p&gt;当然，数学有它自己对于证明的定义。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="数学" scheme="http://cartosquare.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="证明" scheme="http://cartosquare.github.io/tags/%E8%AF%81%E6%98%8E/"/>
+    
+      <category term="命题" scheme="http://cartosquare.github.io/tags/%E5%91%BD%E9%A2%98/"/>
+    
+      <category term="数学" scheme="http://cartosquare.github.io/tags/%E6%95%B0%E5%AD%A6/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>git commits 统计分析</title>
+    <link href="http://cartosquare.github.io/2016/08/27/statistic-git-commits/"/>
+    <id>http://cartosquare.github.io/2016/08/27/statistic-git-commits/</id>
+    <published>2016-08-27T04:45:57.000Z</published>
+    <updated>2016-08-27T06:59:55.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;随着一个项目的推进，项目的代码越来越多，团队成员也可能越来越多。这时候，如何跟踪项目的演进对于项目管理者来说就成了一个问题。项目管理者往往需要知道项目代码数量随着时间的推移发生的变化、每天/每周/每月/每年的提交情况以及每个贡献者的提交情况等等。而这些统计信息无法直接从 git log 中直接获取，最近发现了一个叫&lt;a href=&quot;http://gitstats.sourceforge.net/&quot;&gt;GitStats&lt;/a&gt;的工具可以从 git 提交历史中自动生成这些统计信息，并生成 HTML 形式的报告。下面简要介绍一下这个工具。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://cartosquare.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="git commits" scheme="http://cartosquare.github.io/tags/git-commits/"/>
+    
+      <category term="statistic logs" scheme="http://cartosquare.github.io/tags/statistic-logs/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Scrum 游戏规则</title>
+    <link href="http://cartosquare.github.io/2016/08/26/scrum-game-rules/"/>
+    <id>http://cartosquare.github.io/2016/08/26/scrum-game-rules/</id>
+    <published>2016-08-26T15:46:18.000Z</published>
+    <updated>2016-08-27T02:34:35.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;许多公司都在用 Scrum，我们公司也不例外。那么 Scrum 到底是什么？我们是否真的在实践 Scrum 的原则？要知道如果没有严格按照 Scrum 的原则实践，那么我们用的 Scrum 也就不是 Scrum 了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="方法论" scheme="http://cartosquare.github.io/categories/%E6%96%B9%E6%B3%95%E8%AE%BA/"/>
+    
+    
+      <category term="scrum" scheme="http://cartosquare.github.io/tags/scrum/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 hexo 搭建个人博客</title>
+    <link href="http://cartosquare.github.io/2016/08/25/hexo-for-blogs/"/>
+    <id>http://cartosquare.github.io/2016/08/25/hexo-for-blogs/</id>
+    <published>2016-08-25T15:07:07.000Z</published>
+    <updated>2016-08-27T08:01:59.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;作为开发人员，每天都在接触许多新的东西，如果不记下来下次还得 Google，有时候觉得许多时间都浪费在了解决相同的问题上了。&lt;/p&gt;
+&lt;p&gt;而这也是我搭建博客的初衷：把一些比较技术的东西记录下来，给自己也给他人引导。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="工具" scheme="http://cartosquare.github.io/categories/%E5%B7%A5%E5%85%B7/"/>
+    
+    
+      <category term="hexo" scheme="http://cartosquare.github.io/tags/hexo/"/>
+    
+      <category term="personal blog" scheme="http://cartosquare.github.io/tags/personal-blog/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>实时更新OSM数据库</title>
+    <link href="http://cartosquare.github.io/2016/05/07/minutely-osm-database/"/>
+    <id>http://cartosquare.github.io/2016/05/07/minutely-osm-database/</id>
+    <published>2016-05-06T16:00:00.000Z</published>
+    <updated>2016-08-27T02:28:34.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;巧妇难为无米之炊。对于制图者，地图数据便是一切的基础。&lt;a href=&quot;http://www.openstreetmap.org/&quot;&gt;OpenStreetMap&lt;/a&gt;（简称 OSM ）是一个全球路网数据（不仅仅是路网数据，还包括行政区划、自然要素等数据）的众包平台，所有人都可以免费得到这份全球的数据。由于众包的性质，OSM 的数据每分钟都在发生变化，因此，维护一个实时（分钟级的频率）更新的 OSM 数据源能够使我们的地图有更好的时效性。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="GIS" scheme="http://cartosquare.github.io/categories/GIS/"/>
+    
+    
+      <category term="OSM" scheme="http://cartosquare.github.io/tags/OSM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>常用的排序算法</title>
+    <link href="http://cartosquare.github.io/2016/04/22/sorting-algorithms/"/>
+    <id>http://cartosquare.github.io/2016/04/22/sorting-algorithms/</id>
+    <published>2016-04-21T16:00:00.000Z</published>
+    <updated>2016-08-29T13:13:18.000Z</updated>
+    
+    <summary type="html">
+    
+      &lt;p&gt;还记得上数据结构的时候，耗费了大量脑细胞却总是记不住种类繁多的排序算法；而勉强记住，应付了考试后，过了几个月又忘得一干二净，没办法，只能写下来供以后参考。&lt;/p&gt;
+&lt;p&gt;其实从排序算法的类别繁多以及在数据结构课程中占的时间比例可以看出这是计算机领域最经典也是研究最广泛的算法，这样说来，我等凡夫俗子不能马上顿悟也是情有可原了。&lt;/p&gt;
+&lt;p&gt;闲话少说，进入正题。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="算法" scheme="http://cartosquare.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="排序" scheme="http://cartosquare.github.io/tags/%E6%8E%92%E5%BA%8F/"/>
+    
+  </entry>
+  
+</feed>

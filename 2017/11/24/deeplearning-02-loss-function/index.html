@@ -92,6 +92,8 @@
 
 
 
+  <link rel="alternate" href="/atom.xml" title="CartoSquare" type="application/atom+xml" />
+
 
 
 
@@ -99,6 +101,9 @@
 
 
 
+
+  <meta property="fb:admins" content="Atlas Xu" />
+  <meta property="fb:app_id" content="1537670719649729" />
 
 
 
@@ -151,6 +156,24 @@
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '1537670719649729',
+      xfbml      : true,
+      version    : 'v2.6'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/zh_Hans/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
 
 
@@ -370,6 +393,9 @@
           
 
           
+            &nbsp; | &nbsp;
+            <div class="fb-like" data-layout="button_count" data-share="true"></div>
+          
 
           
           
@@ -583,6 +609,13 @@
 
         </nav>
 
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
         
 
         <div class="links-of-author motion-element">
