@@ -265,31 +265,6 @@
   </entry>
   
   <entry>
-    <title>使用 hexo 搭建个人博客</title>
-    <link href="http://www.cartosquare.com/2016/08/25/hexo-for-blogs/"/>
-    <id>http://www.cartosquare.com/2016/08/25/hexo-for-blogs/</id>
-    <published>2016-08-25T15:07:07.000Z</published>
-    <updated>2016-08-27T08:01:59.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>作为开发人员，每天都在接触许多新的东西，如果不记下来下次还得 Google，有时候觉得许多时间都浪费在了解决相同的问题上了。</p><p>而这也是我搭建博客的初衷：把一些比较技术的东西记录下来，给自己也给他人引导。</p><a id="more"></a><h2 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h2><p>我希望搭建博客不需要花费我太多时间，我不太精通前端，最好能够简单的配置就有简洁美观的界面，让我可以专心写博客；另外博客引擎应该是轻量级的，并且可以部署在 github pages 上。</p><p>总结如下：</p><ul><li>轻量级</li><li>易配置</li><li>能部署到 github pages 上</li></ul><h2 id="选择-hexo"><a href="#选择-hexo" class="headerlink" title="选择 hexo"></a>选择 hexo</h2><p>选择 hexo 的原因不外乎上述的三点原则。hexo 是基于 Node.js 的一个静态博客框架，由此也就有了轻量级、易部署到 github pages 的特点。而在配置方面，hexo 也是十分简单，它包含许多主题和插件，比如我比较喜欢的<a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="external">NexT</a>主题，也就是现在这个博客的主题；另外，在 hexo 中还支持 MathJax，输入数学公式十分方便。</p><h2 id="hexo的基本使用"><a href="#hexo的基本使用" class="headerlink" title="hexo的基本使用"></a>hexo的基本使用</h2><p>安装 hexo 就不多说了，可以到<a href="https://hexo.io/" target="_blank" rel="external">官网</a>查看安装指南以及基本的配置。</p><p>常用命令:</p><ul><li><p>新建页面</p><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">hexo new page page-name</div></pre></td></tr></table></figure></li><li><p>新建博客</p><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">hexo new post title</div></pre></td></tr></table></figure></li><li><p>清除缓存</p><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure></li><li><p>部署前生成页面</p><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">hexo generate</div></pre></td></tr></table></figure></li><li><p>部署</p><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">hexo deploy</div></pre></td></tr></table></figure></li><li><p>本地启动服务</p><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure></li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;作为开发人员，每天都在接触许多新的东西，如果不记下来下次还得 Google，有时候觉得许多时间都浪费在了解决相同的问题上了。&lt;/p&gt;
-&lt;p&gt;而这也是我搭建博客的初衷：把一些比较技术的东西记录下来，给自己也给他人引导。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="工具" scheme="http://www.cartosquare.com/categories/%E5%B7%A5%E5%85%B7/"/>
-    
-    
-      <category term="hexo" scheme="http://www.cartosquare.com/tags/hexo/"/>
-    
-      <category term="personal blog" scheme="http://www.cartosquare.com/tags/personal-blog/"/>
-    
-  </entry>
-  
-  <entry>
     <title>实时更新OSM数据库</title>
     <link href="http://www.cartosquare.com/2016/05/07/minutely-osm-database/"/>
     <id>http://www.cartosquare.com/2016/05/07/minutely-osm-database/</id>
