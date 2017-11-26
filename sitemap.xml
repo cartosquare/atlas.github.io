@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://www.cartosquare.com/2017/11/24/deeplearning-02-loss-function/</loc>
+    
+    <lastmod>2017-11-26T12:08:52.130Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.cartosquare.com/2017/11/23/deeplearning-01-kick-off/</loc>
+    
+    <lastmod>2017-11-26T12:07:49.708Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://www.cartosquare.com/2016/11/13/lua-language/</loc>
     
     <lastmod>2017-11-25T08:42:21.379Z</lastmod>
@@ -26,20 +40,6 @@
     <loc>http://www.cartosquare.com/favicons/manifest.json</loc>
     
     <lastmod>2017-11-25T04:09:52.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.cartosquare.com/2017/11/24/deeplearning-02-loss-function/</loc>
-    
-    <lastmod>2017-11-24T15:02:25.171Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://www.cartosquare.com/2017/11/23/deeplearning-01-kick-off/</loc>
-    
-    <lastmod>2017-11-23T16:07:30.017Z</lastmod>
     
   </url>
   
