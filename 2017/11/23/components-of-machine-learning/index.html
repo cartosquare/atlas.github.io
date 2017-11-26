@@ -112,7 +112,7 @@
 
 
 
-  <meta name="keywords" content="深度学习,损失函数,SVMLoss,SoftMax,CrossEntropy," />
+  <meta name="keywords" content="深度学习,机器学习," />
 
 
 
@@ -123,16 +123,16 @@
 
 
 
-<meta name="description" content="损失函数定义了机器学习的目标，是构建机器学习结构十分重要的一环。通常，损失函数包含数据损失(data loss)和正则化损失(regularization loss)，前者约束评分函数预测的结果要和真实结果尽可能相近，后者约束的是评分函数的参数要尽可能简单，避免过复杂的模型。对于不同的任务（分类、回归等），需要设计不同类型的损失函数，当然使用最多的损失函数就只有常见的几种，下面分别介绍。">
+<meta name="description" content="从这篇博客开始，我打算写一系列关于深度学习的文章，旨在梳理深度学习的各个相关组成结构，并探索相应的实现细节。每篇文章可能只会涉及比较小的一个idea，并尽量用caffe2这个库去解读/实现。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何衡量机器学习的好坏">
-<meta property="og:url" content="http://www.cartosquare.com/2017/11/24/deeplearning-02-loss-function/index.html">
+<meta property="og:title" content="机器学习有哪些组成部分">
+<meta property="og:url" content="http://www.cartosquare.com/2017/11/23/components-of-machine-learning/index.html">
 <meta property="og:site_name" content="CartoSquare">
-<meta property="og:description" content="损失函数定义了机器学习的目标，是构建机器学习结构十分重要的一环。通常，损失函数包含数据损失(data loss)和正则化损失(regularization loss)，前者约束评分函数预测的结果要和真实结果尽可能相近，后者约束的是评分函数的参数要尽可能简单，避免过复杂的模型。对于不同的任务（分类、回归等），需要设计不同类型的损失函数，当然使用最多的损失函数就只有常见的几种，下面分别介绍。">
-<meta property="og:updated_time" content="2017-11-26T12:08:52.130Z">
+<meta property="og:description" content="从这篇博客开始，我打算写一系列关于深度学习的文章，旨在梳理深度学习的各个相关组成结构，并探索相应的实现细节。每篇文章可能只会涉及比较小的一个idea，并尽量用caffe2这个库去解读/实现。">
+<meta property="og:updated_time" content="2017-11-26T12:11:21.031Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="如何衡量机器学习的好坏">
-<meta name="twitter:description" content="损失函数定义了机器学习的目标，是构建机器学习结构十分重要的一环。通常，损失函数包含数据损失(data loss)和正则化损失(regularization loss)，前者约束评分函数预测的结果要和真实结果尽可能相近，后者约束的是评分函数的参数要尽可能简单，避免过复杂的模型。对于不同的任务（分类、回归等），需要设计不同类型的损失函数，当然使用最多的损失函数就只有常见的几种，下面分别介绍。">
+<meta name="twitter:title" content="机器学习有哪些组成部分">
+<meta name="twitter:description" content="从这篇博客开始，我打算写一系列关于深度学习的文章，旨在梳理深度学习的各个相关组成结构，并探索相应的实现细节。每篇文章可能只会涉及比较小的一个idea，并尽量用caffe2这个库去解读/实现。">
 
 
 
@@ -162,13 +162,13 @@
 
 
 
-  <link rel="canonical" href="http://www.cartosquare.com/2017/11/24/deeplearning-02-loss-function/"/>
+  <link rel="canonical" href="http://www.cartosquare.com/2017/11/23/components-of-machine-learning/"/>
 
 
 
 
 
-  <title>如何衡量机器学习的好坏 | CartoSquare</title>
+  <title>机器学习有哪些组成部分 | CartoSquare</title>
   
 
 
@@ -349,7 +349,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.cartosquare.com/2017/11/24/deeplearning-02-loss-function/">
+    <link itemprop="mainEntityOfPage" href="http://www.cartosquare.com/2017/11/23/components-of-machine-learning/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="徐翔">
@@ -366,7 +366,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">如何衡量机器学习的好坏</h2>
+          <h2 class="post-title" itemprop="name headline">机器学习有哪些组成部分</h2>
         
 
         <div class="post-meta">
@@ -378,8 +378,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-24T19:31:20+08:00">
-                2017-11-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-23T22:00:10+08:00">
+                2017-11-23
               </time>
             
 
@@ -394,7 +394,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-11-26T20:08:52+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2017-11-26T20:11:21+08:00">
                 2017-11-26
               </time>
             
@@ -430,7 +430,7 @@
 
           
           
-             <span id="/2017/11/24/deeplearning-02-loss-function/" class="leancloud_visitors" data-flag-title="如何衡量机器学习的好坏">
+             <span id="/2017/11/23/components-of-machine-learning/" class="leancloud_visitors" data-flag-title="机器学习有哪些组成部分">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -460,7 +460,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,544
+                  1,030
                 </span>
               
 
@@ -476,7 +476,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  10
+                  4
                 </span>
               
             </div>
@@ -497,41 +497,51 @@
       
 
       
-        <p>损失函数定义了机器学习的目标，是构建机器学习结构十分重要的一环。通常，损失函数包含数据损失(data loss)和正则化损失(regularization loss)，前者约束评分函数预测的结果要和真实结果尽可能相近，后者约束的是评分函数的参数要尽可能简单，避免过复杂的模型。对于不同的任务（分类、回归等），需要设计不同类型的损失函数，当然使用最多的损失函数就只有常见的几种，下面分别介绍。<br><a id="more"></a></p>
-<h2 id="数据损失"><a href="#数据损失" class="headerlink" title="数据损失"></a>数据损失</h2><h3 id="适用于分类的损失函数"><a href="#适用于分类的损失函数" class="headerlink" title="适用于分类的损失函数"></a>适用于分类的损失函数</h3><p>对于一个N类的分类任务，对于每一个输入的样本，评分函数都会输出一个N维的向量，这个向量表明了该样本对应于某个类的得分（向量的第一个值表明该样本属于第一类的得分，第n个值表明该样本属于第n类的得分），得分最高的那个类别就是电脑预测的类别结果。</p>
-<p>在训练的时候，我们还有每个样本真实的类别数据，通过比较电脑预测的结果和真实结果的差异，我们就能知道电脑预测的好坏，损失函数就是用来做比较差异这件事情的，所以损失函数会以电脑的预测结果和真实的类别结果为输入，输出一个实数值。</p>
-<p>用数学语言总结一下，对于N类的分类任务，对于样本$x_i$，电脑预测的结果，回忆一下上一篇blog，就是评分函数输出的结果：<br>$$s_j = f(x_i,W)_j$$<br>函数f会输出一个N维的得分向量，$f(x_i,W)_j$表示这个向量的第j个元素，即这个样本属于第j类的得分。假设这个样本的真实的类别是$y_i$，那么损失函数是所有样本的损失的平均：</p>
-<p>$$L = \frac{1}{N}\sum_{i=0}^N l_i(f(x_i,W),y_i)$$</p>
-<h4 id="Multiclass-Support-Vector-Machine-loss"><a href="#Multiclass-Support-Vector-Machine-loss" class="headerlink" title="Multiclass Support Vector Machine loss"></a>Multiclass Support Vector Machine loss</h4><p>多类支持向量机损失函数是这样一个损失函数：它希望正确类别的得分比其他类别的得分高于某个固定的值$\Delta$，通常可以将$\Delta$设为1。于是，第i个样本的SVM损失值可以用下面的式子表示：<br>$$L_i=\sum_{j\neq{y_i}} max(0, s_j - s_{y_i} + \Delta)$$<br>其中$s_j$是预测的第j类的得分，$y_i$是样本$x_i$的真实类别, $s_{y_i}$是在真实类别上的得分。注意到这里求和的不包括真实类别的那一项，而是将其它类别的得分与真实类别的得分相减，看是否大于固定值$\Delta$，如果大于的话就累加到loss里去，如果小于的话损失就置为0（说明其他类别的得分都小于真实类别的得分）。<br>下面是在caffe2中的实现代码，关于如何在caffe2中添加自定义层可以参考<a href="https://caffe2.ai/docs/custom-operators.html" target="_blank" rel="external">这里</a>。<br><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;&gt;</div><div class="line"><span class="keyword">bool</span> SVMLossL1Op&lt;<span class="keyword">float</span>, CPUContext&gt;::RunOnDevice() &#123;</div><div class="line">  <span class="comment">// (1) 设置输入输出</span></div><div class="line">  <span class="keyword">auto</span>&amp; X = Input(<span class="number">0</span>);</div><div class="line">  <span class="keyword">const</span> <span class="keyword">float</span>* Xdata = X.data&lt;<span class="keyword">float</span>&gt;();</div><div class="line"></div><div class="line">  <span class="keyword">auto</span>&amp; labels = Input(<span class="number">1</span>);</div><div class="line">  <span class="keyword">const</span> <span class="keyword">int</span>* labels_data = labels.data&lt;<span class="keyword">int</span>&gt;();</div><div class="line"></div><div class="line">  <span class="keyword">auto</span>* Y = Output(<span class="number">0</span>);</div><div class="line">  <span class="keyword">const</span> <span class="keyword">auto</span> canonical_axis = X.canonical_axis_index(axis_);</div><div class="line">  <span class="keyword">const</span> <span class="keyword">int</span> N = X.size_to_dim(canonical_axis);</div><div class="line">  <span class="keyword">const</span> <span class="keyword">int</span> D = X.size_from_dim(canonical_axis);</div><div class="line">  Y-&gt;Resize(N);</div><div class="line">  <span class="keyword">float</span>* Ydata = Y-&gt;mutable_data&lt;<span class="keyword">float</span>&gt;();</div><div class="line"></div><div class="line">  <span class="comment">// （2）获取真实标签所对应的得分</span></div><div class="line">  <span class="keyword">if</span> (correct_class_score_.size() != N) &#123;</div><div class="line">    correct_class_score_.Resize(N);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">float</span>* correct_class_score_data = correct_class_score_.mutable_data&lt;<span class="keyword">float</span>&gt;();</div><div class="line">  math::Select&lt;<span class="keyword">float</span>, CPUContext&gt;(N, D, Xdata, labels_data,</div><div class="line">                                  correct_class_score_data, &amp;context_);</div><div class="line"></div><div class="line">  <span class="comment">// (3) 计算每一个样本的svm损失</span></div><div class="line">  <span class="comment">// sum(max(0, result X - correct_class_score(X) + 1))</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</div><div class="line">    Ydata[i] = <span class="number">0.0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; D; ++j) &#123;</div><div class="line">      <span class="keyword">if</span> (j != labels_data[i]) &#123;</div><div class="line">        <span class="comment">// sum wrong class margin</span></div><div class="line">        Ydata[i] += <span class="built_in">std</span>::max&lt;<span class="keyword">float</span>&gt;(</div><div class="line">            <span class="number">0.0</span>, Xdata[i * D + j] - correct_class_score_data[i] + <span class="number">1</span>);</div><div class="line">      &#125;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+        <p>从这篇博客开始，我打算写一系列关于深度学习的文章，旨在梳理深度学习的各个相关组成结构，并探索相应的实现细节。每篇文章可能只会涉及比较小的一个idea，并尽量用caffe2这个库去解读/实现。<br><a id="more"></a></p>
+<h2 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h2><p>顾名思议，机器学习是让机器进行学习的一门学问。机器学习通过喂给电脑大量的先验知识，让电脑了解数据的分布规律，从而使得电脑具备对数据进行预测的能力。比如，给电脑喂大量带标签的图片（标签表明图片里是什么）之后，我们随便给一个电脑没有看过的图片，它就能够预测这个图片里面是什么。</p>
+<p>总结成数学语言，对于由N个D维训练样本组成的集合 $x_i \in R^D$, 每个样本对应一个标签 $y_i$，其中 $i = 1 … N$, $y_i \in 1 … K$，K是数据的总的标签数。机器学习的目的是让电脑得出一个评分函数（score function）$f: R^D -&gt; R^K$, 这个函数可以把某一个训练样本映射为一个标签。评分函数通常写成下面的形式：<br>$$s_i = f(w, x_i)$$<br>即该函数是样本X的函数，w是这个函数的参数集合。不同的机器学习算法体现在评分函数的不同上。线性分类器的评分函数是一个线性函数，只带两个参数（斜率和偏移），SVM分类器的评分函数则是高维函数，至于神经网络乃至深度卷积神经网络的评分函数就够复杂了，参数可以达到数千万乃至上亿。</p>
+<h2 id="机器学习的组成结构"><a href="#机器学习的组成结构" class="headerlink" title="机器学习的组成结构"></a>机器学习的组成结构</h2><p>通常在电脑完成学习之后，可以用评分函数对新的数据进行预测。但是学习的过程还需要代价函数，或者叫损失函数（Loss function）来辅助。在学习/训练的过程中，损失函数通常放在评分函数之后，以评分函数的输出和真实的标签为输入，计算出一个损失值。通过这个损失值指导评分函数对其参数进行调整。通过不断的学习，电脑就能够找到合适的一组权重参数，使得评分函数的输出值进入到损失函数能得到一个尽可能小的值。这个调整权重参数的过程实际上是最小化损失函数的过程，这里目前用的最多的是梯度下降算法。</p>
+<p>总结一下，机器学习的结构可以分成三部分，第一部分是评分函数，用来模拟人的决策过程；第二部分是损失函数，用来衡量机器的决策和真实决策的差异；第三部分是最小化损失函数的过程，用来调整评分函数的权重。等到训练过程结束，我们便可以单独使用评分函数进行预测。</p>
+<h2 id="接下来的计划-…"><a href="#接下来的计划-…" class="headerlink" title="接下来的计划 …"></a>接下来的计划 …</h2><p>后续的blog将会围绕机器学习的这三部分进行，下面是初步拟定的大纲：</p>
 <ul>
-<li><p>(1) 设置输入和输出。Loss函数有两个输入，一个是评分函数预测的每类的得分，假设共有D类，那么X应该是一个D维的向量，但是通常我们会设置一个batch的数据过网络，假设有N个数据一起过网络，那么X就是$N \times D$维。labels是N个数据真实的标签，是一个N维的变量。Loss函数只有一个输出，是一个N维的向量。</p>
+<li><p>Loss function(svm loss, softmax loss/cross entropy…)</p>
 </li>
-<li><p>(2）获取真实标签所对应的得分。这里对应的是$s_{y_i}$</p>
+<li><p>Stochastic gradient decent(batch sgd…)</p>
 </li>
-<li>(3) 计算每一个样本的svm损失。</li>
+<li><p>Backward propagation(chain-rule, subgradients…)</p>
+</li>
+<li><p>Activation layer</p>
+</li>
+<li><p>Weight initialization</p>
+</li>
+<li><p>Full connected layer(gemm…)</p>
+</li>
+<li><p>Convolutional layer</p>
+</li>
+<li><p>Pool layer</p>
+</li>
+<li><p>Normalization layer</p>
+</li>
+<li><p>CNN case study(alexnet, googlenet, vggnet, resnet…)</p>
+</li>
+<li><p>Upsample layer</p>
+</li>
+<li><p>FCN</p>
+</li>
+<li><p>LSTM</p>
+</li>
+<li><p>SegNet</p>
+</li>
+<li><p>U-Net</p>
+</li>
+<li><p>fast-rcnn/faster-rcnn</p>
+</li>
+<li><p>YOLO</p>
+</li>
+<li><p>SDD</p>
+</li>
 </ul>
-<p>多类支持向量机损失函数有一些变种，比如，为了让损失函数便于求导，求和时可以加上平方：<br>$$L_i=\sum_{j\neq{y_i}} max(0, s_j - s_{y_i} + \Delta)^2$$</p>
-<h4 id="Cross-Entropy-loss"><a href="#Cross-Entropy-loss" class="headerlink" title="Cross-Entropy loss"></a>Cross-Entropy loss</h4><p>在理解交叉熵损失函数之前，首先看一下Softmax操作。回想一下SVM loss，它的输入是一个N维的评分向量（N表示总类别数），这里的评分是在实数域上的，也就是说可以是任意的实数。而Softmax操作可以将这N个数归一化到[0,1]之间，并且使这N个数之和为1。这种方式实际上模拟了类别的概率分布，是我们大概可以看出样本属于不同类别的概率（但是实际上这些值并不是真实的概率，也就是说，他们之间的相对大小是有意义的，但是绝对值是无意义的）。交叉熵损失函数可以在Softmax的基础之上定义：<br>$$L_i=-log(\frac{e^{f_{y_i}}}{\sum_j{e^{f_{y_j}}}})$$<br>其中log里面的这部分：<br>$$\frac{e^{f_{y_i}}}{\sum_j{e^{f_{y_j}}}}$$<br>就是Softmax操作。可见交叉熵就是对Softmax的结果做log然后取相反数。<br>交叉熵为什么这么定义，可以从两个角度来理解。<br>首先从信息论的角度来看，在信息论中，两个分布p和q的交叉熵由下式定义：<br>$$H(p,q) = -\sum_{x}p(x)log(q(x))$$<br>回到交叉熵损失函数，假设p(x)是数据的真实分布，q(x)是电脑预测的分布，那么交叉熵损失函数就是希望这两个分布的交叉熵尽可能小。注意到，在交叉熵损失函数里并没有出现q(x)，那是因为对于样本$x_i$,p(x) = [0, …, 1, …, 0]，实际上已经隐含在式子中了(只出现了正确类别的那项，因为只有这项p(x)为1）。<br>另外，p和q的交叉熵还可以表示为p的熵加上p、q之间的KL距离(Kullback-Leibler divergence)：<br>$$H(p,q) = H(p) + D_{KL}(p||q)$$<br>因为 H(p)为0，那么交叉熵实际上等于p和q之间的KL距离，这个距离表示的是两个分布之间的距离。<br>总结一下，交叉熵损失函数希望的是实际分布p和预测分布q能够尽可能地接近。<br>从另一个角度，概率论的角度看，有：<br>$$P(y_i|x_i;W)=\frac{e^{f_{y_i}}}{\sum_j{e^{f_{y_j}}}}$$<br>上式表示的是给定样本$x_i$和参数集合W，这个样本是真实类别$y_i$的概率。因此从概率的角度看，最小化正确类别的负的log似然，可以认为是在做极大似然估计（Maximum Likelihood Estimation, MLE）。<br>首先来看Softmax函数在caffe2中的实现(有删减):<br><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="comment">// (1)</span></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">SoftmaxCPU</span><span class="params">(</span></span></div><div class="line">    CPUContext&amp; context,</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> N,</div><div class="line">    <span class="keyword">const</span> <span class="keyword">int</span> D,</div><div class="line">    <span class="keyword">const</span> <span class="keyword">float</span>* Xdata,</div><div class="line">    <span class="keyword">float</span>* Ydata,</div><div class="line">    <span class="keyword">float</span>* scale,</div><div class="line">    <span class="keyword">const</span> <span class="keyword">float</span>* sum_multiplier,</div><div class="line">    <span class="keyword">float</span>* rowmax) &#123;</div><div class="line">  math::RowwiseMax&lt;<span class="keyword">float</span>, CPUContext&gt;(N, D, Xdata, rowmax, &amp;context);</div><div class="line">  <span class="comment">// Put the intermediate result X - max(X) into Y</span></div><div class="line">  context.<span class="keyword">template</span> Copy&lt;<span class="keyword">float</span>, CPUContext, CPUContext&gt;(N * D, Xdata, Ydata);</div><div class="line">  <span class="comment">// (2) Subtract the max (for nomuerical reasons)</span></div><div class="line">  math::Gemm&lt;<span class="keyword">float</span>, CPUContext&gt;(</div><div class="line">      CblasNoTrans,</div><div class="line">      CblasNoTrans,</div><div class="line">      N,</div><div class="line">      D,</div><div class="line">      <span class="number">1</span>,</div><div class="line">      <span class="number">-1</span>,</div><div class="line">      rowmax,</div><div class="line">      sum_multiplier,</div><div class="line">      <span class="number">1</span>,</div><div class="line">      Ydata,</div><div class="line">      &amp;context);</div><div class="line">  <span class="comment">// (3) Exponentiation</span></div><div class="line">  math::Exp&lt;<span class="keyword">float</span>, CPUContext&gt;(N * D, Ydata, Ydata, &amp;context);</div><div class="line">  math::Gemv&lt;<span class="keyword">float</span>, CPUContext&gt;(</div><div class="line">      CblasNoTrans, N, D, <span class="number">1</span>, Ydata, sum_multiplier, <span class="number">0</span>, scale, &amp;context);</div><div class="line">  <span class="comment">// (4) Do division</span></div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; D; ++j) &#123;</div><div class="line">      Ydata[i * D + j] /= scale[i];</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<ul>
-<li><p>(1) Softmax 函数的输入包括一个$N \times D$维的评分矩阵Xdata,其中N为batch size，D为类别数。Ydata是softmax的计算结果。</p>
-</li>
-<li><p>(2) 为了避免数值错误，可以先把每一个样本的评分都减去最大评分。其中 math::Gemm 是General matrix multiply 函数，可以计算两个矩阵相乘。这里是把Xdata减去每一行的最大值放到了Ydata里。</p>
-</li>
-<li><p>(3) 计算$e^{f_{y_i}}$ 和${\sum_j{e^{f_{y_j}}}}$</p>
-</li>
-<li><p>(4) 计算$\frac{e^{f_{y_i}}}{\sum_j{e^{f_{y_j}}}}$</p>
-</li>
-</ul>
-<p>有了Softmax的输出结果，交叉熵只需把真实标签对应下的值求log并取相反数即可：<br><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</div><div class="line">    Ydata[i] = -<span class="built_in">log</span>(<span class="built_in">std</span>::max(Xdata[i * D + labelData[i]], kLOG_THRESHOLD()));</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
-<h3 id="适用于回归的损失函数"><a href="#适用于回归的损失函数" class="headerlink" title="适用于回归的损失函数"></a>适用于回归的损失函数</h3><p>回归任务需要预测一个实数值，比如房价。此时通常用范数来定义损失函数，比如L1、L2范数等。</p>
-<h4 id="L2-Squared-norm"><a href="#L2-Squared-norm" class="headerlink" title="L2 Squared norm"></a>L2 Squared norm</h4><p>L2平方范数描述的是预测值和实际值的L2范数距离,下面是对单个样本的计算公式：<br>$$L_i=||f - y_i||_2^2$$</p>
-<p>L1范数则是把各个维度的差异累加起来：<br>$$L_i=||f - y_i||_1 = \sum_j|f_j - (y_i)_j|$$</p>
-<p>相比于L1范数，L2范数更适合求导，但是L1范数却更鲁棒。<br>从优化方面看，L2范数会比Softmax、SVM loss难优化得多，因此要尽可能地将问题建模为分类问题求解。</p>
-<h3 id="其它损失函数"><a href="#其它损失函数" class="headerlink" title="其它损失函数"></a>其它损失函数</h3><p>除了分类和回归，还有多种属性的分类问题，每个样本可能同时拥有多种属性。这时需要对每一种属性训练一个2类的svm loss。<br>另外，还有所谓的结构化预测问题(Structured prediction)，这里labels可以是图或者树的结构。<br>以后有时间再学习这方面的内容吧。</p>
-<h2 id="正则化损失"><a href="#正则化损失" class="headerlink" title="正则化损失"></a>正则化损失</h2><p>前面介绍的都是data loss，在实际的应用中，通常会再加上正则化损失：<br>$$\lambda R(W)$$</p>
-<p>这里的函数R(W)可以是L2范数（和0向量的L2范数距离），称为L2 regularization<br>$$\frac{1}{2}\lambda W^2$$<br>这里加上的系数是为了求导方便。</p>
-<p>也可以是L1范数，称为L1 regularization：<br>$$\lambda|W|$$</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>目前用的最多的损失函数是带正则化的SVM loss和Cross-Entropy loss，实际上这两种loss是很类似的。前者的loss有一个max的截断，后者更加连续。可以说在不同的场景下有各自的优缺点，遇到实际问题可以都试一试比较一下。</p>
+<p>以上列出的是可能会涉及的概念，当然中间还会穿插一些关于影像识别方面的一些具体例子。所有的Blog代码都会基于<a href="https://caffe2.ai/" target="_blank" rel="external">caffe2</a>来开发，这得益于caffe2的高度模块化设计，让我们可以不修改源代码也可以添加自定义的层和相关算法。另外caffe2不仅效率高，而且可以运行在多种设备之上，使得我们的学习代码可以具备工程应用的条件。接下来的所有代码都会放在<a href="https://github.com/cartosquare/caffe2_cpp_tutorial" target="_blank" rel="external">caffe2_cpp_tutoria</a>这个仓库中。</p>
 
       
     </div>
@@ -552,7 +562,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://www.cartosquare.com/2017/11/24/deeplearning-02-loss-function/" title="如何衡量机器学习的好坏">http://www.cartosquare.com/2017/11/24/deeplearning-02-loss-function/</a>
+    <a href="http://www.cartosquare.com/2017/11/23/components-of-machine-learning/" title="机器学习有哪些组成部分">http://www.cartosquare.com/2017/11/23/components-of-machine-learning/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -569,13 +579,7 @@
           
             <a href="/tags/深度学习/" rel="tag"># 深度学习</a>
           
-            <a href="/tags/损失函数/" rel="tag"># 损失函数</a>
-          
-            <a href="/tags/SVMLoss/" rel="tag"># SVMLoss</a>
-          
-            <a href="/tags/SoftMax/" rel="tag"># SoftMax</a>
-          
-            <a href="/tags/CrossEntropy/" rel="tag"># CrossEntropy</a>
+            <a href="/tags/机器学习/" rel="tag"># 机器学习</a>
           
         </div>
       
@@ -588,8 +592,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/23/deeplearning-01-kick-off/" rel="next" title="机器学习有哪些组成部分">
-                <i class="fa fa-chevron-left"></i> 机器学习有哪些组成部分
+              <a href="/2016/11/13/lua-language/" rel="next" title="Lua 语言">
+                <i class="fa fa-chevron-left"></i> Lua 语言
               </a>
             
           </div>
@@ -597,6 +601,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/24/measuse-machine-learning-performance/" rel="prev" title="如何衡量机器学习的好坏">
+                如何衡量机器学习的好坏 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -782,7 +790,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据损失"><span class="nav-text">数据损失</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#适用于分类的损失函数"><span class="nav-text">适用于分类的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Multiclass-Support-Vector-Machine-loss"><span class="nav-text">Multiclass Support Vector Machine loss</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cross-Entropy-loss"><span class="nav-text">Cross-Entropy loss</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#适用于回归的损失函数"><span class="nav-text">适用于回归的损失函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#L2-Squared-norm"><span class="nav-text">L2 Squared norm</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其它损失函数"><span class="nav-text">其它损失函数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正则化损失"><span class="nav-text">正则化损失</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是机器学习"><span class="nav-text">什么是机器学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#机器学习的组成结构"><span class="nav-text">机器学习的组成结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#接下来的计划-…"><span class="nav-text">接下来的计划 …</span></a></li></ol></div>
             
 
           </div>
