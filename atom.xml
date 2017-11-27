@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://www.cartosquare.com/"/>
-  <updated>2017-11-26T12:11:47.614Z</updated>
+  <updated>2017-11-27T15:22:37.166Z</updated>
   <id>http://www.cartosquare.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>机器如何学习？</title>
+    <link href="http://www.cartosquare.com/2017/11/26/how-machine-learning-to-learn/"/>
+    <id>http://www.cartosquare.com/2017/11/26/how-machine-learning-to-learn/</id>
+    <published>2017-11-26T12:13:39.000Z</published>
+    <updated>2017-11-27T15:22:37.166Z</updated>
+    
+    <content type="html"><![CDATA[<p>机器学习的目标是获得一组最优的参数，这些参数决定了评分函数，因此我们要找一个最优的评分函数。实际上通过引入损失函数，我们可以通过最小化损失函数来不断更新评分函数的参数，具体来说，机器学习可以通过一种迭代的技术，使得每一步的迭代之后，损失函数的输出都能减小，因此在有限步迭代之后，损失函数就能达到最小值点（当然这是一个局部最小值）。在每一次迭代之后，我们都会根据损失函数的输出更新评分函数的参数，这样就达到了学习的目的。</p><a id="more"></a><h2 id="随机梯度下降"><a href="#随机梯度下降" class="headerlink" title="随机梯度下降"></a>随机梯度下降</h2><p>随机梯度下降（Stochastic gradient decent，SGD）就是这样一种迭代技术。基于函数f的梯度负方向$-\Delta f$是这个函数下降最快的方向，SGD通过从某个点$w_0$出发，不断沿着梯度负方向前进一个小步长$\eta$来达到求函数f的局部最优解的目的：<br>$$w^*=argmin_wf(w) \qquad (1)$$</p><p>假设经过I步达到最优点$w^*$，那么寻找最优解的过程如下：</p><p>$$<br>w_1 = w_0 - \eta \Delta f(w_0) \\<br>w_2 = w_1 - \eta \Delta f(w_1) \\<br>\cdot\cdot\cdot \\<br>w^* = w_{I-1} - \eta \Delta f(w_{I-1})<br>$$</p><p>这里步长$\eta$的设置一般是动态的，如果设定为固定值，从点$w_0$到最优点的轨迹有点像Z字形，收敛的时间会很长，所以一般都会动态地减小步长值。</p><h3 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h3><p>为了进行迭代，我们必须要在每一步里计算当前点的梯度，也就是导数：<br>$$\frac{d}{dx}f = \lim_{x\to x_0}\frac {f(x) - f(x_0)}{x - x_0} $$</p><p>考虑到实际上机器学习的函数十分复杂，首先它是评分函数和损失函数组成的复合函数：<br>$$F = Loss(Score(x))$$<br>其次，评分函数有可能十分复杂，比如，在深度学习里，评分函数是一系列网络层的复合，假设有N个网络层，每个网络的函数是$K_{i}$，那么评分函数就是这N个网络层的复合函数：</p><p>$$Score(x)=K_{n}(K_{n-1}(…K_1(x)))$$</p><h3 id="链式法则"><a href="#链式法则" class="headerlink" title="链式法则"></a>链式法则</h3><p>因此一般的机器学习框架都会采用一种后向自动微分的方式求导数。这种方式不仅不需要使用微积分的分析方式求出导数的表达式，运算效率还特别高。其中的原理是运用了复合函数求导的链式法则：<br>$$\frac {d}{dx}f(y(x)) = \frac {df}{dy} \frac{dy}{dx}$$</p><p>比如，要计算<br>$$y = sin(x^2)$$<br>在$x=1$处的导数，首先我们分成几步计算y的值：<br>$$<br>\begin{align}<br>&amp; x_0 = 1 \\<br>&amp; x_1 = x_0^2 = 1 \\<br>&amp; x_2 = sin(x_1) = 0.8415 \\<br>&amp; y = x_2 = 0.8415<br>\end{align}<br>$$<br>计算导数时，只需反过来对每一步求导即可：</p><p>$$<br>\begin{align}<br>&amp; \bar{v_2} = \bar y = 1 \\<br>&amp; \bar{v_1} = \bar{v_2}\frac{dv_2}{dv_1} = \bar{v_2} \times cos(x_1) = 0.8415 \\<br>&amp; \bar{v_0} = \bar{v_1}\frac{dv_1}{dv_0} = \bar{v_1} \times 2x_0 = 1.0806<br>\end{align}<br>$$</p><p>对于这个例子，我们可以很快验证，函数f的导数是：<br>$$<br>\frac{dy}{dx} = cos(x^2)\cdot 2x<br>$$<br>代入x=1，得：<br>$$<br>cos(1)\times 2 = 1.0806<br>$$</p><p>因此，自动微分的好处在于我们不必显示地用微积分的方法求解导数表达式。在caffe2中，我们只需要对每一层的函数编码导数的表达式，整个神经网络表示的大函数的梯度则通过自动微分的方式汇集每一层的导数值得来。</p><h3 id="SVM-Loss的梯度"><a href="#SVM-Loss的梯度" class="headerlink" title="SVM Loss的梯度"></a>SVM Loss的梯度</h3><h2 id="SoftMax-Loss的梯度"><a href="#SoftMax-Loss的梯度" class="headerlink" title="SoftMax Loss的梯度"></a>SoftMax Loss的梯度</h2>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;机器学习的目标是获得一组最优的参数，这些参数决定了评分函数，因此我们要找一个最优的评分函数。实际上通过引入损失函数，我们可以通过最小化损失函数来不断更新评分函数的参数，具体来说，机器学习可以通过一种迭代的技术，使得每一步的迭代之后，损失函数的输出都能减小，因此在有限步迭代之后，损失函数就能达到最小值点（当然这是一个局部最小值）。在每一次迭代之后，我们都会根据损失函数的输出更新评分函数的参数，这样就达到了学习的目的。&lt;/p&gt;
+    
+    </summary>
+    
+    
+      <category term="深度学习" scheme="http://www.cartosquare.com/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="机器学习" scheme="http://www.cartosquare.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+    
+      <category term="随机梯度下降" scheme="http://www.cartosquare.com/tags/%E9%9A%8F%E6%9C%BA%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"/>
+    
+      <category term="求导" scheme="http://www.cartosquare.com/tags/%E6%B1%82%E5%AF%BC/"/>
+    
+      <category term="链式法则" scheme="http://www.cartosquare.com/tags/%E9%93%BE%E5%BC%8F%E6%B3%95%E5%88%99/"/>
+    
+      <category term="自动微分" scheme="http://www.cartosquare.com/tags/%E8%87%AA%E5%8A%A8%E5%BE%AE%E5%88%86/"/>
+    
+  </entry>
   
   <entry>
     <title>如何衡量机器学习的好坏</title>
