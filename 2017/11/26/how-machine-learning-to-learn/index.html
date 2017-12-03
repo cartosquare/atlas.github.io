@@ -129,7 +129,7 @@
 <meta property="og:url" content="http://www.cartosquare.com/2017/11/26/how-machine-learning-to-learn/index.html">
 <meta property="og:site_name" content="CartoSquare">
 <meta property="og:description" content="机器学习的目标是获得一组最优的参数，这些参数决定了评分函数，因此我们要找一个最优的评分函数。实际上通过引入损失函数，我们可以通过最小化损失函数来不断更新评分函数的参数，具体来说，机器学习可以通过一种迭代的技术，使得每一步的迭代之后，损失函数的输出都能减小，因此在有限步迭代之后，损失函数就能达到最小值点（当然这是一个局部最小值）。在每一次迭代之后，我们都会根据损失函数的输出更新评分函数的参数，这样就">
-<meta property="og:updated_time" content="2017-11-30T16:53:32.861Z">
+<meta property="og:updated_time" content="2017-12-03T13:02:21.587Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器如何学习？">
 <meta name="twitter:description" content="机器学习的目标是获得一组最优的参数，这些参数决定了评分函数，因此我们要找一个最优的评分函数。实际上通过引入损失函数，我们可以通过最小化损失函数来不断更新评分函数的参数，具体来说，机器学习可以通过一种迭代的技术，使得每一步的迭代之后，损失函数的输出都能减小，因此在有限步迭代之后，损失函数就能达到最小值点（当然这是一个局部最小值）。在每一次迭代之后，我们都会根据损失函数的输出更新评分函数的参数，这样就">
@@ -394,8 +394,8 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-12-01T00:53:32+08:00">
-                2017-12-01
+              <time title="更新于" itemprop="dateModified" datetime="2017-12-03T21:02:21+08:00">
+                2017-12-03
               </time>
             
           </span>
@@ -438,7 +438,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,463
+                  2,422
                 </span>
               
 
@@ -481,7 +481,6 @@
 <p>假设经过I步达到最优点$w^*$，那么寻找最优解的过程如下：</p>
 <p>$$<br>w_1 = w_0 - \eta \Delta f(w_0) \\<br>w_2 = w_1 - \eta \Delta f(w_1) \\<br>\cdot\cdot\cdot \\<br>w^* = w_{I-1} - \eta \Delta f(w_{I-1})  \qquad (2)<br>$$</p>
 <p>这里步长$\eta$的设置一般是动态的，如果设定为固定值，从点$w_0$到最优点的轨迹有点像Z字形，收敛的时间会很长，所以一般都会动态地减小步长值。</p>
-<p>因此，我们需要做两件事情，一个是计算导数，另一个是制定步长变化的策略。下面分别介绍。</p>
 <h3 id="导数"><a href="#导数" class="headerlink" title="导数"></a>导数</h3><p>为了进行迭代，我们必须要在每一步里计算当前点的梯度，也就是导数：<br>$$\frac{d}{dx}f = \lim_{x\to x_0}\frac {f(x) - f(x_0)}{x - x_0} \qquad (3)$$</p>
 <p>考虑到实际上机器学习的函数十分复杂，首先它是评分函数和损失函数组成的复合函数：<br>$$F = Loss(Score(x)) \qquad (4)$$<br>其次，评分函数有可能十分复杂，比如，在深度学习里，评分函数是一系列网络层的复合，假设有N个网络层，每个网络的函数是$K_{i}$，那么评分函数就是这N个网络层的复合函数：</p>
 <p>$$Score(x)=K_{n}(K_{n-1}(…K_1(x))) \qquad (5)$$</p>
@@ -513,7 +512,7 @@
 </ul>
 <p>一般而言，Softmax的下一层是Cross-Entropy层：<br>$$L = -log(S_j) \qquad (13)$$<br>其中j是样本i的真实类别。故其导数为：<br>$$\frac{dL}{dS} = -\frac{1}{S_j} \qquad (14)$$<br>caffe2里的实现：<br><figure class="highlight c++"><table><tr><td class="code"><pre><div class="line"><span class="keyword">template</span> &lt;&gt;</div><div class="line"><span class="keyword">bool</span> LabelCrossEntropyGradientOp&lt;<span class="keyword">float</span>, CPUContext&gt;::RunOnDevice() &#123;</div><div class="line">  <span class="keyword">auto</span>&amp; X = Input(<span class="number">0</span>);</div><div class="line">  <span class="keyword">auto</span>&amp; label = Input(<span class="number">1</span>);</div><div class="line">  <span class="keyword">auto</span>&amp; dY = Input(<span class="number">2</span>);</div><div class="line">  <span class="keyword">auto</span>* dX = Output(<span class="number">0</span>);</div><div class="line">  <span class="keyword">int</span> N, D;</div><div class="line">  <span class="keyword">if</span> (X.ndim() &gt; <span class="number">1</span>) &#123;</div><div class="line">    N = X.dim32(<span class="number">0</span>);</div><div class="line">    D = X.size_from_dim(<span class="number">1</span>);</div><div class="line">  &#125; <span class="keyword">else</span> &#123;</div><div class="line">    N = <span class="number">1</span>;</div><div class="line">    D = X.dim32(<span class="number">0</span>);</div><div class="line">  &#125;</div><div class="line">  CAFFE_ENFORCE(</div><div class="line">      (label.ndim() == <span class="number">1</span>) || (label.ndim() == <span class="number">2</span> &amp;&amp; label.dim32(<span class="number">1</span>) == <span class="number">1</span>));</div><div class="line">  CAFFE_ENFORCE_EQ(label.dim32(<span class="number">0</span>), N);</div><div class="line">  CAFFE_ENFORCE_EQ(dY.ndim(), <span class="number">1</span>);</div><div class="line">  CAFFE_ENFORCE_EQ(dY.dim32(<span class="number">0</span>), N);</div><div class="line">  dX-&gt;ResizeLike(X);</div><div class="line">  math::Set&lt;<span class="keyword">float</span>, CPUContext&gt;(dX-&gt;size(), <span class="number">0.f</span>, dX-&gt;mutable_data&lt;<span class="keyword">float</span>&gt;(),</div><div class="line">                               &amp;context_);</div><div class="line">  <span class="keyword">const</span> <span class="keyword">float</span>* Xdata = X.data&lt;<span class="keyword">float</span>&gt;();</div><div class="line">  <span class="keyword">const</span> <span class="keyword">float</span>* dYdata = dY.data&lt;<span class="keyword">float</span>&gt;();</div><div class="line">  <span class="keyword">const</span> <span class="keyword">int</span>* labelData = label.data&lt;<span class="keyword">int</span>&gt;();</div><div class="line">  <span class="keyword">float</span>* dXdata = dX-&gt;mutable_data&lt;<span class="keyword">float</span>&gt;();</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i) &#123;</div><div class="line">    <span class="comment">// (1)</span></div><div class="line">    dXdata[i * D + labelData[i]] =</div><div class="line">        - dYdata[i] / <span class="built_in">std</span>::max(Xdata[i * D + labelData[i]], kLOG_THRESHOLD());</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <p>注意（1）处的实现即是计算式子-14，只不过是多乘以了下一层传递过来的导数。</p>
-<h3 id="学习策略"><a href="#学习策略" class="headerlink" title="学习策略"></a>学习策略</h3><h3 id="梯度下降的变种"><a href="#梯度下降的变种" class="headerlink" title="梯度下降的变种"></a>梯度下降的变种</h3><p>梯度下降算法中，可以以不同的频率更新权重，比如，可以所有的样本都计算一遍以后更新权重，所有样本训练一遍称为一个场景（epoch）；也可以分批次计算，在每批次结束之后再进行权重更新，这种方式称<em>Mini-batch Gradient Decent</em>；还可以每个样本计算一遍后马上进行权重更新，这种方式称为<em>Stochastic Gradient Decent(随机梯度下降)</em>。这三种方式，权重更新的频率越来越快，权重更新得快能够加快收敛的速度，但是也不是越快越好，因为有可能会跳离极小点两边摆动，因为权重更新快也表示了参与计算梯度的样本量减少，导致了算法的不稳定。<br>所以在通常的神经网络中，都会采用<em>Mini-batch Gradient Decent</em>这种方式。这里的mini-batch一般设置为2的指数，比如32，62，128，256等。</p>
+<h3 id="梯度下降的变种"><a href="#梯度下降的变种" class="headerlink" title="梯度下降的变种"></a>梯度下降的变种</h3><p>梯度下降算法中，可以以不同的频率更新权重，比如，可以所有的样本都计算一遍以后更新权重，所有样本训练一遍称为一个场景（epoch）；也可以分批次计算，在每批次结束之后再进行权重更新，这种方式称<em>Mini-batch Gradient Decent</em>；还可以每个样本计算一遍后马上进行权重更新，这种方式称为<em>Stochastic Gradient Decent(随机梯度下降)</em>。这三种方式，权重更新的频率越来越快，权重更新得快能够加快收敛的速度，但是也不是越快越好，因为有可能会跳离极小点两边摆动，因为权重更新快也表示了参与计算梯度的样本量减少，导致了算法的不稳定。<br>所以在通常的神经网络中，都会采用<em>Mini-batch Gradient Decent</em>这种方式。这里的mini-batch一般设置为2的指数，比如32，62，128，256等。</p>
 
       
     </div>
@@ -766,7 +765,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降-Gradient-Decent"><span class="nav-text">梯度下降(Gradient Decent)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导数"><span class="nav-text">导数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#链式法则"><span class="nav-text">链式法则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVM-Loss的梯度"><span class="nav-text">SVM Loss的梯度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SoftMax-Loss的梯度"><span class="nav-text">SoftMax Loss的梯度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习策略"><span class="nav-text">学习策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降的变种"><span class="nav-text">梯度下降的变种</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#梯度下降-Gradient-Decent"><span class="nav-text">梯度下降(Gradient Decent)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#导数"><span class="nav-text">导数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#链式法则"><span class="nav-text">链式法则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SVM-Loss的梯度"><span class="nav-text">SVM Loss的梯度</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#SoftMax-Loss的梯度"><span class="nav-text">SoftMax Loss的梯度</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#梯度下降的变种"><span class="nav-text">梯度下降的变种</span></a></li></ol></li></ol></div>
             
 
           </div>
