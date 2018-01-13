@@ -396,7 +396,7 @@
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2018-01-13T18:20:02+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-13T18:33:13+08:00">
                 2018-01-13
               </time>
             
@@ -473,29 +473,14 @@
 
       
         
-          
-            <p>ImageNet LSVRC-2010、2012冠军网络。由5个卷积层（其中一些卷积层后面是max-pooling层），3个直连层，以及最后一个输出为1000维向量的softmax层组成。为了防止过拟合，AlexNet在直连层的后面添加了dropout层。</p>
-<h2 id="图片预处理"><a href="#图片预处理" class="headerlink" title="图片预处理"></a>图片预处理</h2><p>不同大小的图片缩放到短边为256，然后从中心crop出256*256的图片，图片的像素值减去整个数据集的平均值。</p>
-<h2 id="网络架构"><a href="#网络架构" class="headerlink" title="网络架构"></a>网络架构</h2><h3 id="非线性的ReLU激活函数"><a href="#非线性的ReLU激活函数" class="headerlink" title="非线性的ReLU激活函数"></a>非线性的ReLU激活函数</h3><p>过去标准的激活函数是tanh函数或是sigmoid等非线性函数，AlexNet网络使用了ReLu这种非线性函数，好处是不会发散，训练时间更快。</p>
-<h3 id="Local-Response-Normalization"><a href="#Local-Response-Normalization" class="headerlink" title="Local Response Normalization"></a>Local Response Normalization</h3><p>Local Normalization 增大网络的泛化能力。记$a_{x,y}^{i}$是使用卷积核i在位置$x,y$上的神经元的ReLU激活输出，那么response-normalize输出$b_{x,y}^{i}$是：<br>$$<br>b_{x,y}^{i} = a_{x,y}^{i} \; / \; (k + \alpha \sum_{j=max(0,i-n/2)}^{min(N-1,i+n/2)} (a_{x,y}^{i})^2)^{\beta}<br>$$<br>上式中的求和的是同一个位置的临近kernal的神经元，其中N是这个层总共的kernal个数。 这个求和相当于是把临近的距离不超过N/2的神经元累加在一起。其中的$k,n,\alpha,\beta$都是超参数，在AlexNet里设置成了$k=2,n=5,\alpha = 10^{-4}, \beta = 0.75$。<br>这个正规化层被应用到了某些ReLU层之后。AlexNet的实验表明，在ImageNet数据集上，使用和不使用LRN层会有1-2个点的差异。</p>
-<h3 id="Overlapping-Pooling"><a href="#Overlapping-Pooling" class="headerlink" title="Overlapping Pooling"></a>Overlapping Pooling</h3><p>AlexNet网络表明使用Overlapping Pooling可以提升0.3-0.4个点，并且带Overlapping Pooling的网络更不容易过拟合。</p>
-<h3 id="总体结构"><a href="#总体结构" class="headerlink" title="总体结构"></a>总体结构</h3><h2 id="Reducing-Overfitting"><a href="#Reducing-Overfitting" class="headerlink" title="Reducing Overfitting"></a>Reducing Overfitting</h2><h3 id="Data-Argumentation"><a href="#Data-Argumentation" class="headerlink" title="Data Argumentation"></a>Data Argumentation</h3><h4 id="Method-1"><a href="#Method-1" class="headerlink" title="Method 1"></a>Method 1</h4><p>Generating image translations and horizontal reflections.<br>Do this by extracting random 224*224 patches(and their horizontal reflections) from the 256*256 images.</p>
-<h4 id="Method-2"><a href="#Method-2" class="headerlink" title="Method 2"></a>Method 2</h4><p>Alering the intensities of the RGB channels in training images.<br>Do this by performing PCA on the set of RGB pixel values throughout the ImageNet training set. To each training image, add multiples of the found rincipal components, which magnitudes proportional to the corresponding eigenvalues times  a random variable drawn from a Gaussian with mean zero and standard deviation 0.1. Therefore to each RGB imge pixel $I_{xy}=[I_{xy}^{R}, I_{xy}^{G}, I_{xy}^{B}]^{T}$, add the following quantity:</p>
-<p>$$[p1, p2, p3][\alpha_1\lambda_1, \alpha_2\lambda_2, \alpha_3\lambda_3]^T$$<br>where $p_i$and$\lambda_i$are ith eigenvector and eigenvalue of the 3*3 covariance matrix of RGB pixel values, respectively.<br>This data argumentation method can reduce the accuracy by 1 pecent.</p>
-<h3 id="Dropout"><a href="#Dropout" class="headerlink" title="Dropout"></a>Dropout</h3><p>Dropout is an efficient way to combine different models. It forced to learn more robust features that are useful in conjunction with many different random subsets of the other neurons. </p>
-<p>At test time, they use all the neurons but multiply their outputs by 0.5, which is a resonable approximation to taking the geometric mean of the predictive distributions produced by the exponentially-many dropout networks.</p>
-<p>The AlexNet use dropout in the first two fully-connected layers to reduce overfitting, however, this roughly doubles the number of iterations required to converge.</p>
-<h2 id="Details-of-learning"><a href="#Details-of-learning" class="headerlink" title="Details of learning"></a>Details of learning</h2><p>SGD decent with a batch size of 128, momentum of 0.9 and weight decay of 0.0005.<br>Small amount of weight decay is import for the model to learn!</p>
-<p>Initialize the weights in each layer from a zero-mean Gaussian distribution with standard deviation 0.01. </p>
-<p>Initialize the neuron biases in the second, fourth, dand fifth convolutional layers, as well as in the fully-connected hidden layers, with the constant 1. This initializations accelerates the early stages of learning by providing ReLUs with positive inputs, initialize the neuron biases in the remaning layers with the constant 0.</p>
-<p>The heuristic AlextNet followed was to divide the learning rate by 10 when the validation error rate stopped improving with the current learning rate. The learning rate was initialized at 0.01 and reduced three times prior to termination.</p>
-<p>Train the network for roughly 90 cycles though the training set of 1.2 million images, which took five to six days on two NVIDIA GTX 580 3GB GPUs.</p>
-<h2 id="Discussion"><a href="#Discussion" class="headerlink" title="Discussion"></a>Discussion</h2><p>Depth is important: removing any single convolutional layer will cause accuracy loss.</p>
-<h2 id="网络解析"><a href="#网络解析" class="headerlink" title="网络解析"></a>网络解析</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">net: ------------- AlexNet -------------</div><div class="line">op: Conv (data conv1_w conv1_b)-&gt;(conv1) stride:4 pad:0 kernel:11 order:NCHW</div><div class="line">op: Relu (conv1)-&gt;(conv1)</div><div class="line">op: LRN (conv1)-&gt;(norm1 _norm1_scale) size:5 alpha:0.0001 beta:0.75 bias:1 order:NCHW</div><div class="line">op: MaxPool (norm1)-&gt;(pool1) stride:2 pad:0 kernel:3 order:NCHW legacy_pad:3</div><div class="line">op: Conv (pool1 conv2_w conv2_b)-&gt;(conv2) stride:1 pad:2 kernel:5 order:NCHW group:2</div><div class="line">op: Relu (conv2)-&gt;(conv2)</div><div class="line">op: LRN (conv2)-&gt;(norm2 _norm2_scale) size:5 alpha:0.0001 beta:0.75 bias:1 order:NCHW</div><div class="line">op: MaxPool (norm2)-&gt;(pool2) stride:2 pad:0 kernel:3 order:NCHW legacy_pad:3</div><div class="line">op: Conv (pool2 conv3_w conv3_b)-&gt;(conv3) stride:1 pad:1 kernel:3 order:NCHW</div><div class="line">op: Relu (conv3)-&gt;(conv3)</div><div class="line">op: Conv (conv3 conv4_w conv4_b)-&gt;(conv4) stride:1 pad:1 kernel:3 order:NCHW group:2</div><div class="line">op: Relu (conv4)-&gt;(conv4)</div><div class="line">op: Conv (conv4 conv5_w conv5_b)-&gt;(conv5) stride:1 pad:1 kernel:3 order:NCHW group:2</div><div class="line">op: Relu (conv5)-&gt;(conv5)</div><div class="line">op: MaxPool (conv5)-&gt;(pool5) stride:2 pad:0 kernel:3 order:NCHW legacy_pad:3</div><div class="line">op: FC (pool5 fc6_w fc6_b)-&gt;(fc6)</div><div class="line">op: Relu (fc6)-&gt;(fc6)</div><div class="line">op: Dropout (fc6)-&gt;(fc6 _fc6_mask) ratio:0.5 is_test:1</div><div class="line">op: FC (fc6 fc7_w fc7_b)-&gt;(fc7)</div><div class="line">op: Relu (fc7)-&gt;(fc7)</div><div class="line">op: Dropout (fc7)-&gt;(fc7 _fc7_mask) ratio:0.5 is_test:1</div><div class="line">op: FC (fc7 fc8_w fc8_b)-&gt;(fc8)</div><div class="line">op: Softmax (fc8)-&gt;(prob)</div></pre></td></tr></table></figure>
-<p>下面是该网络的结构图。注意前半部分是网络的前向迭代部分，后半部分是网络的后向迭代部分，即更新权重的部分。</p>
-<p><img src="/images/blogs/alexnet/archetecture.png" alt="AlexNet Archetecture"></p>
-
-          
+          <p>ImageNet LSVRC-2010、2012冠军网络。由5个卷积层（其中一些卷积层后面是max-pooling层），3个直连层，以及最后一个输出为1000维向量的softmax层组成。为了防止过拟合，AlexNet在直连层的后面添加了dropout层。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/01/01/alexnet/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
